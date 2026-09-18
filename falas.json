@@ -1,0 +1,3562 @@
+[
+ {
+  "id": "vr_hup8oy",
+  "texto": "Toque primeiro na primeira letra da palavra.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_qp0jiy",
+  "texto": "O Motor da Frase. Trinta e cinco folhas sobre o verbo: a palavra que faz a frase andar, e que combina com quem faz. Escreva o seu nome ali embaixo e toque em Começar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1jojje",
+  "texto": "Concordância: o verbo combina com quem faz. Por exemplo, eles correm.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1wrfmy7",
+  "texto": "Verbo de dizer: mostra quem fala e como. Por exemplo, Oi! disse Ana.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_idz4h3",
+  "texto": "Verbo: a palavra que diz a ação. Por exemplo, correr · pular.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_384njh",
+  "texto": "Isso mesmo! Ela desenha muito bem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1n2pqwt",
+  "texto": "Muito bem! Ele joga futebol no sábado.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_l4o1ai",
+  "texto": "Você acertou! A menina corre no parque.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1pc8n91",
+  "texto": "Boa! O menino faz a lição.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_6oh9r1",
+  "texto": "Exatamente! Ela conta uma história.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1gxxr8z",
+  "texto": "É isso aí! Ele dorme bem cedo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1wncbhc",
+  "texto": "Isso mesmo! Nós nadamos na piscina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1csag1r",
+  "texto": "Muito bem! Eles jogam bola no recreio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1o22pxg",
+  "texto": "Você acertou! Nós arrumamos a sala todo dia.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_hco82j",
+  "texto": "Boa! Elas cantam no coral.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1rzp931",
+  "texto": "Exatamente! Nós ouvimos a professora.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_183avfk",
+  "texto": "É isso aí! Eles vão para a escola a pé.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_133e2kv",
+  "texto": "Isso mesmo! Ele corre: um só faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_fncgrg",
+  "texto": "Muito bem! Nós corremos: mais de um fazem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ilk2aj",
+  "texto": "Você acertou! Eles pulam: mais de um fazem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1nlskti",
+  "texto": "Boa! Eu leio: um só faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1rdznio",
+  "texto": "Exatamente! Vocês falam: mais de um fazem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1hktwnj",
+  "texto": "É isso aí! Ela dorme: um só faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15a9udk",
+  "texto": "Isso mesmo! Você achou as frases em que o verbo combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_bilfxz",
+  "texto": "Muito bem! Você achou as frases em que o verbo combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_oo077g",
+  "texto": "Você acertou! Você achou as frases em que o verbo combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_13teddm",
+  "texto": "Isso mesmo! Os meninos jogam bola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1m8o30b",
+  "texto": "Muito bem! A menina lê um livro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1tzjz55",
+  "texto": "Você acertou! Nós gostamos de pizza.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ie948c",
+  "texto": "Boa! Eu estudo à tarde.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wujgl0",
+  "texto": "Exatamente! Elas chegaram cedo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1vy3pzn",
+  "texto": "É isso aí! O cachorro late.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1j1fl16",
+  "texto": "Isso mesmo! Nós brincamos no parque. (brincar)",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wuhtqj",
+  "texto": "Muito bem! Eles chutam bola. (chutar)",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_fur1i9",
+  "texto": "Você acertou! Eu acordo cedo. (acordar)",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5b99ho",
+  "texto": "Boa! Ela desenha bonito. (desenhar)",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1db5ffn",
+  "texto": "Exatamente! Vocês cantam bem. (cantar)",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1e7zcgu",
+  "texto": "Isso mesmo! Eu escrevo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1geqzeb",
+  "texto": "Muito bem! Ela escreve.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_13p6rnz",
+  "texto": "Você acertou! Nós escrevemos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5aavd1",
+  "texto": "Boa! Eles escrevem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_dxb0hj",
+  "texto": "Exatamente! Tu escreves.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yh68ce",
+  "texto": "Isso mesmo! As crianças brincam no parque.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_4i2553",
+  "texto": "Muito bem! O cachorro late na porta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_i9267",
+  "texto": "Você acertou! Os pássaros cantam de manhã.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1r9nrkg",
+  "texto": "Boa! A professora explica a lição.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nnhhpv",
+  "texto": "Exatamente! Os alunos fazem a tarefa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_dgchzc",
+  "texto": "É isso aí! O sol brilha forte hoje.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7g2w3g",
+  "texto": "Isso mesmo! Ana e Bia estudam juntas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ocee0d",
+  "texto": "Muito bem! O menino de boné solta pipa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_b4exsx",
+  "texto": "Você acertou! Meu pai e eu vamos pescar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1mccpxj",
+  "texto": "Boa! As alunas do quarto ano escrevem um jornal.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1c8bsqr",
+  "texto": "Exatamente! O gato e o cachorro dormem no sofá.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wqijww",
+  "texto": "É isso aí! A turma inteira canta no coral.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_juil4d",
+  "texto": "Isso mesmo! O pássaro cantam: o verbo não combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nzxjzz",
+  "texto": "Muito bem! Os alunos estudam: o verbo combina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_16zd6kv",
+  "texto": "Você acertou! A menina pulou: o verbo combina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1lbpvkj",
+  "texto": "Boa! Nós vai à praia: o verbo não combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_dojsp8",
+  "texto": "Exatamente! Eles chegaram cedo: o verbo combina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3yx0c1",
+  "texto": "É isso aí! Eu gostamos de pizza: o verbo não combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_kgpxv7",
+  "texto": "Isso mesmo! Come é a ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vadhnl",
+  "texto": "Muito bem! Corre é a ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1bcnm63",
+  "texto": "Você acertou! Brincam é a ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_199j5s2",
+  "texto": "Boa! Lê é a ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_n4m5y4",
+  "texto": "Exatamente! Anda é a ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_13wsdf6",
+  "texto": "É isso aí! Canta é a ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1egoa6h",
+  "texto": "Muito bem! Você achou todos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wcac7i",
+  "texto": "Isso mesmo! Fortes chuvas alagam ruas do centro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yd84br",
+  "texto": "Muito bem! Alunos plantam árvores no pátio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_tg0heb",
+  "texto": "Você acertou! Time da escola vence o campeonato.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1tbjp4m",
+  "texto": "Boa! Biblioteca recebe livros novos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_8x0q3f",
+  "texto": "Exatamente! Famílias participam da festa junina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_4wm1m8",
+  "texto": "Isso mesmo! Vamos brincar? perguntou Ana.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1dfryfg",
+  "texto": "Muito bem! Eu adoro bolo! disse Leo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ftgrvz",
+  "texto": "Você acertou! Gol! gritou o torcedor.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_z1qwlg",
+  "texto": "Boa! Sim, eu vou. respondeu Bia.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_mkf28k",
+  "texto": "Exatamente! Psiu, silêncio… sussurrou a bibliotecária.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jimswm",
+  "texto": "É isso aí! Obrigado pela ajuda! agradeceu o menino.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_8nf31y",
+  "texto": "Isso mesmo! Socorro! gritou o menino, com medo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_e5zdw8",
+  "texto": "Muito bem! Que horas são? perguntou a menina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1r25y7y",
+  "texto": "Você acertou! São três horas. respondeu o pai.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_6wiy0p",
+  "texto": "Boa! Não conte para ninguém… sussurrou ela, bem baixinho.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1riwkr3",
+  "texto": "Exatamente! Ha, ha, ha! Que piada boa! riu o avô.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_99qvtx",
+  "texto": "É isso aí! Fiquem quietos agora! ordenou o professor.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_mg08ah",
+  "texto": "Isso mesmo! Disse é verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ga8e4w",
+  "texto": "Muito bem! Correu não é verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_9w5wj4",
+  "texto": "Você acertou! Perguntou é verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_phu82b",
+  "texto": "Boa! Pulou não é verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1igwkua",
+  "texto": "Exatamente! Gritou é verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_qx8ake",
+  "texto": "É isso aí! Comeu não é verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_qnf7ow",
+  "texto": "Isso mesmo! Respondeu é verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18c48al",
+  "texto": "Muito bem! Nadou não é verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1nsbps6",
+  "texto": "Isso mesmo! Que horas são? perguntou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_bsq96p",
+  "texto": "Muito bem! Psiu, silêncio… sussurrou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_kms0ba",
+  "texto": "Você acertou! Gol! gritou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_qbrwya",
+  "texto": "Boa! São duas horas. respondeu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18lu7nn",
+  "texto": "Exatamente! Muito obrigado! agradeceu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7qyjz3",
+  "texto": "Isso mesmo! Você vem? perguntou Ana.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_kf36z3",
+  "texto": "Muito bem! Cuidado! gritou o pai, bem alto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1wpi8j",
+  "texto": "Você acertou! Vou sim. respondeu Leo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_grv3n4",
+  "texto": "Boa! Bom dia! disse a professora.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1tgeflg",
+  "texto": "Exatamente! Shhh… sussurrou a mãe, baixinho.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_10go6m4",
+  "texto": "Isso mesmo! Corre.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_veqndb",
+  "texto": "Muito bem! Pulam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_rhseps",
+  "texto": "Você acertou! Leem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jkeraq",
+  "texto": "Boa! Cantam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_fqs5a4",
+  "texto": "Exatamente! Disse.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1iky69n",
+  "texto": "É isso aí! Gritou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_x67wjt",
+  "texto": "Isso mesmo! Dormem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_mnwmu3",
+  "texto": "Muito bem! Falou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1oakwxz",
+  "texto": "Isso mesmo! As ações são correr, pular, ler.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_f6furn",
+  "texto": "Muito bem! As ações são nadar, dormir, comer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1d7p8un",
+  "texto": "Você acertou! As ações são escrever, desenhar, brincar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_x6h5ri",
+  "texto": "Isso mesmo! Falamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vy6czy",
+  "texto": "Muito bem! Correm.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_rhso5q",
+  "texto": "Você acertou! Leio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18p97dr",
+  "texto": "Boa! Pulamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_fqx0wb",
+  "texto": "Exatamente! Dizem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ts1vry",
+  "texto": "É isso aí! Canto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yw87hq",
+  "texto": "Isso mesmo! Escrevo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vn6gwi",
+  "texto": "Muito bem! Brincam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_10fnvhe",
+  "texto": "Isso mesmo! Canto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_130x0c3",
+  "texto": "Muito bem! Pulamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1jsw2pj",
+  "texto": "Boa! Dorme.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_c3jrkj",
+  "texto": "Exatamente! Falam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_tz6cy2",
+  "texto": "É isso aí! Corro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_396w7b",
+  "texto": "Isso mesmo! Gritou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1j7c8hr",
+  "texto": "Muito bem! Perguntou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_sqhrc0",
+  "texto": "Você acertou! Respondeu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1jrndla",
+  "texto": "Boa! Disse.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1xdgy2l",
+  "texto": "Exatamente! Sussurrou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1v1l8by",
+  "texto": "É isso aí! Agradeceu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7709hu",
+  "texto": "Isso mesmo! Eu canto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7wtcip",
+  "texto": "Muito bem! Tu cantas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_166hgpc",
+  "texto": "Você acertou! Ela canta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_14dhtk0",
+  "texto": "Boa! Nós cantamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1xk0ksf",
+  "texto": "Exatamente! Eles cantam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ayy5ix",
+  "texto": "Essa vale! O verbo é seu, e ele combina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_aqlubm",
+  "texto": "Isso mesmo! Escrever é um verbo: uma ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1jqhkl7",
+  "texto": "Muito bem! Nós cantamos: o verbo combina com quem faz, é a concordância.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_c668p4",
+  "texto": "Você acertou! Perguntou é um verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jvak5",
+  "texto": "Boa! Brincar é um verbo: uma ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_cy5aes",
+  "texto": "Exatamente! Os alunos leem: o verbo combina com quem faz, é a concordância.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1bsc74s",
+  "texto": "É isso aí! Sussurrou é um verbo de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_siyoet",
+  "texto": "Isso mesmo! Pular é uma ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_13lceu5",
+  "texto": "Muito bem! Escola é o nome de uma coisa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1j54k80",
+  "texto": "Você acertou! Correr é uma ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jq5rau",
+  "texto": "Boa! Caderno é o nome de uma coisa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nob8b1",
+  "texto": "Exatamente! Escrever é uma ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jfrd0",
+  "texto": "É isso aí! Janela é o nome de uma coisa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1nfl9wb",
+  "texto": "Isso mesmo! Late é a ação: é o verbo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_14n7qg0",
+  "texto": "Muito bem! Brincam é a ação: é o verbo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_17uhvgn",
+  "texto": "Você acertou! Dirige é a ação: é o verbo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1y29kk1",
+  "texto": "Boa! Prepara é a ação: é o verbo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1a0llws",
+  "texto": "Exatamente! Nada é a ação: é o verbo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_tl8pd1",
+  "texto": "É isso aí! Desenho é a ação: é o verbo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1wmxszu",
+  "texto": "Isso mesmo! O jogador chuta a bola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1pg7njt",
+  "texto": "Muito bem! A professora ensina a turma.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_4rg38r",
+  "texto": "Você acertou! O médico cuida dos doentes.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1lfapwj",
+  "texto": "Boa! O padeiro faz o pão.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1apoec3",
+  "texto": "Exatamente! A costureira costura a roupa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_16z6tqx",
+  "texto": "Isso mesmo! O gato bebe o leite.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_mzzjae",
+  "texto": "Muito bem! A menina escreve uma carta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1mvgfws",
+  "texto": "Você acertou! O cachorro come o osso.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wibnkf",
+  "texto": "Boa! Nós brincamos no parque.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wvavgt",
+  "texto": "Exatamente! O avião voa bem alto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wddl37",
+  "texto": "É isso aí! As crianças cantam a música.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1kh1s1r",
+  "texto": "Isso mesmo! O cachorro late alto quando vê o carteiro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nj673p",
+  "texto": "Muito bem! A professora escreve no quadro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_4ooqbz",
+  "texto": "Você acertou! O bebê chora à noite.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1och0mv",
+  "texto": "Boa! O peixe nada no rio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_102j0q0",
+  "texto": "Exatamente! O passarinho canta de manhã.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_11trxla",
+  "texto": "Isso mesmo! O bebê chora: é o número 1.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7cy8ii",
+  "texto": "Muito bem! O cozinheiro cozinha: é o número 2.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_v7qp4s",
+  "texto": "Você acertou! O pintor pinta: é o número 3.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1oxubyr",
+  "texto": "Boa! A cantora canta: é o número 4.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1n2tdsz",
+  "texto": "Exatamente! O motorista dirige: é o número 5.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_136w8b6",
+  "texto": "Isso mesmo! Eu canto no coral da escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_14cv1y3",
+  "texto": "Muito bem! Eu leio um livro por semana.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_14l8ega",
+  "texto": "Você acertou! Eu ando de bicicleta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jqip73",
+  "texto": "Boa! Eu acordo cedo todos os dias.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_19onrkx",
+  "texto": "Exatamente! Eu como frutas no lanche.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1fjd4dv",
+  "texto": "É isso aí! Eu brinco com meus amigos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1acyg1b",
+  "texto": "ele lacuna do verbo correr.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1n86vtp",
+  "texto": "eles lacuna do verbo pular.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5ecvq0",
+  "texto": "elas lacuna do verbo ler.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1od9d4c",
+  "texto": "eles lacuna do verbo cantar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_12t9a69",
+  "texto": "ela lacuna do verbo dizer, ontem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_luqv4u",
+  "texto": "ele lacuna do verbo gritar, ontem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1rvbg94",
+  "texto": "eles lacuna do verbo dormir.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_44k509",
+  "texto": "ela lacuna do verbo falar, ontem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_p4zgpa",
+  "texto": "nós lacuna do verbo falar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ng4xto",
+  "texto": "eles lacuna do verbo correr.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1haztqr",
+  "texto": "eu lacuna do verbo ler.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_8s1j4c",
+  "texto": "nós lacuna do verbo pular.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1nqk9qb",
+  "texto": "elas lacuna do verbo dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3jdszn",
+  "texto": "eu lacuna do verbo cantar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1vy7xl7",
+  "texto": "eu lacuna do verbo escrever.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_48r8cg",
+  "texto": "eles lacuna do verbo brincar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_17coyvw",
+  "texto": "Eles lacuna do verbo ler.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jb7zhb",
+  "texto": "Ela lacuna do verbo dormir.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_kzuv37",
+  "texto": "Vocês lacuna do verbo falar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_a2hh8z",
+  "texto": "Eu lacuna do verbo correr.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_mn3nd5",
+  "texto": "Socorro! lacuna ela.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ph4i7s",
+  "texto": "Que horas são? lacuna o menino.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ahpfx7",
+  "texto": "São três. lacuna a mãe.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wpmjrc",
+  "texto": "Boa noite. lacuna ele.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_17el3tq",
+  "texto": "Psiu! lacuna a menina, baixinho.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pkre6",
+  "texto": "Obrigada! lacuna a avó.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1qanbll",
+  "texto": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lcuk9h",
+  "texto": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_34eyh4",
+  "texto": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1rdynxf",
+  "texto": "Olhe o começo: eu, ele, ela é um só. Nós, vocês, eles é mais de um.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ac5ms1",
+  "texto": "Leia cada frase em voz alta. Nas erradas, o verbo não combina: eles vai, eu cantamos. Soa estranho.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_17n0skl",
+  "texto": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_12n73h1",
+  "texto": "Conte as casinhas: são 9 letras. Quem faz é NÓS: termina em AMOS.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_142g7mf",
+  "texto": "Conte as casinhas: são 6 letras. Quem faz é ELES: termina em AM.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1elw90b",
+  "texto": "Conte as casinhas: são 6 letras. Quem faz é EU: termina em O.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1jca8i4",
+  "texto": "Conte as casinhas: são 7 letras. Quem faz é ELA: termina em A.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1mh89jf",
+  "texto": "Conte as casinhas: são 6 letras. Quem faz é VOCÊS: termina em AM.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1tcgav1",
+  "texto": "Diga eu e depois cada verbo da direita. Só um soa certo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_f1hl7p",
+  "texto": "Diga ela e depois cada verbo da direita. Só um soa certo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7bgrb7",
+  "texto": "Diga nós e depois cada verbo da direita. Só um soa certo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_128pzqq",
+  "texto": "Diga eles e depois cada verbo da direita. Só um soa certo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15pccq4",
+  "texto": "Diga tu e depois cada verbo da direita. Só um soa certo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_8a8dvw",
+  "texto": "Leia em voz alta. Se soar estranho, como 'nós vai', o verbo não combina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1mbj9bx",
+  "texto": "Pergunte: o que essa pessoa está fazendo? A resposta é o verbo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_zb4j5g",
+  "texto": "Verbo é palavra de fazer: dá para pôr EU na frente e ela vira uma ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1dnv1wn",
+  "texto": "Nome de coisa não é ação. Procure a palavra que mostra movimento ou acontecimento.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_82vxfb",
+  "texto": "Leia linha por linha. São 6 palavras. Toque em cada uma e depois confira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_i2tsz9",
+  "texto": "Leia linha por linha. São 4 palavras. Toque em cada uma e depois confira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1e8runp",
+  "texto": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ee0rdo",
+  "texto": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ss6nin",
+  "texto": "Como essa fala foi dita? Perguntando, gritando, baixinho, agradecendo? O verbo diz isso.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2a8atr",
+  "texto": "Conte as casinhas: são 9 letras. Ela fez uma pergunta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_6yzwbu",
+  "texto": "Conte as casinhas: são 6 letras. Bem alto, com força.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ky6elp",
+  "texto": "Conte as casinhas: são 9 letras. Ele deu a resposta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_okpvj7",
+  "texto": "Conte as casinhas: são 5 letras. Cinco letras: o verbo de dizer mais simples.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18nvz8k",
+  "texto": "Conte as casinhas: são 9 letras. Bem baixinho, quase sem som.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_9cpljv",
+  "texto": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1dlb92l",
+  "texto": "Ponha EU na frente de cada palavra. Eu correr, eu mesa… qual dá para fazer?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2femmr",
+  "texto": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_h7fhho",
+  "texto": "Diga eu e depois cada forma de cima. Qual soa certa?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ibh28t",
+  "texto": "Diga tu e depois cada forma de cima. Qual soa certa?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5rzt04",
+  "texto": "Diga ela e depois cada forma de cima. Qual soa certa?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1530vjm",
+  "texto": "Diga nós e depois cada forma de cima. Qual soa certa?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jcdmpv",
+  "texto": "Diga eles e depois cada forma de cima. Qual soa certa?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_g8e5l3",
+  "texto": "Pense no que essas pessoas fazem nesse lugar. Escreva o verbo combinando com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ejr8n",
+  "texto": "É uma ação sozinha, é uma frase em que o verbo combina com quem faz, ou é um verbo que mostra uma fala?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1iyi9eg",
+  "texto": "Dá para fazer isso? Se dá, é ação. Se é uma coisa que a gente pega ou vê, é nome.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_n7uo3m",
+  "texto": "Pense: o que o jogador faz? Procure essa ação do lado direito.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ixi69w",
+  "texto": "Pense: o que a professora faz? Procure essa ação do lado direito.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ekq2yl",
+  "texto": "Pense: o que o médico faz? Procure essa ação do lado direito.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_17ub7i4",
+  "texto": "Pense: o que o padeiro faz? Procure essa ação do lado direito.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1fpc291",
+  "texto": "Pense: o que a costureira faz? Procure essa ação do lado direito.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5fbhth",
+  "texto": "Conte as casinhas: são 4 letras. Quatro letras: o barulho que o cachorro faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1kn8gk3",
+  "texto": "Conte as casinhas: são 7 letras. Sete letras: ela usa o giz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1kucm9w",
+  "texto": "Conte as casinhas: são 5 letras. Cinco letras: lágrimas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2pn732",
+  "texto": "Conte as casinhas: são 4 letras. Quatro letras: dentro da água.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1yzk63c",
+  "texto": "Conte as casinhas: são 5 letras. Cinco letras: faz música.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_16zxg5l",
+  "texto": "Quem chora? Leia a coluna da esquerda de novo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_plzyiu",
+  "texto": "Quem cozinha? Leia a coluna da esquerda de novo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_p6n8fw",
+  "texto": "Quem pinta? Leia a coluna da esquerda de novo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_104le3r",
+  "texto": "Quem canta? Leia a coluna da esquerda de novo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1rxhvsa",
+  "texto": "Quem dirige? Leia a coluna da esquerda de novo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_v0o841",
+  "texto": "Pular.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2tz8cc",
+  "texto": "Escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1puczsg",
+  "texto": "Correr.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1l6w9az",
+  "texto": "Caderno.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_dgs3jc",
+  "texto": "Escrever.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1vcg752",
+  "texto": "Janela.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1kvrgem",
+  "texto": "Ele corre.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1b46v8d",
+  "texto": "Nós corremos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ht4lxt",
+  "texto": "Eles pulam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_tcwnqs",
+  "texto": "Eu leio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1fijk6n",
+  "texto": "Vocês falam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_x3kxgy",
+  "texto": "Ela dorme.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_dcgra5",
+  "texto": "O pássaro cantam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_19jmtoi",
+  "texto": "Os alunos estudam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_845pg9",
+  "texto": "A menina pulou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_11xr9hs",
+  "texto": "Nós vai à praia.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_19su8kv",
+  "texto": "Eles chegaram cedo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_tdxoql",
+  "texto": "Eu gostamos de pizza.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_imm7cz",
+  "texto": "Disse.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1puczmf",
+  "texto": "Correu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_x4lsym",
+  "texto": "Perguntou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_v0nwjc",
+  "texto": "Pulou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1enobll",
+  "texto": "Gritou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pjbb0a",
+  "texto": "Comeu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1pmubsa",
+  "texto": "Respondeu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_rg2hiy",
+  "texto": "Nadou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_s69mtb",
+  "texto": "Escreva a palavra usando o teclado.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_u64kr1",
+  "texto": "Nós cantamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1scsqz0",
+  "texto": "Brincar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_t6u6os",
+  "texto": "Os alunos leem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1clas5e",
+  "texto": "Sussurrou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1oyqysn",
+  "texto": "Você chegou ao fim! Agora preste atenção na próxima conversa que ouvir: quem fala, e como fala? Perguntou, gritou, sussurrou? O verbo conta isso. Repare também se o verbo combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1d9s73k",
+  "texto": "Folha pronta! Muito bem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_16obmue",
+  "texto": "A menina come o almoço.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_v9065d",
+  "texto": "O menino corre no pátio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_fmbb0t",
+  "texto": "As crianças brincam na gangorra.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_9on8vu",
+  "texto": "O menino lê um livro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_gv2tck",
+  "texto": "A menina anda para a escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1v12vvc",
+  "texto": "O pássaro canta de manhã.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_mdrh0p",
+  "texto": "O cachorro late para o carteiro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_115v3ci",
+  "texto": "As crianças brincam na areia.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_49uvmg",
+  "texto": "Meu pai dirige o carro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ym5vdt",
+  "texto": "A cozinheira prepara o almoço.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_n0lldm",
+  "texto": "O peixe nada no rio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1oi0066",
+  "texto": "Eu desenho um castelo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_shx7wz",
+  "texto": "O gato lacuna o leite.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_q04u5e",
+  "texto": "A menina lacuna uma carta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1subkty",
+  "texto": "O cachorro lacuna o osso.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1a2asoi",
+  "texto": "Nós lacuna no parque.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nbtmke",
+  "texto": "O avião lacuna bem alto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pw6qxt",
+  "texto": "As crianças lacuna a música.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1piip67",
+  "texto": "Eu lacuna no coral da escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1cy6fgh",
+  "texto": "Eu lacuna um livro por semana.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1peldf4",
+  "texto": "Eu lacuna de bicicleta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1d1tkg2",
+  "texto": "Eu lacuna cedo todos os dias.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_q0isqs",
+  "texto": "Eu lacuna frutas no lanche.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_evfghq",
+  "texto": "Eu lacuna com meus amigos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18tidmf",
+  "texto": "Ela lacuna muito bem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1denpn",
+  "texto": "Ele lacuna futebol no sábado.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1mmtyhp",
+  "texto": "A menina lacuna no parque.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_69mw0h",
+  "texto": "O menino lacuna a lição.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1slzuwx",
+  "texto": "Ela lacuna uma história.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_fv64ic",
+  "texto": "Ele lacuna bem cedo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7u88gh",
+  "texto": "Nós lacuna na piscina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1fnl1es",
+  "texto": "Eles lacuna bola no recreio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1fjg9gz",
+  "texto": "Nós lacuna a sala todo dia.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1odpgd2",
+  "texto": "Elas lacuna no coral.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1n9ad2a",
+  "texto": "Nós lacuna a professora.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_bzgqoc",
+  "texto": "Eles lacuna para a escola a pé.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1efpv4c",
+  "texto": "As crianças lacuna no parque.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1x4i8ha",
+  "texto": "O cachorro lacuna na porta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ebcafp",
+  "texto": "Os pássaros lacuna de manhã.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_6qbttv",
+  "texto": "A professora lacuna a lição.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_of9dfx",
+  "texto": "Os alunos lacuna a tarefa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1l4gtaa",
+  "texto": "O sol lacuna forte hoje.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1bdtpt5",
+  "texto": "Ana e Bia lacuna juntas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_c2l4kd",
+  "texto": "O menino de boné lacuna pipa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1asq1p5",
+  "texto": "Meu pai e eu lacuna pescar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_koxqiq",
+  "texto": "As alunas do quarto ano lacuna um jornal.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1sa8jmc",
+  "texto": "O gato e o cachorro lacuna no sofá.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_niz9cv",
+  "texto": "A turma inteira lacuna no coral.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_v2vs6n",
+  "texto": "Vamos brincar? lacuna Ana.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_16m9vap",
+  "texto": "Eu adoro bolo! lacuna Leo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2wtaub",
+  "texto": "Gol! lacuna o torcedor.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1v15v30",
+  "texto": "Sim, eu vou. lacuna Bia.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1csyvx2",
+  "texto": "Psiu, silêncio… lacuna a bibliotecária.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_21q41z",
+  "texto": "Obrigado pela ajuda! lacuna o menino.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15x7p1q",
+  "texto": "Socorro! lacuna o menino, com medo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1hkkdmg",
+  "texto": "Que horas são? lacuna a menina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1timgap",
+  "texto": "São três horas. lacuna o pai.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_qjkqmh",
+  "texto": "Não conte para ninguém… lacuna ela, bem baixinho.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_p851nu",
+  "texto": "Ha, ha, ha! Que piada boa! lacuna o avô.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_xj15az",
+  "texto": "Fiquem quietos agora! lacuna o professor.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_t8gl7w",
+  "texto": "Gaveta dos nomes de coisas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1atf130",
+  "texto": "Gaveta das palavras de ação.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_149lyd4",
+  "texto": "Gaveta de mais de um fazendo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_6insjj",
+  "texto": "Gaveta de quem faz sozinho: um só.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1uak3w2",
+  "texto": "Gaveta das frases em que o verbo combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_eoa3ls",
+  "texto": "Gaveta das frases em que o verbo não combina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1l21si5",
+  "texto": "Gaveta dos verbos de dizer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_av00gc",
+  "texto": "Gaveta dos outros verbos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lrx3km",
+  "texto": "O cachorro lacuna alto quando vê o carteiro. Quatro letras: o barulho que o cachorro faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1at8gqz",
+  "texto": "A professora lacuna no quadro. Sete letras: ela usa o giz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_8rkix",
+  "texto": "O bebê lacuna à noite. Cinco letras: lágrimas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_4c2ipc",
+  "texto": "O peixe lacuna no rio. Quatro letras: dentro da água.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_iovr2h",
+  "texto": "O passarinho lacuna de manhã. Cinco letras: faz música.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1yn92jq",
+  "texto": "Nós lacuna no parque. (brincar) Quem faz é NÓS: termina em AMOS.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1meah8n",
+  "texto": "Eles lacuna bola. (chutar) Quem faz é ELES: termina em AM.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_cjk1aw",
+  "texto": "Eu lacuna cedo. (acordar) Quem faz é EU: termina em O.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1h81xds",
+  "texto": "Ela lacuna bonito. (desenhar) Quem faz é ELA: termina em A.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1kjjrdr",
+  "texto": "Vocês lacuna bem. (cantar) Quem faz é VOCÊS: termina em AM.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_13es5vs",
+  "texto": "Você vem? lacuna Ana. Ela fez uma pergunta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_11f6gfe",
+  "texto": "Cuidado! lacuna o pai, bem alto. Bem alto, com força.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_zx404m",
+  "texto": "Vou sim. lacuna Leo. Ele deu a resposta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1s3u6ax",
+  "texto": "Bom dia! lacuna a professora. Cinco letras: o verbo de dizer mais simples.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1cfbo6t",
+  "texto": "Shhh… lacuna a mãe, baixinho. Bem baixinho, quase sem som.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_6crsn5",
+  "texto": "Chuta a bola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_13q2gym",
+  "texto": "O jogador.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_14ujhcb",
+  "texto": "Ensina a turma.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7ah1ko",
+  "texto": "A professora.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1s247kb",
+  "texto": "Cuida dos doentes.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_13kdazl",
+  "texto": "O médico.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1j2q4ud",
+  "texto": "Faz o pão.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7asiao",
+  "texto": "O padeiro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_140wibi",
+  "texto": "Costura a roupa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_fuvptl",
+  "texto": "A costureira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_krjc3",
+  "texto": "Que horas são?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15v0s9z",
+  "texto": "Psiu, silêncio…",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yix9k0",
+  "texto": "Gol!",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1931uc0",
+  "texto": "São duas horas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1a4oc2d",
+  "texto": "Muito obrigado!",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lmtnfh",
+  "texto": "Toque numa peça do lado esquerdo e depois na do lado direito.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_eyie8k",
+  "texto": "Nós vamos à escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_trjjfh",
+  "texto": "Eles vai à escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_14xgb7u",
+  "texto": "Ela vai à escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1771vw2",
+  "texto": "Eu vai à escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5io1ad",
+  "texto": "Os gatos dormem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_mmjcyt",
+  "texto": "O gato dormem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_l22fjr",
+  "texto": "Eu durmo cedo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_outgc9",
+  "texto": "Nós dorme cedo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_mwhbyu",
+  "texto": "Vocês cantam bem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_oszkjr",
+  "texto": "Eles canta bem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1utxhwn",
+  "texto": "Nós cantamos bem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1iwsmt5",
+  "texto": "Eu cantamos bem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_16hwwfp",
+  "texto": "Caderno novo! Escreva o seu nome e toque em Começar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1gy5wjf",
+  "texto": "Número 1.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1gy5wig",
+  "texto": "Número 2.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1gy5wl5",
+  "texto": "Número 3.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1gy5wda",
+  "texto": "Número 4.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1gy5wfz",
+  "texto": "Número 5.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_50fhgs",
+  "texto": "Agora quem faz é ele ou ela: uma pessoa só. Escolha a forma que combina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jtz5aj",
+  "texto": "Quem faz é nós ou eles: mais de um. Repare como o fim do verbo muda.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1sb5vyg",
+  "texto": "Leia a peça. Quem faz é um só, ou é mais de um? Repare no fim do verbo antes de escolher a gaveta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_oafhvf",
+  "texto": "Leia as quatro frases de cada grupo. Marque só as que estão certas: o verbo combina com quem faz. Depois confira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1nplg3p",
+  "texto": "As duas frases são quase iguais: só o verbo muda. Toque na frase em que o verbo combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1mqlssp",
+  "texto": "O verbo está entre parênteses, sem forma. Escreva a forma que combina com quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pp8k75",
+  "texto": "Ligue cada pronome à forma do verbo que combina com ele. Diga os dois juntos em voz alta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1irb7hq",
+  "texto": "Agora quem faz é um nome: o cachorro, os pássaros. Um só ou mais de um? Escolha o verbo que combina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3ztz40",
+  "texto": "Cuidado: quem faz agora são duas pessoas, ou um grupo inteiro. Pense bem antes de escolher.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_13krtfk",
+  "texto": "Leia a frase em voz alta. O verbo combina com quem faz, ou soa errado? Leve para a gaveta certa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1fvo6b1",
+  "texto": "Leia a frase. Uma das três palavras diz o que alguém faz: a ação. Qual é?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_oprt3h",
+  "texto": "Leia a notícia e toque nos verbos: as palavras que dizem o que cada um fez ou faz. Depois confira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_eskpil",
+  "texto": "Este texto tem erros. Toque nos verbos que não combinam com quem faz. Depois confira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1371v9a",
+  "texto": "O jornal da escola escreveu duas manchetes para cada notícia. Só uma está certa. Qual?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1y3ck5q",
+  "texto": "Alguém falou. A palavra que falta diz quem falou e como. Qual verbo mostra a fala?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_asmlje",
+  "texto": "As três opções são verbos de fala. Só uma combina com o jeito de falar: alto, baixinho, perguntando. Escolha.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_19ev9jr",
+  "texto": "Alguns verbos mostram que alguém falou. Esses são os verbos de dizer. Separe: verbo de dizer, ou outro verbo?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_97hsor",
+  "texto": "Cada fala pede um verbo de dizer. Ligue a fala ao verbo que mostra como ela foi dita.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1b5tkmh",
+  "texto": "Leia a fala e o jeito de falar. Escreva o verbo de dizer que falta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1nu661b",
+  "texto": "Leia o diálogo e toque nos verbos de dizer: os que mostram quem falou e como. Depois confira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1w10hth",
+  "texto": "Ache na grade a forma do verbo que a pista pede: toque na primeira letra e depois na última.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_27g8ck",
+  "texto": "Em cada grupo há palavras de ação e palavras que são nomes de coisas. Marque só as ações e toque em Conferir.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_bsdgag",
+  "texto": "Agora o pronome muda: eu, nós, eles. Ache a forma que combina. Primeira letra, depois a última.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ekvxnv",
+  "texto": "Toque numa pista, escute e escreva a forma do verbo que combina com o pronome.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1e35o7m",
+  "texto": "Agora são os verbos de dizer. Leia a fala e escreva o verbo que mostra como ela foi dita.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_10umq9x",
+  "texto": "Em cima estão as formas do verbo. Puxe cada pronome até a forma que combina com ele, ou toque num e depois no outro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2x00uo",
+  "texto": "Agora o verbo é seu. Escreva um verbo que combine com quem faz. Vale qualquer um que caiba na frase.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18zk1ey",
+  "texto": "Você já sabe tudo isto. Agora os nomes: leve cada exemplo para a linha dele no cartaz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15nnu7b",
+  "texto": "Leia cada palavra. Ela diz uma ação, ou é o nome de uma coisa? Leve para a gaveta certa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1mncfgx",
+  "texto": "A palavra que diz a ação tem um nome: verbo. Você já achou treze. Agora ache o verbo de cada frase.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ymrfze",
+  "texto": "Do lado esquerdo está quem faz. Do direito, o que faz. Toque num e depois no outro para ligar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1m27h5b",
+  "texto": "A frase está sem a ação. Das três palavras, só uma é verbo. Preencha.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_o5rcak",
+  "texto": "As casinhas dizem quantas letras tem o verbo. Leia a pista e escreva: toque nas casinhas ou digite.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ac91uj",
+  "texto": "A coluna da esquerda tem quem faz, numerado. Para cada ação da direita, toque no número de quem faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_xb0e2n",
+  "texto": "Quem faz é EU. Das três formas do verbo, qual combina com eu? Diga a frase inteira em voz alta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lm28na",
+  "texto": "Abriu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_gng130",
+  "texto": "Acordam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_kc59vk",
+  "texto": "Acordamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_6ymnxb",
+  "texto": "Acordo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1vrpfl8",
+  "texto": "Agradeceu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_6f4j0z",
+  "texto": "Alegre.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_69k1jg",
+  "texto": "Almoço.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1hsk53a",
+  "texto": "Alunos plantam árvores no pátio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ios93f",
+  "texto": "Alunos planta árvores no pátio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_7uxau5",
+  "texto": "A menina leem um livro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1cgjvqy",
+  "texto": "A menina lê um livro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2t54f5",
+  "texto": "Anda.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lol1jg",
+  "texto": "Andam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_uf6u0g",
+  "texto": "Andamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2t5433",
+  "texto": "Ando.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_loknbu",
+  "texto": "Andou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lwv8l1",
+  "texto": "Areia.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_cn8osz",
+  "texto": "Arruma.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1q5ei9q",
+  "texto": "Arrumam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1o0l0le",
+  "texto": "Arrumamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yiw0ew",
+  "texto": "Asa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2tjxvt",
+  "texto": "Azul.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2wihzf",
+  "texto": "Bebe.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ivqxsr",
+  "texto": "Biblioteca recebe livros novos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ddl9ue",
+  "texto": "Biblioteca recebem livros novos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2wk6a3",
+  "texto": "Bola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_11k4jei",
+  "texto": "Bonito.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18unxtk",
+  "texto": "Branco.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18zus6v",
+  "texto": "Brilha.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1s8ysbe",
+  "texto": "Brilham.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18zus55",
+  "texto": "Brilho.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18zyypq",
+  "texto": "Brinca.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1scsroz",
+  "texto": "Brincam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ap9427",
+  "texto": "Brincamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18zyz1s",
+  "texto": "Brinco.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_m2fqma",
+  "texto": "Cachorro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1l6u3aq",
+  "texto": "Cadeira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pfd8k2",
+  "texto": "Canta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1lqwa8v",
+  "texto": "Cantam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_o9vu1v",
+  "texto": "Cantamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1lqwa69",
+  "texto": "Cantas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pfd8bg",
+  "texto": "Canto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pfls1y",
+  "texto": "Carro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15oo7um",
+  "texto": "Carteiro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ug0cp4",
+  "texto": "Castelo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_plbbp8",
+  "texto": "Chora.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1r75dpj",
+  "texto": "Chorou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1rro3y3",
+  "texto": "Chutou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2xcgpb",
+  "texto": "Come.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pjbasi",
+  "texto": "Comem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_105qllq",
+  "texto": "Comemos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pjbaxp",
+  "texto": "Comer.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2xcgxx",
+  "texto": "Como.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pjfhng",
+  "texto": "Conta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1pgymfl",
+  "texto": "Contam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pjfhw2",
+  "texto": "Conto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pju3uq",
+  "texto": "Corre.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1pucz0v",
+  "texto": "Correm.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pju3pk",
+  "texto": "Corro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1b8h82b",
+  "texto": "Cozinha.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5ymwnh",
+  "texto": "Cozinheira.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15uheax",
+  "texto": "Crianças.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_s5el5n",
+  "texto": "Desenha.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5jwq2e",
+  "texto": "Desenham.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_5jwpl5",
+  "texto": "Desenhar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_s5elat",
+  "texto": "Desenho.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1aidcan",
+  "texto": "Dirige.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_io1v0a",
+  "texto": "Dorme.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1bst12v",
+  "texto": "Dormem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1bst3wk",
+  "texto": "Dormir.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1bst40z",
+  "texto": "Dormiu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_iufuqy",
+  "texto": "Durmo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yisq0z",
+  "texto": "Ela.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_c74xkb",
+  "texto": "Elas chegaram cedo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_12xrhla",
+  "texto": "Elas chegou cedo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2qiv04",
+  "texto": "Eles.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lxkml6",
+  "texto": "Escreve.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_dgs3yv",
+  "texto": "Escrevem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_w969m3",
+  "texto": "Escrevemos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_dgs3ih",
+  "texto": "Escreves.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lxkmts",
+  "texto": "Escrevo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2ox3nd",
+  "texto": "Estuda.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ht8c2c",
+  "texto": "Estudam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2ox3p3",
+  "texto": "Estudo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_375d2z",
+  "texto": "Eu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ianhky",
+  "texto": "Eu estudam à tarde.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_m77c4h",
+  "texto": "Eu estudo à tarde.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_9cg65d",
+  "texto": "Explica.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_oadgng",
+  "texto": "Explicam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_9cg5tb",
+  "texto": "Explico.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_e4z5yh",
+  "texto": "Famílias participa da festa junina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jgij1g",
+  "texto": "Famílias participam da festa junina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2tp66c",
+  "texto": "Faço.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yiwa8m",
+  "texto": "Faz.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_m9ze66",
+  "texto": "Fazem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1axlbw0",
+  "texto": "Fortes chuvas alagam ruas do centro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nwfr19",
+  "texto": "Fortes chuvas alaga ruas do centro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1dnppre",
+  "texto": "Gangorra.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2uezfa",
+  "texto": "Gato.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1eio6nk",
+  "texto": "Grande.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_31vhxk",
+  "texto": "Joga.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_torfgl",
+  "texto": "Jogam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_azj6ih",
+  "texto": "Jogamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_31vhza",
+  "texto": "Jogo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_375f0t",
+  "texto": "Lê.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2vabyv",
+  "texto": "Late.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nncyka",
+  "texto": "Latem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2vabtp",
+  "texto": "Lato.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2vd0ei",
+  "texto": "Leem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2vcxac",
+  "texto": "Leio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_npnmfn",
+  "texto": "Lemos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yiy0b4",
+  "texto": "Ler.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yiy08n",
+  "texto": "Leu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nhtr51",
+  "texto": "Livro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_l4w818",
+  "texto": "Lápis.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_o7ktxe",
+  "texto": "Manhã.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_k1id0r",
+  "texto": "Menina.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_k1id5x",
+  "texto": "Menino.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2vzryp",
+  "texto": "Mesa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_a15x50",
+  "texto": "Música.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2zfhc1",
+  "texto": "Nada.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_rg2vqk",
+  "texto": "Nadam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1kfwm4w",
+  "texto": "Nadamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_rg2wcz",
+  "texto": "Nadar.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2zfgzz",
+  "texto": "Nado.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yj5nad",
+  "texto": "Nós.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1tmpiz6",
+  "texto": "Nós gosta de pizza.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1r17ew3",
+  "texto": "Nós gostamos de pizza.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1rlcrgx",
+  "texto": "O cachorro late.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_12ofmws",
+  "texto": "O cachorro latem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1rii0g3",
+  "texto": "Ordenou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jx3wp5",
+  "texto": "Os meninos joga bola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1wgmjlw",
+  "texto": "Os meninos jogam bola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_30f8i3",
+  "texto": "Osso.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_30k1p5",
+  "texto": "Ouço.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_se5znz",
+  "texto": "Ouvem.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lv7egv",
+  "texto": "Ouvimos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yj75ir",
+  "texto": "Pai.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ve6xfn",
+  "texto": "Papel.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15pc1nt",
+  "texto": "Parque.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vc0jii",
+  "texto": "Peixe.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vk1ppl",
+  "texto": "Pinta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1axzwia",
+  "texto": "Pintou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vfqs1f",
+  "texto": "Porta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1jdjvu6",
+  "texto": "Prepara.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ooaoiu",
+  "texto": "Pássaro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_xwhoa0",
+  "texto": "Pátio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yjbupr",
+  "texto": "Rio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yjbujp",
+  "texto": "Riu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_181h06r",
+  "texto": "Sapato.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_zw93v2",
+  "texto": "Solta.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1c2jm6b",
+  "texto": "Soltam.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_zw9474",
+  "texto": "Solto.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_v34sb8",
+  "texto": "Time da escola vencem o campeonato.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1abj09l",
+  "texto": "Time da escola vence o campeonato.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_375ove",
+  "texto": "Tu.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yj8lmd",
+  "texto": "Vai.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wmmej1",
+  "texto": "Vamos.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wor0rv",
+  "texto": "Verde.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yjbgdt",
+  "texto": "Vão.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yj8qk3",
+  "texto": "Voa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yj8q1z",
+  "texto": "Vou.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vq5syg",
+  "texto": "Primeiro pegue uma canetinha ali em cima. Depois toque na palavra.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_p61d1q",
+  "texto": "Escreva o verbo que combina com NÓS: Nós lacuna na escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2brsk5",
+  "texto": "Escreva o verbo que combina com ELES: Eles lacuna no parque.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ste0dn",
+  "texto": "O bebê.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_gmd70s",
+  "texto": "O cozinheiro.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1u9gika",
+  "texto": "O pintor.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_dxvm6",
+  "texto": "A cantora.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1hl77ls",
+  "texto": "O motorista.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pq1yxa",
+  "texto": "Quase! Tente de novo.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_trukdd",
+  "texto": "Quem faz: OS MENINOS.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jyxhk1",
+  "texto": "Quem faz: A MENINA.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1el1bke",
+  "texto": "Quem faz: NÓS.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1cvxohc",
+  "texto": "Quem faz: EU.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_zvz4u3",
+  "texto": "Quem faz: ELAS.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_102yzly",
+  "texto": "Quem faz: O CACHORRO.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_sxym1j",
+  "texto": "Manchete sobre a chuva.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1anam21",
+  "texto": "Manchete sobre a escola.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1xwwfv9",
+  "texto": "Manchete sobre esporte.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_zm4xxq",
+  "texto": "Manchete sobre a biblioteca.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vvr2t7",
+  "texto": "Manchete sobre a festa.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_hukbpc",
+  "texto": "Primeiro toque numa peça ali embaixo. Depois toque na gaveta dela.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hmk9",
+  "texto": "Os",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lq80vj",
+  "texto": "alunos",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3t1g",
+  "texto": "A",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_ddgq0n",
+  "texto": "professora",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lrk38l",
+  "texto": "ajudou",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3t1c",
+  "texto": "e",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yj75ke",
+  "texto": "pais",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_lke0sa",
+  "texto": "trouxeram",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hmbb",
+  "texto": "as",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_olkl8l",
+  "texto": "mudas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hm6m",
+  "texto": "do",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_gc2h7r",
+  "texto": "crianças",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_37tfvd",
+  "texto": "regam",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_17vyr8w",
+  "texto": "plantas",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_314wxy",
+  "texto": "todos",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2psuqc",
+  "texto": "dias.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3t1m",
+  "texto": "O",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1aim4vq",
+  "texto": "diretor",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2pt5ql",
+  "texto": "disse",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_vl1u4p",
+  "texto": "quarto",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_375stg",
+  "texto": "que",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_jghg2a",
+  "texto": "escola",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2ty82b",
+  "texto": "ficou",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yiyksz",
+  "texto": "mais",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_11k4jjo",
+  "texto": "bonita.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_375fyd",
+  "texto": "ano",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1p6pfod",
+  "texto": "plantaram",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_375bwe",
+  "texto": "dez",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1cvptjf",
+  "texto": "árvores",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hmis",
+  "texto": "no",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_k1id88",
+  "texto": "meninos",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2v4ap7",
+  "texto": "livro",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hmiy",
+  "texto": "na",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1jja2qj",
+  "texto": "biblioteca.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_375qy3",
+  "texto": "Nós",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2upjor",
+  "texto": "gosta",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hm6c",
+  "texto": "de",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_18zyyqq",
+  "texto": "brincar",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yj53om",
+  "texto": "joga",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_f5nisk",
+  "texto": "professoras",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pllnvk",
+  "texto": "chegam",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yizxwo",
+  "texto": "cedo",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3sxx",
+  "texto": "à",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yispwa",
+  "texto": "Eles",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yj05tt",
+  "texto": "come",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_nmyytk",
+  "texto": "lanche",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hj12",
+  "texto": "às",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yizayt",
+  "texto": "bola",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pyprvw",
+  "texto": "horas.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hm7p",
+  "texto": "Eu",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2ox3p6",
+  "texto": "estudam",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_190z2ni",
+  "texto": "recreio.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_oa8gbp",
+  "texto": "menina",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hm9v",
+  "texto": "lê",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hmm5",
+  "texto": "um",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_pamqz7",
+  "texto": "Travessão.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_352zer",
+  "texto": "Vamos",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_tul284",
+  "texto": "respondeu",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yizjdv",
+  "texto": "Bia,",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_m6cq4k",
+  "texto": "animada.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_2lxl6k",
+  "texto": "Esperem",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_375smg",
+  "texto": "por",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yiyej1",
+  "texto": "mim!",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_n258l3",
+  "texto": "gritou",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yixzov",
+  "texto": "Leo,",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hmaz",
+  "texto": "ao",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_3hma0",
+  "texto": "lá",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_niwvxg",
+  "texto": "longe.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_38pl76",
+  "texto": "Shhh,",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yiz98q",
+  "texto": "bebê",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yisxba",
+  "texto": "está",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_eq7p8d",
+  "texto": "dormindo",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_15pc1o8",
+  "texto": "parque?",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_1ja7rfw",
+  "texto": "sussurrou",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yivqf4",
+  "texto": "mãe.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_11lfu9c",
+  "texto": "perguntou",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_yivkn9",
+  "texto": "Ana.",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_wmmeiq",
+  "texto": "Vamos!",
+  "voz": "pt-BR-AntonioNeural"
+ },
+ {
+  "id": "vr_swkns7",
+  "texto": "Narração ligada!",
+  "voz": "pt-BR-AntonioNeural"
+ }
+]

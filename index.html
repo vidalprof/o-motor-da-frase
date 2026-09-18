@@ -1,0 +1,2860 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>O Motor da Frase — 4º ano</title>
+<meta name="description" content="DESCREVER: o assunto, o ano, quantas folhas e de onde vieram as folhas de papel colhidas.">
+<!-- ============================================================
+     ESQUELETO DA FOLHA VIVA — a casca, sem conteúdo nenhum.
+
+     ⭐ POR QUE ELE EXISTE (pergunta do Marcos, 15/set/2026): *"mas por que você
+     está clonando? Não é melhor colher as atividades da internet com o crivo e
+     criar as interatividades que são pedidas, sem clonar?"*
+     Ele estava certo sobre o problema. As INTERATIVIDADES nunca foram clonadas
+     — o gesto sai do comando impresso na folha de papel. O que se clonava era o
+     MOTOR, e junto com ele vinha o CONTEÚDO do caderno de origem: os objetivos
+     do relatório, a citação do currículo, o sorteio das folhas, o prefixo das
+     figuras, o `var LIGAR`. Na Fábrica de Nomes, CINCO das nove reprovações
+     foram exatamente isso, e nenhuma tinha a ver com substantivos.
+     Aqui não há o que esquecer de trocar, porque não há nada de ninguém dentro.
+
+     ⚠️ NÃO SE COPIA ESTA PASTA À MÃO: use
+        `bash _padrao/nova_folha_viva.sh <pasta> <prefixo> "<Título>"`,
+        que carimba o prefixo em todos os lugares de uma vez e roda o pré-voo.
+
+     O QUE JÁ VEM PRONTO, e não se reescreve: navegação e progresso, voz com
+     alto-falante em tudo, o teclado de letras nas duas portas (tela e teclado de
+     verdade), arrastar com mouse/dedo/caneta, gavetas, ligar, cruzadinha,
+     boletim da criança, relatório do professor pela medalha, dossiê pedagógico,
+     "continuar de onde parou" por 55 minutos, a chave 1275@ e o aviso ao
+     controle da sala quando a criança termina.
+
+     O QUE SE PREENCHE, e está marcado: GESTOS · ITENS · DADOS · NOMES ·
+     CURRICULO · novaFolha() · OBJETIVOS (no folhas.js) · as folhas f01..fN.
+
+     ES5 puro, um arquivo (mais o `folhas.js` ao lado), sem biblioteca.
+     ============================================================ -->
+<style>
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+:root{
+  /* os tokens de cor da folha viva — sem eles o portão `_qa/cor_fixa.py` reprova
+     cor de texto cravada, que num tema diferente vira letra invisível */
+  --texto:#26201c;
+  --texto2:#3a2f27;
+  --texto3:#4a3d33;
+  /* ⚠️ IDENTIDADE PRÓPRIA (Marcos, 18/set/2026: "cada caderno precisa ter capa
+     diferente, cor diferente, animações"): este cinza é de ESQUELETO —
+     CINZA DE ESQUELETO — TROCAR pela cor do ASSUNTO do caderno novo (`_padrao/identidade_capa.py`). O portão 0b11 (`_qa/identidade.py`)
+     reprova cor, capa ou animação iguais às de qualquer outro caderno ou ao esqueleto. */
+  --cor:#00695c;
+  --cor2:#004c42;
+  --corclara:#e0edeb;
+}
+body{font-family:"Segoe UI",Arial,sans-serif;background:#f4efe9;color:var(--texto);padding-bottom:160px}
+#topo{position:-webkit-sticky;position:sticky;top:0;z-index:20;background:#fff;border-bottom:3px solid var(--cor);
+  box-shadow:0 2px 14px rgba(70,40,20,.13);padding:8px 10px;display:flex;align-items:center;gap:10px;max-width:880px;margin:0 auto}
+#topo .tit{font-weight:800;font-size:15px;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prog{height:12px;background:#eee3d9;border-radius:8px;overflow:hidden;flex:1;min-width:60px;max-width:200px}
+.prog i{display:block;height:100%;width:0;background:var(--cor);border-radius:8px;-webkit-transition:width .5s;transition:width .5s}
+.pg{font-weight:800;font-size:14px;color:var(--cor2);white-space:nowrap}
+button{font-family:inherit;cursor:pointer}
+.bt{min-width:48px;min-height:48px;border:0;border-radius:16px;background:var(--cor);color:#fff;font-weight:800;font-size:17px;
+  padding:10px 18px;box-shadow:0 4px 0 var(--cor2);-webkit-transition:transform .08s;transition:transform .08s}
+.bt:active{transform:translateY(3px);box-shadow:0 1px 0 var(--cor2)}
+.bt[disabled]{opacity:.45;cursor:default;box-shadow:none}
+.bt.cinza{background:#eae2da;color:#57493f;box-shadow:0 4px 0 #cdc0b4}
+.bt.verde{background:#15a34a;box-shadow:0 4px 0 #0d7736}
+.zap{width:42px;height:42px;border-radius:50%;border:0;background:var(--cor);box-shadow:0 3px 0 var(--cor2);
+  display:inline-flex;align-items:center;justify-content:center;padding:0;flex:none}
+.zap svg{width:22px;height:22px;fill:#fff}
+.zap.off{background:#c2b6ab;box-shadow:0 3px 0 #a3968b}
+.zap.ouvir{background:#fff;box-shadow:0 3px 0 #ddd0c4;border:2px solid var(--cor)}
+.zap.ouvir svg{fill:var(--cor)}
+.zap.ouvir.tocando{-webkit-animation:pulsa 1s infinite;animation:pulsa 1s infinite}
+@-webkit-keyframes pulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+@keyframes pulsa{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
+
+#livro{max-width:880px;margin:12px auto 0;padding:0 10px}
+.pagina{position:relative;background:#fff;border-radius:22px;box-shadow:0 10px 34px rgba(70,40,20,.16);display:none;overflow:hidden;padding:0 0 20px}
+.pagina.viva{display:block;-webkit-animation:entra .35s ease-out;animation:entra .35s ease-out}
+@-webkit-keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes entra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.faixa{background:var(--cor);color:#fff;padding:15px 18px 13px;display:flex;align-items:center;gap:12px}
+.faixa h2{margin:0;font-size:clamp(17px,4.4vw,25px);letter-spacing:.4px;text-transform:uppercase;flex:1;line-height:1.1}
+.faixa .num{background:#fff;color:var(--cor);font-weight:900;border-radius:50%;width:36px;height:36px;display:flex;
+  align-items:center;justify-content:center;font-size:18px;flex:none}
+/* uma cor por BLOCO da escada — a criança vê que mudou de assunto */
+.pagina.c1 .faixa{background:#00695c}.pagina.c1 .faixa .num{color:#00695c}
+.pagina.c2 .faixa{background:#1179bf}.pagina.c2 .faixa .num{color:#1179bf}
+.pagina.c3 .faixa{background:#15803d}.pagina.c3 .faixa .num{color:#15803d}
+.pagina.c4 .faixa{background:#8b5cf6}.pagina.c4 .faixa .num{color:#8b5cf6}
+.pagina.c5 .faixa{background:#b45309}.pagina.c5 .faixa .num{color:#b45309}
+.enun{margin:14px 16px 4px;font-size:clamp(15px,3.9vw,19px);font-weight:700;line-height:1.35}
+.enun b{color:var(--cor2)}
+
+.item{margin:12px 14px;padding:14px;border:2px solid #f0e6dd;border-radius:20px;background:#fffdfb}
+.item.feito{border-color:#bfe6ce;background:#f3fcf6}
+.item .n{font-weight:900;color:#b3a294;font-size:15px;margin-right:8px}
+/* ⚠️ A FIGURA TEM ALTURA FIXA: com `height:auto` cada figura entrava no seu
+   tamanho natural (o prédio com 230 px e o tijolo com 90) e, como `display:block`
+   ignora o `text-align:center` do pai, todas encostavam na esquerda. */
+.fig{display:block;width:auto;height:clamp(76px,19vw,116px);max-width:100%;
+  margin:2px auto 6px;object-fit:contain;image-rendering:auto}
+.figgrande{display:block;width:auto;height:clamp(84px,21vw,128px);max-width:100%;
+  margin:0 auto;object-fit:contain}
+.figbt{border:0;background:none;padding:4px;border-radius:16px;min-width:48px;min-height:48px}
+/* ⚠️ O ALTO-FALANTE É DESENHADO EM CSS — caixinha + triângulo + duas ondas de
+   borda arredondada. Nada de emoji (vira quadradinho nos PCs da escola) e nada
+   de SVG solto (ordem do Marcos, set/2026). */
+.som{position:relative;width:46px;height:46px;min-width:46px;border:3px solid var(--cor);
+  border-radius:50%;background:var(--corclara);padding:0;cursor:pointer;flex:none}
+.som:active{-webkit-transform:scale(.93);transform:scale(.93)}
+.som .cone{position:absolute;left:12px;top:17px;width:7px;height:10px;background:var(--cor2);
+  border-radius:2px 0 0 2px}
+.som .cone:after{content:"";position:absolute;left:6px;top:-6px;width:0;height:0;
+  border-top:11px solid transparent;border-bottom:11px solid transparent;
+  border-right:11px solid var(--cor2)}
+.som .onda{position:absolute;border:3px solid var(--cor2);border-left-color:transparent;
+  border-top-color:transparent;border-bottom-color:transparent;border-radius:50%}
+.som .o1{left:26px;top:16px;width:8px;height:12px}
+.som .o2{left:29px;top:11px;width:13px;height:22px;opacity:.65}
+.enunlin{display:flex;align-items:center;gap:10px;margin:0 2px}
+.enunlin .enun{flex:1;min-width:0}
+
+/* fileira genérica de opções */
+.ops{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:10px}
+.op{min-width:64px;min-height:56px;border:3px solid #e6dbd1;border-radius:16px;background:#fff;color:var(--texto);
+  font-weight:900;font-size:20px;padding:8px 14px;-webkit-transition:transform .1s;transition:transform .1s}
+.op:active{transform:scale(.94)}
+.op.certa{border-color:#15a34a;background:#e7f8ee;color:#0d7736}
+.op.erro{border-color:#e0562f;background:#fdeee9}
+/* a opção que é uma FRASE (a definição, o porquê): texto corrido, alinhado à
+   esquerda, largura cheia — frase centralizada em caixinha não se lê */
+.op.frase{display:block;width:100%;max-width:420px;text-align:left;font-size:clamp(14px,3.7vw,17px);
+  font-weight:700;line-height:1.35;letter-spacing:0;min-height:52px}
+.op.curta{font-size:clamp(15px,4vw,19px);letter-spacing:.5px}
+/* a opção COM figura */
+.op.figbt{display:flex;flex-direction:column;align-items:center;gap:3px;
+  min-width:96px;min-height:112px;padding:8px 10px}
+.op.figbt .figop{display:block;width:auto;height:clamp(56px,14vw,80px);max-width:100%;object-fit:contain}
+.rotop{font-weight:800;font-size:clamp(11px,2.9vw,13px);color:var(--texto2);letter-spacing:.4px;
+  line-height:1.1;word-break:break-word}
+/* ⚠️ A LEGENDA SECRETA. `visibility` e não `display`: o espaço fica guardado,
+   então a folha não pula quando a palavra aparece no acerto. */
+.segredo{visibility:hidden}
+.segredo.revelado{visibility:visible;-webkit-animation:aparece .35s;animation:aparece .35s}
+@-webkit-keyframes aparece{from{opacity:0}to{opacity:1}}
+@keyframes aparece{from{opacity:0}to{opacity:1}}
+.figsil{display:flex;flex-direction:column;align-items:center;gap:4px;margin:2px 0 6px}
+.chamlin{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.chamlin b{font-size:clamp(15px,4vw,19px);color:var(--texto2);letter-spacing:.5px}
+
+/* ---- marcar VÁRIAS certas (folha 1, da d18: "marque com x as corretas") ---- */
+.marcax{display:flex;flex-direction:column;gap:8px;align-items:center;margin-top:10px}
+.lx{display:flex;align-items:center;gap:12px;min-height:56px;border:3px solid #e6dbd1;border-radius:16px;
+  background:#fff;padding:8px 14px;font-weight:700;font-size:clamp(14px,3.7vw,17px);color:var(--texto);
+  width:100%;max-width:430px;text-align:left;line-height:1.3}
+.lx .cx{width:34px;height:34px;border:3px solid #b3a294;border-radius:8px;display:inline-flex;align-items:center;
+  justify-content:center;font-size:24px;font-weight:900;color:var(--cor);flex:none}
+.lx.marcada{border-color:var(--cor);background:var(--corclara)}
+.lx.marcada .cx{border-color:var(--cor)}
+.lx.certa{border-color:#15a34a;background:#e7f8ee}
+.lx.certa .cx{border-color:#15a34a;color:#15a34a}
+.lx.errada{border-color:#e0562f;background:#fdeee9}
+
+.alvonome.cheia{border-style:solid;border-color:#15a34a;background:#e7f8ee;color:#0d7736}
+.banconome{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 10px 10px}
+.etiq{min-height:46px;padding:8px 14px;border:3px dashed #e6dbd1;border-radius:12px;background:#fff;
+  font-weight:900;font-size:clamp(13px,3.6vw,17px);color:var(--texto3);cursor:pointer;letter-spacing:.5px;
+  -ms-touch-action:none;touch-action:none}
+.etiq.marcada{border-style:solid;border-color:var(--cor);background:var(--corclara)}
+.etiq.usada{opacity:.32;pointer-events:none;border-style:solid}
+.etiq.puxada{opacity:.35}
+
+/* ---- juntar as sílabas numeradas (folha 5, da d18 item 4) ---- */
+.tabsil{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin:8px 10px 6px}
+.tsc{border:2px solid #e6dbd1;border-radius:10px;background:#fff;text-align:center;padding:5px 2px;
+  min-height:46px;display:flex;flex-direction:column;justify-content:center;cursor:pointer}
+.tsc .tsn{font-size:11px;font-weight:800;color:#b3a294;display:block;line-height:1}
+/* ⚠️ tinta PRÓPRIA, não o token do fundo da atividade: a célula pinta o
+   próprio fundo, então quem decide a cor da letra é ela (portão 4c). */
+.tsc .tss{font-size:clamp(13px,3.6vw,18px);font-weight:900;color:#4a3d33;display:block;letter-spacing:.5px}
+.tsc.usada{background:var(--corclara);border-color:var(--cor)}
+.tsc:active{-webkit-transform:scale(.94);transform:scale(.94)}
+.montada{display:flex;gap:5px;justify-content:center;flex-wrap:wrap;min-height:52px;align-items:center;margin:6px 0}
+.mped{font-weight:900;font-size:clamp(17px,4.6vw,24px);color:#0d7736;background:#e7f8ee;border:2px solid #15a34a;
+  border-radius:10px;padding:6px 10px;display:block}
+.montada .vazio{font-weight:900;color:#c9bcb0;font-size:clamp(15px,4vw,19px)}
+
+/* ---- ligar (folhas 8 e 22) ---- */
+.ligar{position:relative;display:flex;gap:clamp(30px,10vw,96px);justify-content:space-between;margin:14px 6px}
+.ligar .col{display:flex;flex-direction:column;gap:14px;flex:1 1 0;min-width:0}
+.linhas{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.ponta{border:3px solid #e6dbd1;border-radius:16px;background:#fff;height:92px;display:flex;align-items:center;
+  /* flex-wrap: com figura + palavra comprida (ENSOLARADO a 320 px) a figura era
+     empurrada para fora da caixa pela esquerda; embrulhando, ela sobe e a palavra
+     fica embaixo (medido pelo leiaute_mao, _sinon2 folha 3) */
+  flex-wrap:wrap;justify-content:center;font-weight:900;font-size:clamp(13px,3.4vw,17px);letter-spacing:.4px;padding:6px;
+  text-align:center;line-height:1.15;color:var(--texto2);
+  -ms-touch-action:none;touch-action:none;-webkit-transition:border-color .15s,box-shadow .15s;
+  transition:border-color .15s,box-shadow .15s}
+.ponta img{width:auto;height:70px;max-width:100%;object-fit:contain}
+@media (max-width:420px){ .ponta{height:auto;min-height:78px} .ponta img{height:58px} }
+.ponta.marcada{border-color:var(--cor);box-shadow:0 0 0 4px rgba(176,86,42,.22)}
+.ponta.feita{border-color:#15a34a;background:#e7f8ee}
+.ponta.mostra{border-color:#f0b64a;box-shadow:0 0 0 4px rgba(240,182,74,.4)}
+.ponta.treme{-webkit-animation:treme .4s;animation:treme .4s}
+@-webkit-keyframes treme{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@keyframes treme{0%,100%{transform:none}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+
+/* ---- caça-palavras dos materiais (folha 9, da d02) ---- */
+.diagrama{display:grid;gap:2px;margin:8px auto 4px;max-width:430px;touch-action:none;
+  -webkit-user-select:none;user-select:none}
+.dcel{min-width:0;aspect-ratio:1/1;min-height:30px;border:1px solid #eee0d4;border-radius:6px;background:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;
+  font-size:clamp(11px,3.1vw,16px);color:var(--texto3);cursor:pointer;padding:0}
+.dcel.tracando{background:#ffe9d6;border-color:var(--cor)}
+.dcel.achada{background:#e7f8ee;border-color:#15a34a;color:#0d7736}
+.listamat{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:6px 10px 4px}
+.pmat{font-weight:900;font-size:clamp(12px,3.3vw,15px);color:var(--texto3);border:2px solid #e6dbd1;
+  border-radius:10px;padding:5px 10px;background:#fff;letter-spacing:.5px}
+.pmat.achada{border-color:#15a34a;background:#e7f8ee;color:#0d7736;text-decoration:line-through}
+
+/* ---- classificar em colunas: lugares (11), vistas (19), cômodos (23) ---- */
+.colunas{display:flex;gap:clamp(4px,1.6vw,10px);justify-content:center;margin:8px 8px 4px;flex-wrap:wrap}
+.coluna{flex:1 1 28%;min-width:96px;max-width:200px;border:3px solid #e6dbd1;border-radius:14px;
+  background:#fffdfb;padding:5px;min-height:112px;cursor:pointer}
+.coluna.perto{border-color:var(--cor);background:var(--corclara)}
+.coluna.erro{border-color:#e0562f;background:#fdeee9}
+.ctit{font-weight:900;font-size:clamp(12px,3.2vw,15px);color:var(--texto2);margin-bottom:4px;
+  border-bottom:2px solid #f0e6dd;padding-bottom:3px;display:flex;align-items:center;
+  justify-content:center;gap:4px;flex-wrap:wrap;text-align:center;line-height:1.1}
+.ctit .figmini{height:clamp(30px,7vw,40px)}
+.cdentro{display:flex;flex-direction:column;gap:3px;align-items:center;min-height:56px}
+.fdentro{font-weight:800;font-size:clamp(11px,3vw,14px);color:#0d7736;background:#e7f8ee;
+  border-radius:8px;padding:3px 6px;display:block;max-width:100%;word-break:break-word;text-align:center}
+.figmini{width:auto;height:clamp(34px,8vw,44px);max-width:100%;object-fit:contain;display:block}
+.figbanco{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 10px 10px}
+.op.fig{padding:6px;min-width:96px;min-height:96px}
+.op.fig .figmini{height:clamp(48px,12vw,64px)}
+.op.fig.marcada{border-color:var(--cor);background:var(--corclara);
+  -webkit-box-shadow:0 0 0 4px rgba(176,86,42,.18);box-shadow:0 0 0 4px rgba(176,86,42,.18)}
+.op.fig.usada{opacity:.3;pointer-events:none}
+
+/* ---- completar a lacuna (folha 15, da d23) ---- */
+.frasel{font-size:clamp(15px,4vw,19px);font-weight:700;color:var(--texto2);line-height:1.7;
+  text-align:center;margin:4px 6px 8px}
+.lacuna{display:inline-block;min-width:96px;padding:2px 10px;border-bottom:4px solid var(--cor);
+  color:var(--cor);font-weight:900;text-align:center}
+.lacuna.cheia{border-bottom-color:#1f9d55;color:#1f9d55;background:#eafaf0;border-radius:8px 8px 0 0}
+
+/* ---- cruzadinha (folha 16, da d08 reescrita) ---- */
+.cruzenv{overflow-x:auto;margin:8px 0 4px}
+.cruz{display:grid;gap:2px;margin:0 auto;width:-webkit-max-content;width:max-content}
+.ccel{width:clamp(26px,7vw,34px);height:clamp(26px,7vw,34px);border:0;background:transparent;padding:0}
+.ccel.viva{border:2px solid #d9c9bb;border-radius:5px;background:#fff;font-weight:900;
+  font-size:clamp(13px,3.6vw,18px);color:var(--texto3);cursor:pointer;position:relative}
+.ccel.viva.ativa{border-color:var(--cor);background:var(--corclara);
+  -webkit-box-shadow:0 0 0 3px rgba(176,86,42,.25);box-shadow:0 0 0 3px rgba(176,86,42,.25)}
+.ccel.viva.ok{border-color:#15a34a;background:#e7f8ee;color:#0d7736}
+.ccel .cn{position:absolute;left:1px;top:0;font-size:9px;font-weight:800;color:#b3a294;line-height:1}
+.pistas{display:flex;flex-direction:column;gap:6px;margin:8px 12px 4px}
+.pista{display:flex;align-items:center;gap:8px;border:2px solid #f0e6dd;border-radius:12px;background:#fffdfb;
+  padding:6px 10px;min-height:48px;font-size:clamp(13px,3.5vw,16px);font-weight:600;color:var(--texto2);
+  line-height:1.3;cursor:pointer;text-align:left;width:100%}
+.pista .pn{font-weight:900;color:var(--cor);flex:none;min-width:18px}
+.pista.feita{border-color:#15a34a;background:#f3fcf6}
+.pista.ativa{border-color:var(--cor);background:var(--corclara)}
+
+/* ---- a imagem aérea com pontos (folha 18) ---- */
+.colho{text-align:center;margin:2px 0 4px;min-height:80px}
+.credito{font-size:11px;line-height:1.35;color:#6b5347;margin:6px 2px 0;text-align:center}
+.figolho{max-height:76px;width:auto;display:inline-block}
+.aerea{position:relative;max-width:520px;margin:8px auto 4px;width:100%}
+.aerea img{display:block;width:100%;height:auto;border-radius:16px;border:3px solid #e6dbd1}
+/* ⚠️ O ALVO DA FOLHA 18 É INVISÍVEL ATÉ SER ACHADO, e isso é a folha inteira.
+   A primeira versão pintava cada ponto com um anel branco por cima do desenho.
+   Com três alvos já era discutível; com os dezessete da praça (uma fonte,
+   quatro bancos, dez árvores e dois bebedouros) a figura virou um campo de
+   bolhas — a criança tocava em qualquer anel e acertava sem OLHAR a praça, que
+   é justamente o que a folha existe para medir. Agora o botão é só uma área de
+   toque transparente do tamanho do dedo (52px, acima do piso de 44), e o anel
+   verde só nasce quando ela acha. Achado por FOTO, 13/set/2026 — nenhum portão
+   via, porque todos os alvos estavam lá, do tamanho certo, funcionando. */
+.ponto{position:absolute;width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;
+  border:3px solid transparent;background:transparent;cursor:pointer;padding:0}
+.ponto.certo{background:rgba(21,163,74,.55);border-color:#0d7736;
+  -webkit-box-shadow:0 2px 8px rgba(0,0,0,.3);box-shadow:0 2px 8px rgba(0,0,0,.3)}
+.ponto.errado{background:rgba(224,86,47,.5);border-color:#fff}
+.ponto:active{-webkit-transform:scale(.9);transform:scale(.9)}
+/* teclado: quem navega por TAB precisa ver onde está */
+.ponto:focus{outline:3px solid #fff;outline-offset:-3px}
+
+/* ---- ordenar as cenas / o antes e o hoje (folhas 20 e 21) ---- */
+.trilhaord{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 6px 4px}
+.slot{width:clamp(84px,23vw,124px);min-height:clamp(84px,23vw,124px);border:3px dashed var(--cor);
+  border-radius:16px;background:var(--corclara);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;font-weight:900;font-size:20px;color:var(--cor2);padding:4px}
+.slot .figmini{height:clamp(56px,15vw,86px)}
+.slot.perto{border-style:solid;border-color:#15a34a;background:#e7f8ee}
+.slot.cheia{border-style:solid;border-color:#15a34a;background:#e7f8ee}
+.slot .rot{font-size:clamp(10px,2.7vw,12px);font-weight:800;color:#0d7736;line-height:1.05;text-align:center}
+.sn{font-size:12px;font-weight:900;color:var(--cor2);display:block}
+
+/* ---- achar as casas dentro do poema (folha 24, da d19) ---- */
+.poema{font-size:clamp(15px,4vw,19px);line-height:1.9;text-align:center;color:var(--texto2);
+  font-weight:600;margin:8px 12px 4px}
+.poema .aut{display:block;font-size:13px;font-weight:800;color:#8a7768;margin-top:6px}
+.pw{display:inline-block;border:0;background:transparent;font:inherit;color:inherit;padding:2px 6px;
+  border-radius:8px;cursor:pointer;min-height:44px;line-height:1.4}
+.pw.achada{background:#ffe9a8;color:#6a4b00;font-weight:900;-webkit-box-shadow:0 0 0 2px #e5b93c;
+  box-shadow:0 0 0 2px #e5b93c}
+.pw.nao{-webkit-animation:treme .34s;animation:treme .34s}
+.placar{font-weight:900;color:var(--cor2);text-align:center;font-size:15px;margin:4px 0}
+
+/* ---- o mural da rua do mundo (folha 25) ---- */
+.mural{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:8px 10px}
+.cartaocasa{display:flex;flex-direction:column;align-items:center;gap:3px;min-height:118px;min-width:104px;
+  padding:8px 10px;border:3px solid #e6dbd1;border-radius:20px;background:#fff;cursor:pointer;
+  -webkit-transition:transform .18s,border-color .18s,background .18s;
+  transition:transform .18s,border-color .18s,background .18s}
+.cartaocasa .figop{display:block;width:auto;height:clamp(52px,13vw,72px);max-width:100%;object-fit:contain}
+.cartaocasa.escolhido{border-color:#15a34a;background:#eafaf0;-webkit-transform:scale(1.03);transform:scale(1.03)}
+.cartaocasa:focus-visible{outline:3px solid #f0b64a;outline-offset:2px}
+.rua{display:flex;gap:2px;justify-content:center;align-items:flex-end;flex-wrap:wrap;
+  border-bottom:8px solid #7b6a5c;margin:10px 12px 4px;padding-bottom:2px;min-height:60px}
+.rua img{height:clamp(44px,12vw,68px);width:auto;object-fit:contain;display:block}
+
+/* ---- carimbo, nav, capa, fim ---- */
+.carimbo{position:absolute;right:14px;top:60px;transform:rotate(-14deg) scale(.4);opacity:0;color:#15a34a;
+  border:5px solid #15a34a;border-radius:14px;padding:6px 14px;font-weight:900;font-size:20px;text-align:center;
+  line-height:1.05;pointer-events:none;-webkit-transition:all .45s;transition:all .45s}
+.pagina.pronta .carimbo{opacity:.92;transform:rotate(-14deg) scale(1)}
+#nav{position:fixed;left:0;right:0;bottom:0;z-index:18;background:#fff;border-top:3px solid var(--cor);padding:8px 10px;
+  display:none;align-items:center;gap:10px;box-shadow:0 -3px 14px rgba(70,40,20,.14)}
+/* ⚠️ ACHADO NA FOTO, não em portão nenhum (13/set/2026): com um título
+   comprido ("Ache os materiais no diagrama") esta linha quebrava em QUATRO
+   e espremia "Anterior", "Terminar" e "Próxima" contra as bordas — e
+   "construção" ainda estourava para fora. O nome da folha já está na faixa
+   colorida do topo da página, então na tela estreita ele some daqui. */
+#nav .txt{flex:1;text-align:center;font-weight:800;color:var(--cor2);font-size:14px;
+  min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:560px){ #nav .txt{display:none} }
+/* ⭐ o botão de terminar a qualquer momento: discreto de propósito — ele existe
+   para o sinal da escola, não para tentar a criança a pular tudo */
+.bt.terminar{background:#f3ece5;color:#6b5a4d;border:2px solid #e2d6ca;
+  font-size:12px;padding:8px 10px;min-height:44px;font-weight:800;flex:0 0 auto}
+.bt.terminar:active{background:#e9dfd5}
+.barra.naoabriu{opacity:.5}
+.barra.naoabriu b{font-weight:700;font-size:12px;color:#9c8b7c}
+#barraCapa{position:fixed;left:0;right:0;bottom:0;z-index:19;background:#fff;border-top:3px solid var(--cor);padding:10px;display:none}
+#barraCapa.aberta{display:block}
+#barraCapa .lin{display:flex;gap:10px;align-items:center;max-width:640px;margin:0 auto}
+#barraCapa label{font-weight:800;color:var(--cor2);font-size:15px;white-space:nowrap}
+#nomeIn{flex:1;min-width:0;min-height:50px;border:3px solid var(--cor);border-radius:14px;padding:0 12px;
+  font-family:"Comic Sans MS","Chalkboard SE","Segoe Print",cursive;font-weight:700;font-size:22px;color:#1d4ed8;background:#fff}
+#nomeIn:focus{outline:none;border-color:#1179bf;box-shadow:0 0 0 4px rgba(17,121,191,.25)}
+
+/* ================= A CAPA =================
+   IDENTIDADE PRÓPRIA deste caderno (Marcos, 18/set/2026: "cada caderno precisa ter
+   capa diferente, cor diferente, animações"). Cena: o motor da frase: as crianças em ação passam na esteira, e embaixo de cada uma o verbo que a nomeia (figuras recortadas da folha de papel d33).
+   Gerado por _padrao/identidade_capa.py — editar LÁ, não aqui. Só CSS e PNG das
+   folhas: nada de SVG, nada de emoji. @keyframes com sufixo Verbo4 (nome é global).
+   Medido pelo portão 0b11 (_qa/identidade.py). */
+.capa{position:relative;text-align:center;padding:18px 16px 24px;overflow:hidden;
+  background:-webkit-linear-gradient(top,#d5ebe7 0%,#f4faf8 60%,#fff 100%);
+  background:linear-gradient(180deg,#d5ebe7 0%,#f4faf8 60%,#fff 100%)}
+.capa .ceu{position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;overflow:hidden}
+.capa .titu,.capa .sub,.capa .chamada,.capa .cena{position:relative;z-index:1}
+.capa h1.titu{margin:12px 0 4px;line-height:1;display:flex;flex-wrap:wrap;justify-content:center;gap:2px;
+  -webkit-perspective:600px;perspective:600px}
+.capa .titu .cptpal{display:inline-flex;white-space:nowrap;gap:2px}
+.capa .titu .lt{display:inline-block;font-size:clamp(22px,5.8vw,42px);font-weight:900;letter-spacing:0;
+  color:#004c42;text-shadow:0 3px 0 #e0edeb,0 5px 10px rgba(0,0,0,.16);
+  -webkit-animation:letraVerbo4 .7s both;animation:letraVerbo4 .7s both}
+.capa .titu .cpesp{display:inline-block;width:14px}
+@-webkit-keyframes letraVerbo4{from{opacity:0;-webkit-transform:translateX(-40px)}to{opacity:1;-webkit-transform:none}}
+@keyframes letraVerbo4{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:none}}
+.capa .sub{font-weight:700;color:#2c3745;font-size:clamp(13px,3.6vw,18px);margin:6px 0 4px}
+.capa .chamada{margin-top:14px;font-weight:700;color:#3a4658;font-size:clamp(13px,3.4vw,16px)}
+.capa .cena{margin:14px auto 4px;max-width:620px}
+.capa .capfig{width:auto;height:clamp(74px,19vw,124px);max-width:100%;object-fit:contain;display:block}
+.capa .pl{display:block;font-weight:900;font-size:clamp(16px,4.6vw,26px);color:#fff;background:#00695c;border-radius:12px;
+  padding:8px 14px;box-shadow:0 5px 0 #004c42;letter-spacing:.02em;white-space:nowrap}
+.capa .rt{display:block;font-weight:900;font-size:clamp(12px,3.4vw,17px);color:#fff;background:#00695c;
+  border-radius:9px;padding:2px 8px;margin-top:4px;letter-spacing:.03em;white-space:nowrap}
+.capa .cena{display:flex;justify-content:center;align-items:flex-end;gap:clamp(8px,2.5vw,18px);flex-wrap:nowrap}
+.capa .it{display:flex;flex-direction:column;align-items:center;-webkit-animation:sobeVerbo4 2.4s ease-in-out infinite;animation:sobeVerbo4 2.4s ease-in-out infinite}
+.capa .esteira2{position:relative;max-width:620px;margin:0 auto;height:26px;border-radius:13px;background:#4a4a52;
+  box-shadow:inset 0 3px 0 rgba(255,255,255,.18),0 6px 14px rgba(0,0,0,.2);display:flex;justify-content:space-around;align-items:center;padding:0 10px}
+.capa .rolo{width:16px;height:16px;border-radius:50%;background:#e0edeb;border:3px solid #00695c;position:relative;
+  -webkit-animation:giraVerbo4 1.4s linear infinite;animation:giraVerbo4 1.4s linear infinite}
+.capa .rolo:after{content:"";position:absolute;left:50%;top:-1px;width:2px;height:6px;margin-left:-1px;background:#00695c}
+@-webkit-keyframes sobeVerbo4{0%,100%{-webkit-transform:translateY(0)}50%{-webkit-transform:translateY(-7px)}}
+@keyframes sobeVerbo4{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@-webkit-keyframes giraVerbo4{to{-webkit-transform:rotate(360deg)}}
+@keyframes giraVerbo4{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){
+  .capa *,.capa *:before,.capa *:after{-webkit-animation:none!important;animation:none!important}
+}
+
+#fim,#retomar{display:none;max-width:880px;margin:12px auto;background:#fff;border-radius:22px;padding:20px 16px;
+  box-shadow:0 10px 34px rgba(70,40,20,.16);text-align:center}
+#fim h2{margin:0 0 6px;color:var(--cor2);font-size:clamp(21px,5.5vw,30px)}
+.estrelas{font-size:44px;letter-spacing:8px;margin:6px 0}
+.barras{max-width:520px;margin:10px auto;text-align:left}
+.barra{display:flex;align-items:center;gap:8px;margin:6px 0;font-weight:700;font-size:14px}
+.barra span{flex:0 0 42%;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.barra .tr{flex:1;height:14px;background:#eee3d9;border-radius:8px;overflow:hidden}
+.barra .tr i{display:block;height:100%;width:0;background:#15a34a;-webkit-transition:width .8s;transition:width .8s}
+.barra b{flex:none;color:var(--cor2)}
+/* ⚠️ SEM EMOJI E SEM SVG na tela da criança: nos PCs da escola o emoji vira
+   quadradinho vazio, e a criança de sete anos não sabe o que é um quadradinho.
+   Troféu e selos são PNG; as setas são triângulos de CSS puro. */
+#medalha{width:132px;height:132px;border-radius:50%;background:radial-gradient(circle at 34% 30%,#ffe680,#e0a800);
+  margin:14px auto;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 22px rgba(180,140,0,.42);cursor:pointer;-ms-touch-action:none;touch-action:none}
+#medalha img{width:92px;height:92px;object-fit:contain;display:block;pointer-events:none}
+#medalha.semfig:after{content:"BOA!";font-weight:900;font-size:26px;color:#7a5600}
+.seta{display:inline-block;width:0;height:0;vertical-align:middle;
+  border-top:8px solid transparent;border-bottom:8px solid transparent}
+.seta.esq{border-right:11px solid currentColor;margin-right:7px}
+.seta.dir{border-left:11px solid currentColor;margin-left:7px}
+#estrelas img{width:52px;height:52px;object-fit:contain;display:inline-block;margin:0 3px;vertical-align:middle}
+
+#relatorio{display:none;text-align:left;background:#fbf7f3;border:2px solid #e6dbd1;border-radius:16px;padding:12px;margin-top:12px;font-size:13px}
+#relatorio table{border-collapse:collapse;width:100%;margin-top:8px}
+#relatorio th,#relatorio td{border:1px solid #e6dbd1;padding:5px 7px;text-align:left}
+#relatorio th{background:#f4ebe3}
+#relatorio table th:nth-child(4),#relatorio table td:nth-child(4){background:#f3fbf5}
+#relatorio .parecer{margin:10px 0 4px;padding:10px 12px;border-left:5px solid var(--cor);
+  background:#fff;border-radius:0 12px 12px 0;font-size:13.5px;line-height:1.55;color:var(--texto2)}
+#relatorio .comonota{margin:8px 0 0;font-size:11.5px;color:#7d6c5e;line-height:1.45}
+/* ⭐ o aviso de caderno não terminado */
+.avisoparcial{background:#fff6e5;border:2px solid #e5b93c;border-radius:10px;
+  padding:8px 10px;margin:8px 0;font-size:12.5px;line-height:1.45;color:#6a4b00}
+.notao{display:flex;align-items:center;gap:14px;background:#fff;border:3px solid var(--cor);
+  border-radius:18px;padding:10px 14px;margin:10px 0 2px}
+.notao .nn{font-size:clamp(30px,9vw,44px);font-weight:900;color:var(--cor);line-height:1;
+  font-variant-numeric:tabular-nums}
+.notao .nl{font-size:12.5px;color:#3a2f27;line-height:1.45}
+
+#menuProf{display:none;position:fixed;inset:0;z-index:60;background:rgba(45,28,16,.62);align-items:center;justify-content:center;padding:14px}
+#menuProf.aberto{display:flex}
+#menuProf .cx{background:#fff;border:4px solid var(--cor);border-radius:20px;padding:16px;max-width:520px;width:100%;
+  max-height:92vh;overflow:auto;box-shadow:0 14px 44px rgba(0,0,0,.4)}
+#menuProf h3{margin:0 0 4px;color:var(--cor2);font-size:20px}
+#menuProf p{margin:0 0 12px;font-size:13px;color:#57493f;line-height:1.4}
+#menuProf .folhas{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+#menuProf .folhas button{min-height:46px;border:0;border-radius:12px;background:#f4ebe3;color:#57493f;font-weight:800;
+  font-size:14px;padding:8px 12px;box-shadow:0 3px 0 #ddd0c4;flex:1 1 150px;text-align:left}
+/* ============================================================
+   O CAMPO QUE CHAMA O TECLADO DO APARELHO.
+   Ele mora EM CIMA da grade de casinhas e é praticamente invisível — mas
+   continua sendo um campo de verdade, porque campo escondido não recebe foco
+   e sem foco o teclado do celular não abre.
+   ============================================================ */
+#tecIn{position:absolute;z-index:5;border:0;background:transparent;color:transparent;
+  caret-color:transparent;opacity:.01;font-size:16px;padding:0;margin:0;outline:0;
+  -webkit-appearance:none;appearance:none}
+#tecIn:focus{outline:0}
+.cruz{position:relative}
+#confete{position:fixed;inset:0;pointer-events:none;z-index:50;overflow:hidden}
+.cf{position:absolute;width:9px;height:14px;opacity:.95;-webkit-animation:cai 1.5s linear forwards;animation:cai 1.5s linear forwards}
+@-webkit-keyframes cai{to{transform:translateY(105vh) rotate(560deg);opacity:0}}
+@keyframes cai{to{transform:translateY(105vh) rotate(560deg);opacity:0}}
+.oculto{display:none!important}
+.ajuda{text-align:center;font-size:14px;color:#7d6c5e;margin:2px 0 6px}
+.fantasma{position:fixed;z-index:70;pointer-events:none;opacity:.92;
+  -webkit-transform:scale(1.1);transform:scale(1.1);
+  -webkit-box-shadow:0 12px 26px rgba(50,30,15,.3);box-shadow:0 12px 26px rgba(50,30,15,.3)}
+/* o cinto e o suspensório do `draggable="false"`: navegador antigo não olha o
+   atributo, mas olha esta regra */
+img{-webkit-user-drag:none;-khtml-user-drag:none;-moz-user-drag:none;user-drag:none}
+.bt.pronto{min-height:48px;padding:0 22px;font-size:16px;margin:6px auto 0;display:block}
+
+/* =========================================================================
+   ANIMAÇÃO DAS FOLHAS — e a regra que manda é NADA ANIMA SEM FUNÇÃO.
+     · os itens ENTRAM EM CASCATA → a criança vê que a folha tem começo e ordem;
+     · a faixa do título DESLIZA → marca a troca de folha;
+     · o acerto DÁ UM PULINHO e a opção certa BRILHA → resposta tátil;
+     · o erro BALANÇA de leve → diz "de novo" sem dizer "errou".
+   `prefers-reduced-motion` desliga tudo e a folha continua inteira.
+   ========================================================================= */
+.pagina.viva .item{-webkit-animation:entraItem .42s ease-out both;animation:entraItem .42s ease-out both}
+.pagina.viva .item:nth-child(2){-webkit-animation-delay:.05s;animation-delay:.05s}
+.pagina.viva .item:nth-child(3){-webkit-animation-delay:.10s;animation-delay:.10s}
+.pagina.viva .item:nth-child(4){-webkit-animation-delay:.15s;animation-delay:.15s}
+.pagina.viva .item:nth-child(5){-webkit-animation-delay:.20s;animation-delay:.20s}
+.pagina.viva .item:nth-child(6){-webkit-animation-delay:.25s;animation-delay:.25s}
+.pagina.viva .item:nth-child(n+7){-webkit-animation-delay:.30s;animation-delay:.30s}
+@-webkit-keyframes entraItem{from{opacity:0;-webkit-transform:translateY(14px)}to{opacity:1;-webkit-transform:none}}
+@keyframes entraItem{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pagina.viva .faixa{-webkit-animation:deslizaFaixa .4s cubic-bezier(.2,.9,.3,1) both;
+  animation:deslizaFaixa .4s cubic-bezier(.2,.9,.3,1) both}
+@-webkit-keyframes deslizaFaixa{from{opacity:0;-webkit-transform:translateX(-22px)}to{opacity:1;-webkit-transform:none}}
+@keyframes deslizaFaixa{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+.op.certa,.cartaocasa.escolhido{
+  -webkit-animation:pulinho .4s cubic-bezier(.3,1.6,.5,1);animation:pulinho .4s cubic-bezier(.3,1.6,.5,1)}
+@-webkit-keyframes pulinho{0%{-webkit-transform:scale(1)}45%{-webkit-transform:scale(1.09)}100%{-webkit-transform:scale(1)}}
+@keyframes pulinho{0%{transform:scale(1)}45%{transform:scale(1.09)}100%{transform:scale(1)}}
+.op.certa{position:relative;overflow:hidden}
+.op.certa::after{content:"";position:absolute;top:0;bottom:0;left:-40%;width:38%;pointer-events:none;
+  background:-webkit-linear-gradient(left,rgba(255,255,255,0),rgba(255,255,255,.75),rgba(255,255,255,0));
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.75),rgba(255,255,255,0));
+  -webkit-transform:skewX(-18deg);transform:skewX(-18deg);
+  -webkit-animation:brilhoOp .55s .1s ease-out;animation:brilhoOp .55s .1s ease-out}
+@-webkit-keyframes brilhoOp{from{left:-40%}to{left:112%}}
+@keyframes brilhoOp{from{left:-40%}to{left:112%}}
+.op.erro{-webkit-animation:balanca .34s;animation:balanca .34s}
+@-webkit-keyframes balanca{0%,100%{-webkit-transform:translateX(0)}25%{-webkit-transform:translateX(-6px)}75%{-webkit-transform:translateX(6px)}}
+@keyframes balanca{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.item{-webkit-transition:border-color .4s,background .4s;transition:border-color .4s,background .4s}
+/* a figura responde ao toque — o alvo reage ao PRESSIONAR */
+.op.figbt:active,.cartaocasa:active,.celmor:active{-webkit-transform:scale(.96);transform:scale(.96)}
+@media (prefers-reduced-motion:reduce){
+  .pagina.viva .item,.pagina.viva .faixa,.op.certa,.op.erro,.cartaocasa.escolhido{
+    -webkit-animation:none!important;animation:none!important;opacity:1!important;
+    -webkit-transform:none!important;transform:none!important}
+  .op.certa::after{display:none}
+}
+/*<dossie-css>*/
+#dossie{display:none;position:fixed;inset:0;z-index:70;background:rgba(20,16,45,.72);
+  align-items:center;justify-content:center;padding:12px}
+#dossie.aberto{display:-webkit-box;display:-ms-flexbox;display:flex}
+#dossie .cx{background:#fff;border:4px solid #6d5ae6;border-radius:20px;padding:14px;
+  max-width:720px;width:100%;max-height:88vh;display:flex;flex-direction:column}
+#dossie h3{margin:0 0 6px;color:#6d5ae6;font-size:20px}
+#dsCorpo{overflow:auto;text-align:left;font-size:13px;line-height:1.5;color:var(--texto,#1e2334)}
+#dsCorpo table{border-collapse:collapse;width:100%;margin:8px 0}
+#dsCorpo th,#dsCorpo td{border:1px solid #d9ddf2;padding:6px 8px;text-align:left;vertical-align:top}
+#dsCorpo th{background:#eceefa;color:var(--texto2,#2c3350)}
+#dsCorpo .dobj{display:block;margin-top:4px;font-size:11.5px;color:var(--texto3,#3b4064)}
+#dsCorpo .dfonte{margin:0 0 6px}
+#dsCorpo .dsub{margin:12px 0 4px}
+#dsCorpo .dtxt{margin:0}
+#dsCorpo .descada,#dsCorpo .dev{margin:4px 0 0 18px;padding:0}
+#dossie #dsFechar{margin-top:10px;min-height:46px}
+.bdossie{display:block;width:100%;margin-top:10px;min-height:46px}
+/*</dossie-css>*/
+/* ---------- as peças próprias deste caderno (ortografia) ----------
+   ⚠️ Aqui não há figura para olhar: o conteúdo é PALAVRA. Então a palavra é que
+   tem de ser grande, legível e com espaço em volta — é ela que faz o papel que
+   a ilustração faz nos outros cadernos. */
+.pgrande{font-size:clamp(22px,6.4vw,32px);font-weight:900;letter-spacing:clamp(1px,.6vw,3px);
+  color:var(--texto3);text-align:center;line-height:1.25;word-break:break-word;padding:0 6px}
+.pgrande .lacuna{display:inline-block;min-width:clamp(22px,6vw,30px);vertical-align:baseline;
+  border-bottom:4px solid var(--cor);margin:0 2px}
+/* o botão de PALAVRA (gavetas e quadro): texto, não figura */
+.op.pal{min-width:clamp(88px,26vw,150px);min-height:52px;padding:8px 12px;
+  font-size:clamp(13px,3.5vw,16px);font-weight:800;letter-spacing:.4px;color:var(--texto2)}
+.op.pal.marcada{border-color:var(--cor);background:var(--corclara);
+  -webkit-transform:scale(1.04);transform:scale(1.04)}
+.op.pal.usada{opacity:.3;pointer-events:none}
+.figbanco.quadro{border:3px dashed #e0d3c6;border-radius:16px;background:#fffdfa;
+  padding:10px 8px;margin:10px}
+/* a letra sozinha do "complete com T ou D" — alvo grande, pouca letra */
+.op.letra{min-width:clamp(62px,17vw,84px);min-height:60px;font-size:clamp(20px,5.6vw,26px);
+  font-weight:900;letter-spacing:1px}
+/* o "circule a certa": o botão vira a roda de lápis em volta da palavra */
+.op.circ{border-radius:999px;padding:10px 16px;min-height:52px;
+  font-size:clamp(14px,3.9vw,18px);font-weight:800;letter-spacing:.4px}
+.op.circ.certa{-webkit-box-shadow:0 0 0 4px #bdebd0;box-shadow:0 0 0 4px #bdebd0}
+/* a palavra escrita ERRADA, quando ela precisa aparecer (folhas 12 e 19) */
+.errada{color:#b23c17;text-decoration:line-through;-webkit-text-decoration-color:#e0562f;
+  text-decoration-color:#e0562f;font-weight:900}
+/* texto corrido de gênero: recado, notícia. Alinhado à esquerda, como no papel */
+.poema.recado{text-align:left;line-height:1.65;font-size:clamp(14px,3.8vw,17px)}
+.poema .tl{margin:2px 0}
+.frases{margin:8px 0 4px}
+.lacuna.grande{min-width:clamp(120px,34vw,190px);font-size:clamp(14px,3.8vw,17px);font-weight:900}
+.lacuna.erro{border-bottom-color:#e0562f;background:#fdeee9;border-radius:8px 8px 0 0}
+/* a fila da receita: passo é FRASE, então a fila é vertical e larga */
+.trilhaord.passos{flex-direction:column;align-items:stretch;margin:8px 10px 4px}
+.trilhaord.passos .slot{width:auto;min-height:52px;flex-direction:row;gap:8px;
+  padding:8px 10px;justify-content:flex-start;text-align:left}
+.trilhaord.passos .slot .rot{text-align:left;font-size:clamp(12px,3.3vw,15px)}
+/* a linha de casas do "reescreva certo": uma palavra por vez */
+.cruz.uma{grid-auto-flow:column;justify-content:center;margin:4px auto 2px}
+.pista.oculta{display:none}
+/* o cartaz do fecho: as regras que a criança escolheu, uma embaixo da outra */
+.rua.cartaz{flex-direction:column;align-items:stretch;gap:6px;padding:10px;
+  border:3px solid #e6dbd1;border-radius:16px;background:#fffdfa;margin:0 10px 8px}
+.regral{border-left:6px solid var(--cor);border-radius:8px;background:#fff;padding:7px 10px;
+  text-align:left}
+.regral b{display:block;font-size:clamp(13px,3.5vw,16px);color:#2c3350;line-height:1.3}
+.regral i{display:block;font-style:normal;font-weight:800;font-size:clamp(11px,3vw,13px);
+  color:#8a7768;letter-spacing:.4px;margin-top:2px}
+/* a capa: os pares de letras que fazem o mesmo som são o desenho da capa */
+.dupla{display:inline-flex;align-items:center;gap:4px;background:#fff;border:3px solid #e6dbd1;
+  border-radius:14px;padding:6px 10px;margin:3px}
+.dupla b{font-size:clamp(17px,4.6vw,22px);font-weight:900;color:#3b4064}
+.dupla i{font-style:normal;font-weight:900;color:var(--cor);font-size:clamp(13px,3.4vw,16px)}
+/* ---------- as peças próprias deste caderno (a loteria do S) ---------- */
+/* a FICHA: figura + palavra, e a criança marca só as escritas certas (folha 1) */
+.marcax.fichas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.lx.ficha{flex:1 1 44%;max-width:230px;flex-direction:column;align-items:center;gap:4px;
+  padding:8px 6px;text-align:center}
+.lx.ficha .figmini{display:block;width:auto;height:clamp(46px,12vw,66px);max-width:100%;object-fit:contain}
+.lx.ficha .ft{font-weight:900;font-size:clamp(13px,3.5vw,16px);letter-spacing:.5px;color:var(--texto2)}
+.lx.ficha .cx{position:absolute;left:6px;top:6px}
+.lx.ficha{position:relative}
+.lx.ficha.erroficha{border-color:#e0a05a;background:#fff7ec}
+.lx.ficha.erroficha .ft s{color:#b23c17;-webkit-text-decoration-color:#e0562f;text-decoration-color:#e0562f}
+.lx.ficha.erroficha .ft b{display:block;color:#0d7736}
+/* as SÍLABAS soltas e a palavra que se monta (folha 13) */
+.op.sil{min-width:clamp(58px,16vw,86px);min-height:52px;font-size:clamp(15px,4vw,19px);
+  font-weight:900;letter-spacing:1px}
+.op.sil.usada{border-color:#15a34a;background:#e7f8ee;color:#0d7736;pointer-events:none}
+.montada{min-height:34px;text-align:center;font-weight:900;letter-spacing:2px;
+  font-size:clamp(16px,4.4vw,21px);color:var(--texto3);margin:2px 0 4px}
+.montada[data-feito]::before{content:attr(data-feito);color:#0d7736}
+/* a FRASE GRUDADA e os vãos onde entra o espaço (folha 18) */
+.grudada{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  margin:6px 4px;padding:8px 4px;border:3px solid #e6dbd1;border-radius:14px;background:#fff}
+.gl{font-weight:900;font-size:clamp(15px,4.2vw,20px);letter-spacing:0;color:var(--texto3);line-height:1.6}
+.vao{width:14px;min-width:14px;height:42px;border:0;background:transparent;padding:0;
+  position:relative;cursor:pointer}
+.vao::after{content:"";position:absolute;left:5px;top:8px;width:3px;height:26px;border-radius:2px;
+  background:#e6dbd1}
+.vao.cortado::after{background:#15a34a;-webkit-box-shadow:0 0 0 2px #bdebd0;box-shadow:0 0 0 2px #bdebd0}
+.vao.erro::after{background:#e0562f}
+/* a VITRINE das duas figuras lado a lado (folha 16) */
+.ficha.vitrine{flex:1 1 44%;max-width:210px;display:flex;flex-direction:column;align-items:center;
+  gap:4px;padding:8px 6px;text-align:center;border:3px solid #e6dbd1;border-radius:14px;background:#fff}
+.ficha.vitrine .figmini{display:block;width:auto;height:clamp(52px,14vw,78px);max-width:100%;object-fit:contain}
+/* ⚠️ TINTA PRÓPRIA, não o token: esta peça pinta o PRÓPRIO fundo (branco), e o
+   `--texto` é a tinta do fundo da atividade. Quem tem superfície própria tem
+   tinta própria — senão, num tema diferente, a letra some. Mede o 4c. */
+.ficha.vitrine .ft{font-weight:900;font-size:clamp(13px,3.5vw,16px);color:#3a2f27}
+/* o TEXTINHO: a frase palavra por palavra, cada uma tocável (folhas 7, 13 e 21) */
+.textinho{margin:6px 8px;padding:10px 8px;border:3px solid #e6dbd1;border-radius:14px;background:#fff;
+  line-height:2.1;text-align:left}
+.tp{border:0;background:transparent;padding:4px 3px;margin:0;font:inherit;font-weight:700;
+  font-size:clamp(15px,4vw,18px);color:#4a3d33;border-radius:7px;cursor:pointer;
+  min-height:40px;-webkit-transition:background .15s;transition:background .15s;min-width:42px;min-height:44px}
+.tp:hover{background:#f7efe7}
+.tp.achada{background:#e7f8ee;color:#0d7736;font-weight:900;
+  -webkit-box-shadow:inset 0 -3px 0 #15a34a;box-shadow:inset 0 -3px 0 #15a34a}
+.tp.marcap{background:#e8f1fb;color:#134f86;font-weight:900;
+  -webkit-box-shadow:inset 0 -3px 0 #1d6fb8;box-shadow:inset 0 -3px 0 #1d6fb8}
+.tp.marcad{background:#fdeee9;color:#8c3414;font-weight:900;
+  -webkit-box-shadow:inset 0 -3px 0 #b8471d;box-shadow:inset 0 -3px 0 #b8471d}
+.tp.nao{-webkit-animation:treme .34s;animation:treme .34s;background:#fdeee9}
+/* o TEXTÃO: a história da folha 24 */
+.textao{margin:6px 8px;padding:12px 12px;border:3px solid #e6dbd1;border-radius:14px;background:#fff;
+  line-height:1.75;font-size:clamp(14px,3.8vw,17px);color:var(--texto3);text-align:left}
+/* os LÁPIS: a cor da família (folha 20) e as duas marcas (folha 21) */
+.ops.lapis{gap:6px;flex-wrap:wrap;justify-content:center;margin:4px 8px 6px}
+/* ⚠️ O FUNDO É DECLARADO AQUI mesmo o JS o trocando pela cor da família: sem
+   fundo próprio na regra, a tinta cravada briga com o tema (é o que o
+   `_qa/cor_fixa.py` mede). Quem crava a tinta tem de cravar o chão embaixo. */
+.op.lapiz{min-height:46px;font-weight:900;font-size:clamp(13px,3.4vw,16px);color:#26201c;
+  background:#fff;border:3px solid #e6dbd1;border-radius:12px;padding:6px 12px}
+.op.lapiz.marcada{-webkit-transform:scale(1.07);transform:scale(1.07);
+  -webkit-box-shadow:0 0 0 3px rgba(0,0,0,.18);box-shadow:0 0 0 3px rgba(0,0,0,.18)}
+.op.lapiz.marcap{background:#e8f1fb;border-color:#1d6fb8;color:#134f86}
+.op.lapiz.marcad{background:#fdeee9;border-color:#b8471d;color:#8c3414}
+/* as PALAVRAS ESPALHADAS que se pintam (folha 20) */
+.espalhadas{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:6px 8px 10px}
+.pal.solta{border:3px solid #e6dbd1;border-radius:12px;background:#fff;padding:9px 13px;
+  min-height:46px;font-weight:900;font-size:clamp(13px,3.6vw,16px);letter-spacing:.5px;
+  color:var(--texto3);cursor:pointer}
+/* ⚠️ ELA PINTA O PRÓPRIO FUNDO em tempo real (a cor da família, vinda do JS),
+   então a tinta tem de ser dela e escura o bastante para as cinco cores da
+   paleta. O token `--texto` aqui seria a tinta do fundo da ATIVIDADE, que não
+   é o fundo que está atrás desta letra. */
+.pal.solta.pintada{background:#fff;border-color:rgba(0,0,0,.2);color:#1c1611;pointer-events:none}
+.pal.solta.nao{-webkit-animation:treme .34s;animation:treme .34s;background:#fdeee9}
+.op.pal.nao{-webkit-animation:treme .34s;animation:treme .34s}
+
+/* ⚠️ PISO DE TOQUE DE 40 px (regra da casa). Estas regras vêm por último
+   de propósito: elas SOBREPÕEM o que veio antes, e é isso que se quer —
+   a casinha da cruzadinha estava com 34 px e a peça de sílaba com 21 px
+   de altura. O portão do leiaute só viu quando passou a andar folha por
+   folha; antes ele parava na sexta. */
+.ccel{width:clamp(44px,9vw,50px);height:clamp(44px,9vw,50px);min-width:44px;min-height:44px;border:0;background:transparent;padding:0}
+.sil{font:800 clamp(17px,4.6vw,22px)/1 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  min-width:52px;min-height:46px;padding:10px 14px;border-radius:12px;
+  border:2px solid #c6cde0;background:#fff;color:#243056;cursor:pointer;
+  -webkit-transition:.14s;transition:.14s}
+.sil.larga{min-width:clamp(96px,26vw,150px)}
+.sil:active{-webkit-transform:scale(.94);transform:scale(.94)}
+.sil.marcada{background:#fff3c9;border-color:#e0ac00}
+.sil.ok,.sil.usada{background:#d8f3e2;border-color:#15a34a;color:#0d6b33}
+.sil.usada{opacity:.6}
+.sil.nao{background:#ffd9d6;border-color:#e2574c;color:#9d2f26}
+/*PECAS-CSS-INI*/
+/* CSS das peças clonadas do _nasal2, _ponto2 e _sil2 (copiado, não reescrito) */
+.letrabt{min-width:44px;min-height:44px;padding:8px 10px;border:0;border-radius:10px;
+  background:#f4ebe3;color:var(--texto);font-weight:900;
+  font-size:clamp(17px,4.6vw,20px);box-shadow:0 3px 0 #ddd0c4;cursor:pointer}
+.letrabt:active{transform:translateY(2px);box-shadow:0 1px 0 #ddd0c4}
+.letrabt.usada{background:#e9edf6;color:#b9c0d4;box-shadow:0 3px 0 #dbe1ee}
+.letrabt.apagar{background:#fde2da;box-shadow:0 3px 0 #efc3b7;font-size:14px;
+  min-width:72px;color:#9d2f26}
+.palgrande{font:800 clamp(26px,7.4vw,40px)/1.15 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  letter-spacing:.06em;color:#243056;text-align:center;flex:1}
+.palgrande .pd{color:#243056}
+.palgrande .pd.forte{background:#ffe9a8;border-radius:8px;padding:0 .18em}
+.palgrande .lacuna{display:inline-block;width:2.1em;height:.14em;background:#8a93ad;
+  vertical-align:.18em;margin:0 .12em;border-radius:3px}
+.sils{display:flex;flex-wrap:wrap;gap:clamp(6px,2vw,10px);justify-content:center;margin:8px 0}
+.sils.erro .sil{border-color:#e2574c}
+.cartaz{display:flex;flex-direction:column;gap:8px;margin:8px 0}
+.cartlin{display:flex;flex-wrap:wrap;align-items:center;gap:10px;border:2px solid #e5e9f4;
+  border-radius:14px;padding:10px;background:#fbfcff}
+.cartlin.erro{border-color:#e2574c;background:#fff4f3}
+.cartit{display:flex;align-items:center;gap:8px;flex:1;min-width:210px;flex-wrap:wrap}
+.cartit b{font:800 clamp(14px,3.8vw,17px)/1.2 system-ui;color:#243056}
+.cartit span{font:600 clamp(12px,3.2vw,14px)/1.2 system-ui;color:#6b748f}
+.cartalvo{display:flex;flex-wrap:wrap;align-items:center;gap:6px;min-height:46px;
+  min-width:clamp(120px,32vw,190px);border:2px dashed #b9c0d4;border-radius:10px;padding:6px}
+.cartex{font:800 clamp(13px,3.6vw,16px)/1 system-ui;color:#8a93ad;letter-spacing:.04em}
+.cruz.livre .ccel{border-style:dashed}
+.palgrande.nova{color:#0d7736;background:#e7f8ee;border-radius:12px;padding:6px 14px;
+  margin:8px auto 2px;display:table;animation:nasce .45s ease}
+@-webkit-keyframes nasce{from{opacity:0;-webkit-transform:scale(.7)}to{opacity:1;-webkit-transform:scale(1)}}
+@keyframes nasce{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+.lacuna.peq{min-width:56px}
+.sils.min{gap:5px;margin:0}
+.sils.min .sil{min-width:46px;min-height:44px;padding:5px 9px;font-size:clamp(13px,3.6vw,16px)}
+.letrasfila{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+  margin:8px 0 2px;padding:6px;border-radius:12px;background:#fbfcff;
+  border:2px solid #e5e9f4}
+.letrasfila.erro{border-color:#e2574c;background:#fff4f3}
+.letrasfila.pronta{border-color:#15a34a;background:#f3fbf6}
+.letrabt.gr{min-width:46px;min-height:44px;font-size:clamp(15px,4vw,19px)}
+.figm{width:clamp(46px,12vw,64px);height:auto;display:block}
+.texto{background:#fff;border:3px solid #d9c9bb;border-radius:16px;padding:10px 12px;margin:4px 4px 10px}
+.texto.erro{border-color:#e2574c;background:#fff4f3}
+.ttit{margin:0 0 6px;font-size:clamp(15px,4vw,19px);color:var(--cor);text-align:center}
+.tlin{margin:4px 0;line-height:2.1}
+.palav{border:0;background:#f4efe8;border-radius:8px;padding:6px 10px;min-width:42px;min-height:44px;
+  font-weight:700;font-size:clamp(13px,3.6vw,16px);color:var(--texto3);cursor:pointer}
+.palav.marcada{background:#fff0c2;box-shadow:0 0 0 3px #f5c542 inset}
+.palav.ok{background:#eafaf0;color:#0d7736;box-shadow:0 0 0 3px #7fd3a4 inset}
+.palav.nao{background:#ffd9d9;color:#8d2020}
+.figalvo{min-width:96px;min-height:104px;padding:6px;border:3px dashed var(--cor);border-radius:14px;
+  background:#fff;display:flex;flex-direction:column;align-items:center;gap:2px}
+.figalvo.erro{border-color:#e2574c;background:#fff4f3}
+.cpgrade{display:flex;flex-direction:column;gap:3px;align-items:center;margin:4px 0 8px}
+.cplin{display:flex;gap:3px}
+.cpcel{width:clamp(44px,9vw,50px);height:clamp(44px,9vw,50px);min-width:44px;min-height:44px;
+  border:2px solid #d9c9bb;border-radius:6px;background:#fff;font-weight:900;
+  font-size:clamp(12px,3.4vw,16px);color:var(--texto3);cursor:pointer;padding:0}
+.cpcel.pega{background:#fff0c2;border-color:#f5c542}
+.cpcel.achada{background:#eafaf0;border-color:#7fd3a4;color:#0d7736}
+.cplista{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:8px}
+.cprot{display:flex;align-items:center;gap:4px;background:#f4efe8;border-radius:10px;
+  padding:5px 8px;min-height:44px;font-weight:800;font-size:clamp(12px,3.3vw,15px);color:var(--texto3)}
+.cprot.achada{background:#eafaf0;color:#0d7736;text-decoration:line-through}
+.sil.num{display:inline-flex;flex-direction:column;align-items:center;line-height:1.05;padding:6px 10px}
+.sil.num .qn{color:#fff;background:rgba(0,0,0,.28);border-radius:5px;padding:0 5px}
+.sinalbt{display:inline-block;font:900 clamp(24px,7vw,34px)/1 Georgia,"Times New Roman",serif;
+  color:var(--cor);min-width:26px}
+.sinalbt.gr{font-size:clamp(30px,8vw,42px)}
+.frasegrande{flex:1;font:700 clamp(15px,4.2vw,19px)/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color:var(--texto3);word-break:break-word}
+.frasegrande.erradinha{background:#fdf3ee;border-radius:10px;padding:6px 10px}
+.quadrado{display:inline-block;min-width:44px;min-height:44px;vertical-align:middle;
+  border:3px dashed var(--cor);border-radius:10px;background:#fff;
+  font:900 clamp(22px,6vw,30px)/40px Georgia,"Times New Roman",serif;
+  color:var(--cor);text-align:center}
+.quadrado.cheio{border-style:solid;border-color:#15a34a;background:#eafaf0;color:#0d7736}
+.linhafrase{min-height:48px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+  margin:4px 2px 8px;padding:6px 8px;border-radius:12px;background:#fbfcff;
+  border:2px dashed #d9c9bb}
+.napalavra{font:800 clamp(14px,3.8vw,17px)/1 system-ui;color:#0d7736;background:#e7f8ee;
+  border-radius:8px;padding:6px 8px}
+.napalavra.ponto{font-family:Georgia,"Times New Roman",serif;font-size:clamp(18px,5vw,22px)}
+.palavras{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:0 2px 6px}
+.palav.gr{min-width:52px;min-height:46px;font-size:clamp(14px,3.8vw,17px)}
+.pergcol{display:flex;flex-direction:column;gap:8px;margin:4px 6px 10px}
+.pergunta2{display:flex;align-items:center;gap:8px;min-height:48px;padding:6px 10px;
+  border:3px dashed var(--cor);border-radius:14px;background:#fff}
+.pergunta2.erro{border-color:#e2574c;background:#fff4f3}
+.ptxt{flex:1;font:700 clamp(14px,3.8vw,17px)/1.4 system-ui;color:var(--texto3)}
+.figalvo.gr{min-width:clamp(106px,30vw,140px)}
+.palav.usada{background:#e9edf6;color:#b9c0d4}
+.bt.grande.ouvir{display:block;margin:6px auto;min-height:52px;font-size:clamp(15px,4vw,18px)}
+.estojo{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:8px 0 12px}
+.cnt{font:700 clamp(12px,3.2vw,15px)/1 system-ui;min-height:44px;padding:10px 14px;
+  border-radius:12px;border:3px solid transparent;cursor:pointer;
+  color:#fff;background:#6b748f;
+  -webkit-transition:.14s;transition:.14s}
+.cnt:active{-webkit-transform:scale(.94);transform:scale(.94)}
+.cnt.pega{border-color:#243056;-webkit-box-shadow:0 0 0 3px #fff inset;box-shadow:0 0 0 3px #fff inset}
+.pin{color:#fff!important;background:#6b748f!important;border-color:transparent!important}
+.sacode{-webkit-animation:sac .38s;animation:sac .38s}
+.ajuda.cent{text-align:center}
+.figalvos{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:4px 0 10px}
+.fdentro2{min-height:22px;display:flex;align-items:center;justify-content:center}
+@-webkit-keyframes sac{0%,100%{-webkit-transform:translateX(0)}25%{-webkit-transform:translateX(-6px)}75%{-webkit-transform:translateX(6px)}}
+@keyframes sac{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+/* as três canetinhas do "pinte da mesma cor" (D08/D09/D19) */
+.cnt-a{background:#1179bf}.cnt-b{background:#e0870a}.cnt-c{background:#8a3fb8}
+.pin-a{background:#1179bf!important}.pin-b{background:#e0870a!important}.pin-c{background:#8a3fb8!important}
+/* o par de figuras lado a lado (D37): a mesma coisa, mudando só a qualidade */
+.parfig{display:flex;align-items:center;justify-content:center;gap:clamp(8px,3vw,18px);margin:4px 0 8px}
+.parfig .figp{width:clamp(72px,22vw,120px);height:auto;display:block}
+.parfig .vs{font:900 clamp(18px,5vw,26px)/1 system-ui;color:#8a93ad}
+.legfig{text-align:center;font:800 clamp(14px,3.8vw,18px)/1.2 system-ui;color:#243056;margin-bottom:6px}
+.figlig{width:clamp(44px,11vw,60px);height:auto;display:inline-block;vertical-align:middle;margin-right:6px;flex:none}
+.fala{background:#fff;border:2px solid #e5e9f4;border-radius:14px;padding:8px 12px;margin:6px 0;font:600 clamp(14px,3.8vw,17px)/1.5 system-ui;color:#243056}
+.fala b{color:#8a3fb8}
+.cena1{display:flex;justify-content:center;margin:2px 0 6px}
+.figacao{width:auto;max-width:100%;height:clamp(96px,26vw,150px);object-fit:contain;display:block}
+/*PECAS-CSS-FIM*/
+</style></head><body>
+
+<div id="topo">
+  <button class="zap ouvir" id="bOuvir" aria-label="Ouvir de novo"><svg viewBox="0 0 24 24"><path d="M12 3a5 5 0 0 0-5 5v1H5v6h2v1a5 5 0 0 0 10 0v-1h2V9h-2V8a5 5 0 0 0-5-5z"/></svg></button>
+  <button class="zap" id="bVoz" aria-label="Ligar ou desligar a narração"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9H4zm12.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg></button>
+  <div class="tit">O Motor da Frase</div>
+  <div class="prog"><i id="progI"></i></div>
+  <div class="pg" id="pg">Capa</div>
+</div>
+
+<div id="livro"></div>
+
+<div id="fim">
+  <h2 id="fimTit">Caderno completo!</h2>
+  <div class="estrelas" id="estrelas"></div>
+  <div class="barras" id="barras"></div>
+  <p id="resumo" style="font-weight:800;font-size:16px"></p>
+  <div id="medalha" class="medal" role="button" tabindex="0" aria-label="Troféu. Segure dois segundos para abrir o relatório do professor"><img src="img/vr_trofeu.png?v=2" alt="Troféu" draggable="false" onerror="this.style.display='none';this.parentNode.className='semfig'"></div>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <button class="bt verde" id="bVoltar" style="display:none">Voltar para o caderno</button>
+    <button class="bt cinza" id="bRever">Rever o caderno</button>
+    <button class="bt verde" id="bRecomecar">Caderno novo</button>
+  </div>
+  <div id="relatorio"></div>
+</div>
+
+<div id="retomar">
+  <h2 style="color:#004c42;margin:0 0 6px">Você estava aqui!</h2>
+  <p id="retTxt" style="font-weight:700"></p>
+  <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+    <button class="bt verde" id="bContinuar">Continuar de onde parei</button>
+    <button class="bt cinza" id="bZerar">Começar um caderno novo</button>
+  </div>
+</div>
+
+<div id="nav">
+  <button class="bt cinza" id="bAnt"><i class="seta esq"></i>Anterior</button>
+  <div class="txt" id="navTxt"></div>
+  <!-- ⭐ O FECHO A QUALQUER MOMENTO — ver o comentário do `fim()` no folhas.js.
+       Sem ele, 25 folhas castigam justamente a criança que vai devagar: ela
+       nunca chegaria a ver o próprio boletim. -->
+  <button class="bt terminar" id="bTerminar" aria-label="Terminar agora e ver o meu boletim">Terminar</button>
+  <button class="bt" id="bProx">Próxima<i class="seta dir"></i></button>
+</div>
+
+<div id="barraCapa"><div class="lin"><label for="nomeIn">Seu nome:</label><input id="nomeIn" type="text" maxlength="24" autocomplete="off" spellcheck="false" placeholder="escreva aqui"><button class="bt" id="bComecar">Começar</button></div></div>
+
+<div id="menuProf" role="dialog" aria-label="Menu do professor" aria-modal="true">
+  <div class="cx">
+    <h3>Menu do professor</h3>
+    <p>Chave mestra <b>1275@</b>. Abra qualquer folha para conferir; o trabalho da criança não se apaga.</p>
+    <div class="folhas" id="mpFolhas"></div>
+    <!--<dossie-bt>--><button class="bt" id="bDossie">Dossiê pedagógico (currículo da rede)</button><!--</dossie-bt>-->
+<button class="bt cinza" id="mpFechar">Fechar</button>
+  </div>
+</div>
+
+
+<div id="confete" aria-hidden="true"></div>
+
+<script>
+/* ---------- OS POTES DE CADA FOLHA (o gerar_falas.py lê este bloco) ----------
+   ⚠️ A POSIÇÃO É A IDENTIDADE: o pote `pN` é da folha N, os ids dela são
+   `nN_i` e a fala do enunciado é `pNenun`. Mudar a ordem das folhas muda tudo
+   junto — e é de propósito, porque antes eram três listas para combinar à mão
+   e o relatório saía zero com a folha inteira respondida. */
+/*GESTOS-INI*/
+/* ⚠️ O GESTO DE CADA FOLHA, DECLARADO À MÃO — uma palavra: o que a criança FAZ
+   com o dedo, não o que o código parece. Ele existe porque o portão 0b7 tentou
+   ADIVINHAR isto do código e errou feio.
+   ⚠️ E O GESTO NÃO SE ESCOLHE DO NOSSO CARDÁPIO: ele sai do COMANDO IMPRESSO na
+      folha de papel de onde a folha nasceu (regra do Marcos, 13/set/2026: *"as
+      interatividades têm que vir das atividades que você seleciona na internet,
+      o que as atividades pedem para o aluno fazer"*). "Recorte e cole na coluna
+      correta" dá gaveta; "grife os substantivos compostos" dá marca-texto;
+      "pinte com a mesma cor" dá pintar. Anotar o comando verbatim no POTE.
+   ⚠️ Folha nova = linha nova AQUI, no mesmo commit.
+   Ex.: {"f1": "escolher", "f2": "classificar", "f3": "ligar"} */
+var GESTOS = {
+ "f1": "escolher",
+ "f2": "marcar vários",
+ "f3": "gaveta",
+ "f4": "escolher",
+ "f5": "ligar",
+ "f6": "completar",
+ "f7": "escrever",
+ "f8": "numerar",
+ "f9": "escolher",
+ "f10": "escolher",
+ "f11": "escolher",
+ "f12": "gaveta",
+ "f13": "marcar vários",
+ "f14": "escolher",
+ "f15": "escrever",
+ "f16": "ligar",
+ "f17": "completar",
+ "f18": "completar",
+ "f19": "gaveta",
+ "f20": "marca-texto",
+ "f21": "marca-texto",
+ "f22": "escolher",
+ "f23": "completar",
+ "f24": "completar",
+ "f25": "gaveta",
+ "f26": "ligar",
+ "f27": "escrever",
+ "f28": "marca-texto",
+ "f29": "caça-palavras",
+ "f30": "caça-palavras",
+ "f31": "cruzadinha",
+ "f32": "cruzadinha",
+ "f33": "arrastar",
+ "f34": "produção",
+ "f35": "cartaz"
+};
+/*GESTOS-FIM*/
+/*ITENS-INI*/
+/* ⚠️⚠️ A POSIÇÃO É A IDENTIDADE. A folha da posição 7 usa o pote `p7`, grava os
+   ids `n7_*` e fala `p7enun`. Não há segunda lista para desencontrar — isso já
+   fez o relatório sair ZERO com a folha inteira respondida.
+   ⚠️⚠️ E O POTE DIZ QUANTOS ITENS A FOLHA TEM: o `idsDaPagina` conta pelo
+   tamanho dele. Se a folha desenha uma peça por PALAVRA, o pote lista as
+   palavras — não as famílias delas. Errar isso faz a folha se dar por PRONTA
+   cedo demais e pular com itens ainda na tela, sem erro nenhum no console.
+   Quem mede é `node _qa/conta_folha.js <pasta>`; rodar SEMPRE.
+   ⚠️ Folha de LIGAR e folha de UM ITEM SÓ guardam o pote EMBRULHADO:
+      "p7": [["chave1","chave2","chave3"]] */
+var ITENS = {
+ "p1": [
+  "a1",
+  "a2",
+  "a3",
+  "a4",
+  "a5",
+  "a6"
+ ],
+ "p2": [
+  "m1",
+  "m2",
+  "m3"
+ ],
+ "p3": [
+  "g1",
+  "g2",
+  "g3",
+  "g4",
+  "g5",
+  "g6"
+ ],
+ "p4": [
+  "b1",
+  "b2",
+  "b3",
+  "b4",
+  "b5",
+  "b6"
+ ],
+ "p5": [
+  [
+   "l1",
+   "l2",
+   "l3",
+   "l4",
+   "l5"
+  ]
+ ],
+ "p6": [
+  "c1",
+  "c2",
+  "c3",
+  "c4",
+  "c5",
+  "c6"
+ ],
+ "p7": [
+  "d1",
+  "d2",
+  "d3",
+  "d4",
+  "d5"
+ ],
+ "p8": [
+  "e1",
+  "e2",
+  "e3",
+  "e4",
+  "e5"
+ ],
+ "p9": [
+  "ca1",
+  "ca2",
+  "ca3",
+  "ca4",
+  "ca5",
+  "ca6"
+ ],
+ "p10": [
+  "cb1",
+  "cb2",
+  "cb3",
+  "cb4",
+  "cb5",
+  "cb6"
+ ],
+ "p11": [
+  "cc1",
+  "cc2",
+  "cc3",
+  "cc4",
+  "cc5",
+  "cc6"
+ ],
+ "p12": [
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6"
+ ],
+ "p13": [
+  "mm1",
+  "mm2",
+  "mm3"
+ ],
+ "p14": [
+  "k1",
+  "k2",
+  "k3",
+  "k4",
+  "k5",
+  "k6"
+ ],
+ "p15": [
+  "gr1",
+  "gr2",
+  "gr3",
+  "gr4",
+  "gr5"
+ ],
+ "p16": [
+  [
+   "lp1",
+   "lp2",
+   "lp3",
+   "lp4",
+   "lp5"
+  ]
+ ],
+ "p17": [
+  "n1",
+  "n2",
+  "n3",
+  "n4",
+  "n5",
+  "n6"
+ ],
+ "p18": [
+  "o1",
+  "o2",
+  "o3",
+  "o4",
+  "o5",
+  "o6"
+ ],
+ "p19": [
+  "i1",
+  "i2",
+  "i3",
+  "i4",
+  "i5",
+  "i6"
+ ],
+ "p20": [
+  [
+   "tx1"
+  ]
+ ],
+ "p21": [
+  [
+   "tx2"
+  ]
+ ],
+ "p22": [
+  "pq1",
+  "pq2",
+  "pq3",
+  "pq4",
+  "pq5"
+ ],
+ "p23": [
+  "q1",
+  "q2",
+  "q3",
+  "q4",
+  "q5",
+  "q6"
+ ],
+ "p24": [
+  "r1",
+  "r2",
+  "r3",
+  "r4",
+  "r5",
+  "r6"
+ ],
+ "p25": [
+  "j1",
+  "j2",
+  "j3",
+  "j4",
+  "j5",
+  "j6",
+  "j7",
+  "j8"
+ ],
+ "p26": [
+  [
+   "ld1",
+   "ld2",
+   "ld3",
+   "ld4",
+   "ld5"
+  ]
+ ],
+ "p27": [
+  "s1",
+  "s2",
+  "s3",
+  "s4",
+  "s5"
+ ],
+ "p28": [
+  [
+   "tx3"
+  ]
+ ],
+ "p29": [
+  "cp1",
+  "cp2",
+  "cp3",
+  "cp4",
+  "cp5",
+  "cp6",
+  "cp7",
+  "cp8"
+ ],
+ "p30": [
+  "cq1",
+  "cq2",
+  "cq3",
+  "cq4",
+  "cq5",
+  "cq6",
+  "cq7",
+  "cq8"
+ ],
+ "p31": [
+  "cr1",
+  "cr2",
+  "cr3",
+  "cr4",
+  "cr5",
+  "cr6"
+ ],
+ "p32": [
+  "cs1",
+  "cs2",
+  "cs3",
+  "cs4",
+  "cs5",
+  "cs6"
+ ],
+ "p33": [
+  "w1",
+  "w2",
+  "w3",
+  "w4",
+  "w5"
+ ],
+ "p34": [
+  "ae1",
+  "ae2"
+ ],
+ "p35": [
+  "af1",
+  "af2",
+  "af3",
+  "af4",
+  "af5",
+  "af6"
+ ]
+};
+/*ITENS-FIM*/
+/*FALAS-INI*/
+var FALAS = {
+ "cacatoque": "Toque primeiro na primeira letra da palavra.",
+ "capa": "O Motor da Frase. Trinta e cinco folhas sobre o verbo: a palavra que faz a frase andar, e que combina com quem faz. Escreva o seu nome ali embaixo e toque em Começar.",
+ "cart_c": "Concordância: o verbo combina com quem faz. Por exemplo, eles correm.",
+ "cart_d": "Verbo de dizer: mostra quem fala e como. Por exemplo, Oi! disse Ana.",
+ "cart_v": "Verbo: a palavra que diz a ação. Por exemplo, correr · pular.",
+ "certo10_cb1": "Isso mesmo! Ela desenha muito bem.",
+ "certo10_cb2": "Muito bem! Ele joga futebol no sábado.",
+ "certo10_cb3": "Você acertou! A menina corre no parque.",
+ "certo10_cb4": "Boa! O menino faz a lição.",
+ "certo10_cb5": "Exatamente! Ela conta uma história.",
+ "certo10_cb6": "É isso aí! Ele dorme bem cedo.",
+ "certo11_cc1": "Isso mesmo! Nós nadamos na piscina.",
+ "certo11_cc2": "Muito bem! Eles jogam bola no recreio.",
+ "certo11_cc3": "Você acertou! Nós arrumamos a sala todo dia.",
+ "certo11_cc4": "Boa! Elas cantam no coral.",
+ "certo11_cc5": "Exatamente! Nós ouvimos a professora.",
+ "certo11_cc6": "É isso aí! Eles vão para a escola a pé.",
+ "certo12_h1": "Isso mesmo! Ele corre: um só faz.",
+ "certo12_h2": "Muito bem! Nós corremos: mais de um fazem.",
+ "certo12_h3": "Você acertou! Eles pulam: mais de um fazem.",
+ "certo12_h4": "Boa! Eu leio: um só faz.",
+ "certo12_h5": "Exatamente! Vocês falam: mais de um fazem.",
+ "certo12_h6": "É isso aí! Ela dorme: um só faz.",
+ "certo13_mm1": "Isso mesmo! Você achou as frases em que o verbo combina com quem faz.",
+ "certo13_mm2": "Muito bem! Você achou as frases em que o verbo combina com quem faz.",
+ "certo13_mm3": "Você acertou! Você achou as frases em que o verbo combina com quem faz.",
+ "certo14_k1": "Isso mesmo! Os meninos jogam bola.",
+ "certo14_k2": "Muito bem! A menina lê um livro.",
+ "certo14_k3": "Você acertou! Nós gostamos de pizza.",
+ "certo14_k4": "Boa! Eu estudo à tarde.",
+ "certo14_k5": "Exatamente! Elas chegaram cedo.",
+ "certo14_k6": "É isso aí! O cachorro late.",
+ "certo15_gr1": "Isso mesmo! Nós brincamos no parque. (brincar)",
+ "certo15_gr2": "Muito bem! Eles chutam bola. (chutar)",
+ "certo15_gr3": "Você acertou! Eu acordo cedo. (acordar)",
+ "certo15_gr4": "Boa! Ela desenha bonito. (desenhar)",
+ "certo15_gr5": "Exatamente! Vocês cantam bem. (cantar)",
+ "certo16_lp1": "Isso mesmo! Eu escrevo.",
+ "certo16_lp2": "Muito bem! Ela escreve.",
+ "certo16_lp3": "Você acertou! Nós escrevemos.",
+ "certo16_lp4": "Boa! Eles escrevem.",
+ "certo16_lp5": "Exatamente! Tu escreves.",
+ "certo17_n1": "Isso mesmo! As crianças brincam no parque.",
+ "certo17_n2": "Muito bem! O cachorro late na porta.",
+ "certo17_n3": "Você acertou! Os pássaros cantam de manhã.",
+ "certo17_n4": "Boa! A professora explica a lição.",
+ "certo17_n5": "Exatamente! Os alunos fazem a tarefa.",
+ "certo17_n6": "É isso aí! O sol brilha forte hoje.",
+ "certo18_o1": "Isso mesmo! Ana e Bia estudam juntas.",
+ "certo18_o2": "Muito bem! O menino de boné solta pipa.",
+ "certo18_o3": "Você acertou! Meu pai e eu vamos pescar.",
+ "certo18_o4": "Boa! As alunas do quarto ano escrevem um jornal.",
+ "certo18_o5": "Exatamente! O gato e o cachorro dormem no sofá.",
+ "certo18_o6": "É isso aí! A turma inteira canta no coral.",
+ "certo19_i1": "Isso mesmo! O pássaro cantam: o verbo não combina com quem faz.",
+ "certo19_i2": "Muito bem! Os alunos estudam: o verbo combina.",
+ "certo19_i3": "Você acertou! A menina pulou: o verbo combina.",
+ "certo19_i4": "Boa! Nós vai à praia: o verbo não combina com quem faz.",
+ "certo19_i5": "Exatamente! Eles chegaram cedo: o verbo combina.",
+ "certo19_i6": "É isso aí! Eu gostamos de pizza: o verbo não combina com quem faz.",
+ "certo1_a1": "Isso mesmo! Come é a ação.",
+ "certo1_a2": "Muito bem! Corre é a ação.",
+ "certo1_a3": "Você acertou! Brincam é a ação.",
+ "certo1_a4": "Boa! Lê é a ação.",
+ "certo1_a5": "Exatamente! Anda é a ação.",
+ "certo1_a6": "É isso aí! Canta é a ação.",
+ "certo20_t": "Muito bem! Você achou todos.",
+ "certo21_t": "Muito bem! Você achou todos.",
+ "certo22_pq1": "Isso mesmo! Fortes chuvas alagam ruas do centro.",
+ "certo22_pq2": "Muito bem! Alunos plantam árvores no pátio.",
+ "certo22_pq3": "Você acertou! Time da escola vence o campeonato.",
+ "certo22_pq4": "Boa! Biblioteca recebe livros novos.",
+ "certo22_pq5": "Exatamente! Famílias participam da festa junina.",
+ "certo23_q1": "Isso mesmo! Vamos brincar? perguntou Ana.",
+ "certo23_q2": "Muito bem! Eu adoro bolo! disse Leo.",
+ "certo23_q3": "Você acertou! Gol! gritou o torcedor.",
+ "certo23_q4": "Boa! Sim, eu vou. respondeu Bia.",
+ "certo23_q5": "Exatamente! Psiu, silêncio… sussurrou a bibliotecária.",
+ "certo23_q6": "É isso aí! Obrigado pela ajuda! agradeceu o menino.",
+ "certo24_r1": "Isso mesmo! Socorro! gritou o menino, com medo.",
+ "certo24_r2": "Muito bem! Que horas são? perguntou a menina.",
+ "certo24_r3": "Você acertou! São três horas. respondeu o pai.",
+ "certo24_r4": "Boa! Não conte para ninguém… sussurrou ela, bem baixinho.",
+ "certo24_r5": "Exatamente! Ha, ha, ha! Que piada boa! riu o avô.",
+ "certo24_r6": "É isso aí! Fiquem quietos agora! ordenou o professor.",
+ "certo25_j1": "Isso mesmo! Disse é verbo de dizer.",
+ "certo25_j2": "Muito bem! Correu não é verbo de dizer.",
+ "certo25_j3": "Você acertou! Perguntou é verbo de dizer.",
+ "certo25_j4": "Boa! Pulou não é verbo de dizer.",
+ "certo25_j5": "Exatamente! Gritou é verbo de dizer.",
+ "certo25_j6": "É isso aí! Comeu não é verbo de dizer.",
+ "certo25_j7": "Isso mesmo! Respondeu é verbo de dizer.",
+ "certo25_j8": "Muito bem! Nadou não é verbo de dizer.",
+ "certo26_ld1": "Isso mesmo! Que horas são? perguntou.",
+ "certo26_ld2": "Muito bem! Psiu, silêncio… sussurrou.",
+ "certo26_ld3": "Você acertou! Gol! gritou.",
+ "certo26_ld4": "Boa! São duas horas. respondeu.",
+ "certo26_ld5": "Exatamente! Muito obrigado! agradeceu.",
+ "certo27_s1": "Isso mesmo! Você vem? perguntou Ana.",
+ "certo27_s2": "Muito bem! Cuidado! gritou o pai, bem alto.",
+ "certo27_s3": "Você acertou! Vou sim. respondeu Leo.",
+ "certo27_s4": "Boa! Bom dia! disse a professora.",
+ "certo27_s5": "Exatamente! Shhh… sussurrou a mãe, baixinho.",
+ "certo28_t": "Muito bem! Você achou todos.",
+ "certo29_cp1": "Isso mesmo! Corre.",
+ "certo29_cp2": "Muito bem! Pulam.",
+ "certo29_cp3": "Você acertou! Leem.",
+ "certo29_cp4": "Boa! Cantam.",
+ "certo29_cp5": "Exatamente! Disse.",
+ "certo29_cp6": "É isso aí! Gritou.",
+ "certo29_cp7": "Isso mesmo! Dormem.",
+ "certo29_cp8": "Muito bem! Falou.",
+ "certo2_m1": "Isso mesmo! As ações são correr, pular, ler.",
+ "certo2_m2": "Muito bem! As ações são nadar, dormir, comer.",
+ "certo2_m3": "Você acertou! As ações são escrever, desenhar, brincar.",
+ "certo30_cq1": "Isso mesmo! Falamos.",
+ "certo30_cq2": "Muito bem! Correm.",
+ "certo30_cq3": "Você acertou! Leio.",
+ "certo30_cq4": "Boa! Pulamos.",
+ "certo30_cq5": "Exatamente! Dizem.",
+ "certo30_cq6": "É isso aí! Canto.",
+ "certo30_cq7": "Isso mesmo! Escrevo.",
+ "certo30_cq8": "Muito bem! Brincam.",
+ "certo31_cr1": "Isso mesmo! Canto.",
+ "certo31_cr2": "Muito bem! Pulamos.",
+ "certo31_cr3": "Você acertou! Leem.",
+ "certo31_cr4": "Boa! Dorme.",
+ "certo31_cr5": "Exatamente! Falam.",
+ "certo31_cr6": "É isso aí! Corro.",
+ "certo32_cs1": "Isso mesmo! Gritou.",
+ "certo32_cs2": "Muito bem! Perguntou.",
+ "certo32_cs3": "Você acertou! Respondeu.",
+ "certo32_cs4": "Boa! Disse.",
+ "certo32_cs5": "Exatamente! Sussurrou.",
+ "certo32_cs6": "É isso aí! Agradeceu.",
+ "certo33_w1": "Isso mesmo! Eu canto.",
+ "certo33_w2": "Muito bem! Tu cantas.",
+ "certo33_w3": "Você acertou! Ela canta.",
+ "certo33_w4": "Boa! Nós cantamos.",
+ "certo33_w5": "Exatamente! Eles cantam.",
+ "certo34_ae1": "Essa vale! O verbo é seu, e ele combina.",
+ "certo34_ae2": "Essa vale! O verbo é seu, e ele combina.",
+ "certo35_af1": "Isso mesmo! Escrever é um verbo: uma ação.",
+ "certo35_af2": "Muito bem! Nós cantamos: o verbo combina com quem faz, é a concordância.",
+ "certo35_af3": "Você acertou! Perguntou é um verbo de dizer.",
+ "certo35_af4": "Boa! Brincar é um verbo: uma ação.",
+ "certo35_af5": "Exatamente! Os alunos leem: o verbo combina com quem faz, é a concordância.",
+ "certo35_af6": "É isso aí! Sussurrou é um verbo de dizer.",
+ "certo3_g1": "Isso mesmo! Pular é uma ação.",
+ "certo3_g2": "Muito bem! Escola é o nome de uma coisa.",
+ "certo3_g3": "Você acertou! Correr é uma ação.",
+ "certo3_g4": "Boa! Caderno é o nome de uma coisa.",
+ "certo3_g5": "Exatamente! Escrever é uma ação.",
+ "certo3_g6": "É isso aí! Janela é o nome de uma coisa.",
+ "certo4_b1": "Isso mesmo! Late é a ação: é o verbo.",
+ "certo4_b2": "Muito bem! Brincam é a ação: é o verbo.",
+ "certo4_b3": "Você acertou! Dirige é a ação: é o verbo.",
+ "certo4_b4": "Boa! Prepara é a ação: é o verbo.",
+ "certo4_b5": "Exatamente! Nada é a ação: é o verbo.",
+ "certo4_b6": "É isso aí! Desenho é a ação: é o verbo.",
+ "certo5_l1": "Isso mesmo! O jogador chuta a bola.",
+ "certo5_l2": "Muito bem! A professora ensina a turma.",
+ "certo5_l3": "Você acertou! O médico cuida dos doentes.",
+ "certo5_l4": "Boa! O padeiro faz o pão.",
+ "certo5_l5": "Exatamente! A costureira costura a roupa.",
+ "certo6_c1": "Isso mesmo! O gato bebe o leite.",
+ "certo6_c2": "Muito bem! A menina escreve uma carta.",
+ "certo6_c3": "Você acertou! O cachorro come o osso.",
+ "certo6_c4": "Boa! Nós brincamos no parque.",
+ "certo6_c5": "Exatamente! O avião voa bem alto.",
+ "certo6_c6": "É isso aí! As crianças cantam a música.",
+ "certo7_d1": "Isso mesmo! O cachorro late alto quando vê o carteiro.",
+ "certo7_d2": "Muito bem! A professora escreve no quadro.",
+ "certo7_d3": "Você acertou! O bebê chora à noite.",
+ "certo7_d4": "Boa! O peixe nada no rio.",
+ "certo7_d5": "Exatamente! O passarinho canta de manhã.",
+ "certo8_e1": "Isso mesmo! O bebê chora: é o número 1.",
+ "certo8_e2": "Muito bem! O cozinheiro cozinha: é o número 2.",
+ "certo8_e3": "Você acertou! O pintor pinta: é o número 3.",
+ "certo8_e4": "Boa! A cantora canta: é o número 4.",
+ "certo8_e5": "Exatamente! O motorista dirige: é o número 5.",
+ "certo9_ca1": "Isso mesmo! Eu canto no coral da escola.",
+ "certo9_ca2": "Muito bem! Eu leio um livro por semana.",
+ "certo9_ca3": "Você acertou! Eu ando de bicicleta.",
+ "certo9_ca4": "Boa! Eu acordo cedo todos os dias.",
+ "certo9_ca5": "Exatamente! Eu como frutas no lanche.",
+ "certo9_ca6": "É isso aí! Eu brinco com meus amigos.",
+ "cp_cp1": "ele lacuna do verbo correr.",
+ "cp_cp2": "eles lacuna do verbo pular.",
+ "cp_cp3": "elas lacuna do verbo ler.",
+ "cp_cp4": "eles lacuna do verbo cantar.",
+ "cp_cp5": "ela lacuna do verbo dizer, ontem.",
+ "cp_cp6": "ele lacuna do verbo gritar, ontem.",
+ "cp_cp7": "eles lacuna do verbo dormir.",
+ "cp_cp8": "ela lacuna do verbo falar, ontem.",
+ "cp_cq1": "nós lacuna do verbo falar.",
+ "cp_cq2": "eles lacuna do verbo correr.",
+ "cp_cq3": "eu lacuna do verbo ler.",
+ "cp_cq4": "nós lacuna do verbo pular.",
+ "cp_cq5": "elas lacuna do verbo dizer.",
+ "cp_cq6": "eu lacuna do verbo cantar.",
+ "cp_cq7": "eu lacuna do verbo escrever.",
+ "cp_cq8": "eles lacuna do verbo brincar.",
+ "crz_cr1": "Eu lacuna do verbo cantar.",
+ "crz_cr2": "Nós lacuna do verbo pular.",
+ "crz_cr3": "Eles lacuna do verbo ler.",
+ "crz_cr4": "Ela lacuna do verbo dormir.",
+ "crz_cr5": "Vocês lacuna do verbo falar.",
+ "crz_cr6": "Eu lacuna do verbo correr.",
+ "crz_cs1": "Socorro! lacuna ela.",
+ "crz_cs2": "Que horas são? lacuna o menino.",
+ "crz_cs3": "São três. lacuna a mãe.",
+ "crz_cs4": "Boa noite. lacuna ele.",
+ "crz_cs5": "Psiu! lacuna a menina, baixinho.",
+ "crz_cs6": "Obrigada! lacuna a avó.",
+ "dica10_cb1": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica10_cb2": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica10_cb3": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica10_cb4": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica10_cb5": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica10_cb6": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica11_cc1": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica11_cc2": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica11_cc3": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica11_cc4": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica11_cc5": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica11_cc6": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica12_h1": "Olhe o começo: eu, ele, ela é um só. Nós, vocês, eles é mais de um.",
+ "dica12_h2": "Olhe o começo: eu, ele, ela é um só. Nós, vocês, eles é mais de um.",
+ "dica12_h3": "Olhe o começo: eu, ele, ela é um só. Nós, vocês, eles é mais de um.",
+ "dica12_h4": "Olhe o começo: eu, ele, ela é um só. Nós, vocês, eles é mais de um.",
+ "dica12_h5": "Olhe o começo: eu, ele, ela é um só. Nós, vocês, eles é mais de um.",
+ "dica12_h6": "Olhe o começo: eu, ele, ela é um só. Nós, vocês, eles é mais de um.",
+ "dica13_mm1": "Leia cada frase em voz alta. Nas erradas, o verbo não combina: eles vai, eu cantamos. Soa estranho.",
+ "dica13_mm2": "Leia cada frase em voz alta. Nas erradas, o verbo não combina: eles vai, eu cantamos. Soa estranho.",
+ "dica13_mm3": "Leia cada frase em voz alta. Nas erradas, o verbo não combina: eles vai, eu cantamos. Soa estranho.",
+ "dica14_k1": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica14_k2": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica14_k3": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica14_k4": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica14_k5": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica14_k6": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica15_gr1": "Conte as casinhas: são 9 letras. Quem faz é NÓS: termina em AMOS.",
+ "dica15_gr2": "Conte as casinhas: são 6 letras. Quem faz é ELES: termina em AM.",
+ "dica15_gr3": "Conte as casinhas: são 6 letras. Quem faz é EU: termina em O.",
+ "dica15_gr4": "Conte as casinhas: são 7 letras. Quem faz é ELA: termina em A.",
+ "dica15_gr5": "Conte as casinhas: são 6 letras. Quem faz é VOCÊS: termina em AM.",
+ "dica16_lp1": "Diga eu e depois cada verbo da direita. Só um soa certo.",
+ "dica16_lp2": "Diga ela e depois cada verbo da direita. Só um soa certo.",
+ "dica16_lp3": "Diga nós e depois cada verbo da direita. Só um soa certo.",
+ "dica16_lp4": "Diga eles e depois cada verbo da direita. Só um soa certo.",
+ "dica16_lp5": "Diga tu e depois cada verbo da direita. Só um soa certo.",
+ "dica17_n1": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica17_n2": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica17_n3": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica17_n4": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica17_n5": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica17_n6": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica18_o1": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica18_o2": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica18_o3": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica18_o4": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica18_o5": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica18_o6": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica19_i1": "Leia em voz alta. Se soar estranho, como 'nós vai', o verbo não combina.",
+ "dica19_i2": "Leia em voz alta. Se soar estranho, como 'nós vai', o verbo não combina.",
+ "dica19_i3": "Leia em voz alta. Se soar estranho, como 'nós vai', o verbo não combina.",
+ "dica19_i4": "Leia em voz alta. Se soar estranho, como 'nós vai', o verbo não combina.",
+ "dica19_i5": "Leia em voz alta. Se soar estranho, como 'nós vai', o verbo não combina.",
+ "dica19_i6": "Leia em voz alta. Se soar estranho, como 'nós vai', o verbo não combina.",
+ "dica1_a1": "Pergunte: o que essa pessoa está fazendo? A resposta é o verbo.",
+ "dica1_a2": "Verbo é palavra de fazer: dá para pôr EU na frente e ela vira uma ação.",
+ "dica1_a3": "Nome de coisa não é ação. Procure a palavra que mostra movimento ou acontecimento.",
+ "dica1_a4": "Pergunte: o que essa pessoa está fazendo? A resposta é o verbo.",
+ "dica1_a5": "Verbo é palavra de fazer: dá para pôr EU na frente e ela vira uma ação.",
+ "dica1_a6": "Nome de coisa não é ação. Procure a palavra que mostra movimento ou acontecimento.",
+ "dica20_t": "Leia linha por linha. São 6 palavras. Toque em cada uma e depois confira.",
+ "dica21_t": "Leia linha por linha. São 4 palavras. Toque em cada uma e depois confira.",
+ "dica22_pq1": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica22_pq2": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica22_pq3": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica22_pq4": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica22_pq5": "Leia as duas em voz alta. Numa delas o verbo não combina com quem faz: soa estranho.",
+ "dica23_q1": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica23_q2": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica23_q3": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica23_q4": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica23_q5": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica23_q6": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica24_r1": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica24_r2": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica24_r3": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica24_r4": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica24_r5": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica24_r6": "Leia a fala e pense em como ela foi dita. O verbo depois do travessão mostra isso.",
+ "dica25_j1": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+ "dica25_j2": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+ "dica25_j3": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+ "dica25_j4": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+ "dica25_j5": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+ "dica25_j6": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+ "dica25_j7": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+ "dica25_j8": "Verbo de dizer é o que vem depois de uma fala: disse, perguntou, gritou.",
+ "dica26_ld1": "Como essa fala foi dita? Perguntando, gritando, baixinho, agradecendo? O verbo diz isso.",
+ "dica26_ld2": "Como essa fala foi dita? Perguntando, gritando, baixinho, agradecendo? O verbo diz isso.",
+ "dica26_ld3": "Como essa fala foi dita? Perguntando, gritando, baixinho, agradecendo? O verbo diz isso.",
+ "dica26_ld4": "Como essa fala foi dita? Perguntando, gritando, baixinho, agradecendo? O verbo diz isso.",
+ "dica26_ld5": "Como essa fala foi dita? Perguntando, gritando, baixinho, agradecendo? O verbo diz isso.",
+ "dica27_s1": "Conte as casinhas: são 9 letras. Ela fez uma pergunta.",
+ "dica27_s2": "Conte as casinhas: são 6 letras. Bem alto, com força.",
+ "dica27_s3": "Conte as casinhas: são 9 letras. Ele deu a resposta.",
+ "dica27_s4": "Conte as casinhas: são 5 letras. Cinco letras: o verbo de dizer mais simples.",
+ "dica27_s5": "Conte as casinhas: são 9 letras. Bem baixinho, quase sem som.",
+ "dica28_t": "Leia linha por linha. São 4 palavras. Toque em cada uma e depois confira.",
+ "dica29_cp1": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica29_cp2": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica29_cp3": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica29_cp4": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica29_cp5": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica29_cp6": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica29_cp7": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica29_cp8": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica2_m1": "Ponha EU na frente de cada palavra. Eu correr, eu mesa… qual dá para fazer?",
+ "dica2_m2": "Ponha EU na frente de cada palavra. Eu correr, eu mesa… qual dá para fazer?",
+ "dica2_m3": "Ponha EU na frente de cada palavra. Eu correr, eu mesa… qual dá para fazer?",
+ "dica30_cq1": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica30_cq2": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica30_cq3": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica30_cq4": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica30_cq5": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica30_cq6": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica30_cq7": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica30_cq8": "Diga a frase com o verbo certo e procure a primeira letra dele na grade. Siga para o lado.",
+ "dica31_cr1": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica31_cr2": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica31_cr3": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica31_cr4": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica31_cr5": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica31_cr6": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica32_cs1": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica32_cs2": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica32_cs3": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica32_cs4": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica32_cs5": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica32_cs6": "Diga a frase inteira em voz alta com o verbo certo. Conte as casinhas.",
+ "dica33_w1": "Diga eu e depois cada forma de cima. Qual soa certa?",
+ "dica33_w2": "Diga tu e depois cada forma de cima. Qual soa certa?",
+ "dica33_w3": "Diga ela e depois cada forma de cima. Qual soa certa?",
+ "dica33_w4": "Diga nós e depois cada forma de cima. Qual soa certa?",
+ "dica33_w5": "Diga eles e depois cada forma de cima. Qual soa certa?",
+ "dica34_ae1": "Pense no que essas pessoas fazem nesse lugar. Escreva o verbo combinando com quem faz.",
+ "dica34_ae2": "Pense no que essas pessoas fazem nesse lugar. Escreva o verbo combinando com quem faz.",
+ "dica35_af1": "É uma ação sozinha, é uma frase em que o verbo combina com quem faz, ou é um verbo que mostra uma fala?",
+ "dica35_af2": "É uma ação sozinha, é uma frase em que o verbo combina com quem faz, ou é um verbo que mostra uma fala?",
+ "dica35_af3": "É uma ação sozinha, é uma frase em que o verbo combina com quem faz, ou é um verbo que mostra uma fala?",
+ "dica35_af4": "É uma ação sozinha, é uma frase em que o verbo combina com quem faz, ou é um verbo que mostra uma fala?",
+ "dica35_af5": "É uma ação sozinha, é uma frase em que o verbo combina com quem faz, ou é um verbo que mostra uma fala?",
+ "dica35_af6": "É uma ação sozinha, é uma frase em que o verbo combina com quem faz, ou é um verbo que mostra uma fala?",
+ "dica3_g1": "Dá para fazer isso? Se dá, é ação. Se é uma coisa que a gente pega ou vê, é nome.",
+ "dica3_g2": "Dá para fazer isso? Se dá, é ação. Se é uma coisa que a gente pega ou vê, é nome.",
+ "dica3_g3": "Dá para fazer isso? Se dá, é ação. Se é uma coisa que a gente pega ou vê, é nome.",
+ "dica3_g4": "Dá para fazer isso? Se dá, é ação. Se é uma coisa que a gente pega ou vê, é nome.",
+ "dica3_g5": "Dá para fazer isso? Se dá, é ação. Se é uma coisa que a gente pega ou vê, é nome.",
+ "dica3_g6": "Dá para fazer isso? Se dá, é ação. Se é uma coisa que a gente pega ou vê, é nome.",
+ "dica4_b1": "Pergunte: o que essa pessoa está fazendo? A resposta é o verbo.",
+ "dica4_b2": "Verbo é palavra de fazer: dá para pôr EU na frente e ela vira uma ação.",
+ "dica4_b3": "Nome de coisa não é ação. Procure a palavra que mostra movimento ou acontecimento.",
+ "dica4_b4": "Pergunte: o que essa pessoa está fazendo? A resposta é o verbo.",
+ "dica4_b5": "Verbo é palavra de fazer: dá para pôr EU na frente e ela vira uma ação.",
+ "dica4_b6": "Nome de coisa não é ação. Procure a palavra que mostra movimento ou acontecimento.",
+ "dica5_l1": "Pense: o que o jogador faz? Procure essa ação do lado direito.",
+ "dica5_l2": "Pense: o que a professora faz? Procure essa ação do lado direito.",
+ "dica5_l3": "Pense: o que o médico faz? Procure essa ação do lado direito.",
+ "dica5_l4": "Pense: o que o padeiro faz? Procure essa ação do lado direito.",
+ "dica5_l5": "Pense: o que a costureira faz? Procure essa ação do lado direito.",
+ "dica6_c1": "Pergunte: o que essa pessoa está fazendo? A resposta é o verbo.",
+ "dica6_c2": "Verbo é palavra de fazer: dá para pôr EU na frente e ela vira uma ação.",
+ "dica6_c3": "Nome de coisa não é ação. Procure a palavra que mostra movimento ou acontecimento.",
+ "dica6_c4": "Pergunte: o que essa pessoa está fazendo? A resposta é o verbo.",
+ "dica6_c5": "Verbo é palavra de fazer: dá para pôr EU na frente e ela vira uma ação.",
+ "dica6_c6": "Nome de coisa não é ação. Procure a palavra que mostra movimento ou acontecimento.",
+ "dica7_d1": "Conte as casinhas: são 4 letras. Quatro letras: o barulho que o cachorro faz.",
+ "dica7_d2": "Conte as casinhas: são 7 letras. Sete letras: ela usa o giz.",
+ "dica7_d3": "Conte as casinhas: são 5 letras. Cinco letras: lágrimas.",
+ "dica7_d4": "Conte as casinhas: são 4 letras. Quatro letras: dentro da água.",
+ "dica7_d5": "Conte as casinhas: são 5 letras. Cinco letras: faz música.",
+ "dica8_e1": "Quem chora? Leia a coluna da esquerda de novo.",
+ "dica8_e2": "Quem cozinha? Leia a coluna da esquerda de novo.",
+ "dica8_e3": "Quem pinta? Leia a coluna da esquerda de novo.",
+ "dica8_e4": "Quem canta? Leia a coluna da esquerda de novo.",
+ "dica8_e5": "Quem dirige? Leia a coluna da esquerda de novo.",
+ "dica9_ca1": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica9_ca2": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica9_ca3": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "dica9_ca4": "Diga a frase inteira em voz alta, com cada opção. Só uma soa certa.",
+ "dica9_ca5": "Olhe quem faz: é um só, ou mais de um? O fim do verbo tem que combinar.",
+ "dica9_ca6": "Troque quem faz por ele ou por eles e escute o verbo de novo.",
+ "diz2_gA_g1": "Pular.",
+ "diz2_gA_g2": "Escola.",
+ "diz2_gA_g3": "Correr.",
+ "diz2_gA_g4": "Caderno.",
+ "diz2_gA_g5": "Escrever.",
+ "diz2_gA_g6": "Janela.",
+ "diz2_gB_h1": "Ele corre.",
+ "diz2_gB_h2": "Nós corremos.",
+ "diz2_gB_h3": "Eles pulam.",
+ "diz2_gB_h4": "Eu leio.",
+ "diz2_gB_h5": "Vocês falam.",
+ "diz2_gB_h6": "Ela dorme.",
+ "diz2_gC_i1": "O pássaro cantam.",
+ "diz2_gC_i2": "Os alunos estudam.",
+ "diz2_gC_i3": "A menina pulou.",
+ "diz2_gC_i4": "Nós vai à praia.",
+ "diz2_gC_i5": "Eles chegaram cedo.",
+ "diz2_gC_i6": "Eu gostamos de pizza.",
+ "diz2_gD_j1": "Disse.",
+ "diz2_gD_j2": "Correu.",
+ "diz2_gD_j3": "Perguntou.",
+ "diz2_gD_j4": "Pulou.",
+ "diz2_gD_j5": "Gritou.",
+ "diz2_gD_j6": "Comeu.",
+ "diz2_gD_j7": "Respondeu.",
+ "diz2_gD_j8": "Nadou.",
+ "escreva": "Escreva a palavra usando o teclado.",
+ "ex_af1": "Escrever.",
+ "ex_af2": "Nós cantamos.",
+ "ex_af3": "Perguntou.",
+ "ex_af4": "Brincar.",
+ "ex_af5": "Os alunos leem.",
+ "ex_af6": "Sussurrou.",
+ "fim": "Você chegou ao fim! Agora preste atenção na próxima conversa que ouvir: quem fala, e como fala? Perguntou, gritou, sussurrou? O verbo conta isso. Repare também se o verbo combina com quem faz.",
+ "folhaPronta": "Folha pronta! Muito bem.",
+ "fra_a1": "A menina come o almoço.",
+ "fra_a2": "O menino corre no pátio.",
+ "fra_a3": "As crianças brincam na gangorra.",
+ "fra_a4": "O menino lê um livro.",
+ "fra_a5": "A menina anda para a escola.",
+ "fra_a6": "O pássaro canta de manhã.",
+ "fra_b1": "O cachorro late para o carteiro.",
+ "fra_b2": "As crianças brincam na areia.",
+ "fra_b3": "Meu pai dirige o carro.",
+ "fra_b4": "A cozinheira prepara o almoço.",
+ "fra_b5": "O peixe nada no rio.",
+ "fra_b6": "Eu desenho um castelo.",
+ "fra_c1": "O gato lacuna o leite.",
+ "fra_c2": "A menina lacuna uma carta.",
+ "fra_c3": "O cachorro lacuna o osso.",
+ "fra_c4": "Nós lacuna no parque.",
+ "fra_c5": "O avião lacuna bem alto.",
+ "fra_c6": "As crianças lacuna a música.",
+ "fra_ca1": "Eu lacuna no coral da escola.",
+ "fra_ca2": "Eu lacuna um livro por semana.",
+ "fra_ca3": "Eu lacuna de bicicleta.",
+ "fra_ca4": "Eu lacuna cedo todos os dias.",
+ "fra_ca5": "Eu lacuna frutas no lanche.",
+ "fra_ca6": "Eu lacuna com meus amigos.",
+ "fra_cb1": "Ela lacuna muito bem.",
+ "fra_cb2": "Ele lacuna futebol no sábado.",
+ "fra_cb3": "A menina lacuna no parque.",
+ "fra_cb4": "O menino lacuna a lição.",
+ "fra_cb5": "Ela lacuna uma história.",
+ "fra_cb6": "Ele lacuna bem cedo.",
+ "fra_cc1": "Nós lacuna na piscina.",
+ "fra_cc2": "Eles lacuna bola no recreio.",
+ "fra_cc3": "Nós lacuna a sala todo dia.",
+ "fra_cc4": "Elas lacuna no coral.",
+ "fra_cc5": "Nós lacuna a professora.",
+ "fra_cc6": "Eles lacuna para a escola a pé.",
+ "fra_n1": "As crianças lacuna no parque.",
+ "fra_n2": "O cachorro lacuna na porta.",
+ "fra_n3": "Os pássaros lacuna de manhã.",
+ "fra_n4": "A professora lacuna a lição.",
+ "fra_n5": "Os alunos lacuna a tarefa.",
+ "fra_n6": "O sol lacuna forte hoje.",
+ "fra_o1": "Ana e Bia lacuna juntas.",
+ "fra_o2": "O menino de boné lacuna pipa.",
+ "fra_o3": "Meu pai e eu lacuna pescar.",
+ "fra_o4": "As alunas do quarto ano lacuna um jornal.",
+ "fra_o5": "O gato e o cachorro lacuna no sofá.",
+ "fra_o6": "A turma inteira lacuna no coral.",
+ "fra_q1": "Vamos brincar? lacuna Ana.",
+ "fra_q2": "Eu adoro bolo! lacuna Leo.",
+ "fra_q3": "Gol! lacuna o torcedor.",
+ "fra_q4": "Sim, eu vou. lacuna Bia.",
+ "fra_q5": "Psiu, silêncio… lacuna a bibliotecária.",
+ "fra_q6": "Obrigado pela ajuda! lacuna o menino.",
+ "fra_r1": "Socorro! lacuna o menino, com medo.",
+ "fra_r2": "Que horas são? lacuna a menina.",
+ "fra_r3": "São três horas. lacuna o pai.",
+ "fra_r4": "Não conte para ninguém… lacuna ela, bem baixinho.",
+ "fra_r5": "Ha, ha, ha! Que piada boa! lacuna o avô.",
+ "fra_r6": "Fiquem quietos agora! lacuna o professor.",
+ "gav_gA_n": "Gaveta dos nomes de coisas.",
+ "gav_gA_v": "Gaveta das palavras de ação.",
+ "gav_gB_p": "Gaveta de mais de um fazendo.",
+ "gav_gB_s": "Gaveta de quem faz sozinho: um só.",
+ "gav_gC_c": "Gaveta das frases em que o verbo combina com quem faz.",
+ "gav_gC_e": "Gaveta das frases em que o verbo não combina.",
+ "gav_gD_d": "Gaveta dos verbos de dizer.",
+ "gav_gD_o": "Gaveta dos outros verbos.",
+ "grd_d1": "O cachorro lacuna alto quando vê o carteiro. Quatro letras: o barulho que o cachorro faz.",
+ "grd_d2": "A professora lacuna no quadro. Sete letras: ela usa o giz.",
+ "grd_d3": "O bebê lacuna à noite. Cinco letras: lágrimas.",
+ "grd_d4": "O peixe lacuna no rio. Quatro letras: dentro da água.",
+ "grd_d5": "O passarinho lacuna de manhã. Cinco letras: faz música.",
+ "grd_gr1": "Nós lacuna no parque. (brincar) Quem faz é NÓS: termina em AMOS.",
+ "grd_gr2": "Eles lacuna bola. (chutar) Quem faz é ELES: termina em AM.",
+ "grd_gr3": "Eu lacuna cedo. (acordar) Quem faz é EU: termina em O.",
+ "grd_gr4": "Ela lacuna bonito. (desenhar) Quem faz é ELA: termina em A.",
+ "grd_gr5": "Vocês lacuna bem. (cantar) Quem faz é VOCÊS: termina em AM.",
+ "grd_s1": "Você vem? lacuna Ana. Ela fez uma pergunta.",
+ "grd_s2": "Cuidado! lacuna o pai, bem alto. Bem alto, com força.",
+ "grd_s3": "Vou sim. lacuna Leo. Ele deu a resposta.",
+ "grd_s4": "Bom dia! lacuna a professora. Cinco letras: o verbo de dizer mais simples.",
+ "grd_s5": "Shhh… lacuna a mãe, baixinho. Bem baixinho, quase sem som.",
+ "lg_l1_d": "Chuta a bola.",
+ "lg_l1_e": "O jogador.",
+ "lg_l2_d": "Ensina a turma.",
+ "lg_l2_e": "A professora.",
+ "lg_l3_d": "Cuida dos doentes.",
+ "lg_l3_e": "O médico.",
+ "lg_l4_d": "Faz o pão.",
+ "lg_l4_e": "O padeiro.",
+ "lg_l5_d": "Costura a roupa.",
+ "lg_l5_e": "A costureira.",
+ "lg_ld1_e": "Que horas são?",
+ "lg_ld2_e": "Psiu, silêncio…",
+ "lg_ld3_e": "Gol!",
+ "lg_ld4_e": "São duas horas.",
+ "lg_ld5_e": "Muito obrigado!",
+ "ligue": "Toque numa peça do lado esquerdo e depois na do lado direito.",
+ "marq_mm1_q1": "Nós vamos à escola.",
+ "marq_mm1_q2": "Eles vai à escola.",
+ "marq_mm1_q3": "Ela vai à escola.",
+ "marq_mm1_q4": "Eu vai à escola.",
+ "marq_mm2_q1": "Os gatos dormem.",
+ "marq_mm2_q2": "O gato dormem.",
+ "marq_mm2_q3": "Eu durmo cedo.",
+ "marq_mm2_q4": "Nós dorme cedo.",
+ "marq_mm3_q1": "Vocês cantam bem.",
+ "marq_mm3_q2": "Eles canta bem.",
+ "marq_mm3_q3": "Nós cantamos bem.",
+ "marq_mm3_q4": "Eu cantamos bem.",
+ "novoCaderno": "Caderno novo! Escreva o seu nome e toque em Começar.",
+ "num_1": "Número 1.",
+ "num_2": "Número 2.",
+ "num_3": "Número 3.",
+ "num_4": "Número 4.",
+ "num_5": "Número 5.",
+ "p10enun": "Agora quem faz é ele ou ela: uma pessoa só. Escolha a forma que combina.",
+ "p11enun": "Quem faz é nós ou eles: mais de um. Repare como o fim do verbo muda.",
+ "p12enun": "Leia a peça. Quem faz é um só, ou é mais de um? Repare no fim do verbo antes de escolher a gaveta.",
+ "p13enun": "Leia as quatro frases de cada grupo. Marque só as que estão certas: o verbo combina com quem faz. Depois confira.",
+ "p14enun": "As duas frases são quase iguais: só o verbo muda. Toque na frase em que o verbo combina com quem faz.",
+ "p15enun": "O verbo está entre parênteses, sem forma. Escreva a forma que combina com quem faz.",
+ "p16enun": "Ligue cada pronome à forma do verbo que combina com ele. Diga os dois juntos em voz alta.",
+ "p17enun": "Agora quem faz é um nome: o cachorro, os pássaros. Um só ou mais de um? Escolha o verbo que combina.",
+ "p18enun": "Cuidado: quem faz agora são duas pessoas, ou um grupo inteiro. Pense bem antes de escolher.",
+ "p19enun": "Leia a frase em voz alta. O verbo combina com quem faz, ou soa errado? Leve para a gaveta certa.",
+ "p1enun": "Leia a frase. Uma das três palavras diz o que alguém faz: a ação. Qual é?",
+ "p20enun": "Leia a notícia e toque nos verbos: as palavras que dizem o que cada um fez ou faz. Depois confira.",
+ "p21enun": "Este texto tem erros. Toque nos verbos que não combinam com quem faz. Depois confira.",
+ "p22enun": "O jornal da escola escreveu duas manchetes para cada notícia. Só uma está certa. Qual?",
+ "p23enun": "Alguém falou. A palavra que falta diz quem falou e como. Qual verbo mostra a fala?",
+ "p24enun": "As três opções são verbos de fala. Só uma combina com o jeito de falar: alto, baixinho, perguntando. Escolha.",
+ "p25enun": "Alguns verbos mostram que alguém falou. Esses são os verbos de dizer. Separe: verbo de dizer, ou outro verbo?",
+ "p26enun": "Cada fala pede um verbo de dizer. Ligue a fala ao verbo que mostra como ela foi dita.",
+ "p27enun": "Leia a fala e o jeito de falar. Escreva o verbo de dizer que falta.",
+ "p28enun": "Leia o diálogo e toque nos verbos de dizer: os que mostram quem falou e como. Depois confira.",
+ "p29enun": "Ache na grade a forma do verbo que a pista pede: toque na primeira letra e depois na última.",
+ "p2enun": "Em cada grupo há palavras de ação e palavras que são nomes de coisas. Marque só as ações e toque em Conferir.",
+ "p30enun": "Agora o pronome muda: eu, nós, eles. Ache a forma que combina. Primeira letra, depois a última.",
+ "p31enun": "Toque numa pista, escute e escreva a forma do verbo que combina com o pronome.",
+ "p32enun": "Agora são os verbos de dizer. Leia a fala e escreva o verbo que mostra como ela foi dita.",
+ "p33enun": "Em cima estão as formas do verbo. Puxe cada pronome até a forma que combina com ele, ou toque num e depois no outro.",
+ "p34enun": "Agora o verbo é seu. Escreva um verbo que combine com quem faz. Vale qualquer um que caiba na frase.",
+ "p35enun": "Você já sabe tudo isto. Agora os nomes: leve cada exemplo para a linha dele no cartaz.",
+ "p3enun": "Leia cada palavra. Ela diz uma ação, ou é o nome de uma coisa? Leve para a gaveta certa.",
+ "p4enun": "A palavra que diz a ação tem um nome: verbo. Você já achou treze. Agora ache o verbo de cada frase.",
+ "p5enun": "Do lado esquerdo está quem faz. Do direito, o que faz. Toque num e depois no outro para ligar.",
+ "p6enun": "A frase está sem a ação. Das três palavras, só uma é verbo. Preencha.",
+ "p7enun": "As casinhas dizem quantas letras tem o verbo. Leia a pista e escreva: toque nas casinhas ou digite.",
+ "p8enun": "A coluna da esquerda tem quem faz, numerado. Para cada ação da direita, toque no número de quem faz.",
+ "p9enun": "Quem faz é EU. Das três formas do verbo, qual combina com eu? Diga a frase inteira em voz alta.",
+ "pal_abriu": "Abriu.",
+ "pal_acordam": "Acordam.",
+ "pal_acordamos": "Acordamos.",
+ "pal_acordo": "Acordo.",
+ "pal_agradeceu": "Agradeceu.",
+ "pal_alegre": "Alegre.",
+ "pal_almoo": "Almoço.",
+ "pal_alunosplantamrvoresnoptio": "Alunos plantam árvores no pátio.",
+ "pal_alunosplantarvoresnoptio": "Alunos planta árvores no pátio.",
+ "pal_ameninaleemumlivro": "A menina leem um livro.",
+ "pal_ameninalumlivro": "A menina lê um livro.",
+ "pal_anda": "Anda.",
+ "pal_andam": "Andam.",
+ "pal_andamos": "Andamos.",
+ "pal_ando": "Ando.",
+ "pal_andou": "Andou.",
+ "pal_areia": "Areia.",
+ "pal_arruma": "Arruma.",
+ "pal_arrumam": "Arrumam.",
+ "pal_arrumamos": "Arrumamos.",
+ "pal_asa": "Asa.",
+ "pal_azul": "Azul.",
+ "pal_bebe": "Bebe.",
+ "pal_bibliotecarecebelivrosnovos": "Biblioteca recebe livros novos.",
+ "pal_bibliotecarecebemlivrosnovos": "Biblioteca recebem livros novos.",
+ "pal_bola": "Bola.",
+ "pal_bonito": "Bonito.",
+ "pal_branco": "Branco.",
+ "pal_brilha": "Brilha.",
+ "pal_brilham": "Brilham.",
+ "pal_brilho": "Brilho.",
+ "pal_brinca": "Brinca.",
+ "pal_brincam": "Brincam.",
+ "pal_brincamos": "Brincamos.",
+ "pal_brincar": "Brincar.",
+ "pal_brinco": "Brinco.",
+ "pal_cachorro": "Cachorro.",
+ "pal_cadeira": "Cadeira.",
+ "pal_canta": "Canta.",
+ "pal_cantam": "Cantam.",
+ "pal_cantamos": "Cantamos.",
+ "pal_cantas": "Cantas.",
+ "pal_canto": "Canto.",
+ "pal_carro": "Carro.",
+ "pal_carteiro": "Carteiro.",
+ "pal_castelo": "Castelo.",
+ "pal_chora": "Chora.",
+ "pal_chorou": "Chorou.",
+ "pal_chutou": "Chutou.",
+ "pal_come": "Come.",
+ "pal_comem": "Comem.",
+ "pal_comemos": "Comemos.",
+ "pal_comer": "Comer.",
+ "pal_comeu": "Comeu.",
+ "pal_como": "Como.",
+ "pal_conta": "Conta.",
+ "pal_contam": "Contam.",
+ "pal_conto": "Conto.",
+ "pal_corre": "Corre.",
+ "pal_correm": "Correm.",
+ "pal_correr": "Correr.",
+ "pal_correu": "Correu.",
+ "pal_corro": "Corro.",
+ "pal_cozinha": "Cozinha.",
+ "pal_cozinheira": "Cozinheira.",
+ "pal_crianas": "Crianças.",
+ "pal_desenha": "Desenha.",
+ "pal_desenham": "Desenham.",
+ "pal_desenhar": "Desenhar.",
+ "pal_desenho": "Desenho.",
+ "pal_dirige": "Dirige.",
+ "pal_disse": "Disse.",
+ "pal_dorme": "Dorme.",
+ "pal_dormem": "Dormem.",
+ "pal_dormir": "Dormir.",
+ "pal_dormiu": "Dormiu.",
+ "pal_durmo": "Durmo.",
+ "pal_ela": "Ela.",
+ "pal_elaschegaramcedo": "Elas chegaram cedo.",
+ "pal_elaschegoucedo": "Elas chegou cedo.",
+ "pal_eles": "Eles.",
+ "pal_escola": "Escola.",
+ "pal_escreve": "Escreve.",
+ "pal_escrevem": "Escrevem.",
+ "pal_escrevemos": "Escrevemos.",
+ "pal_escrever": "Escrever.",
+ "pal_escreves": "Escreves.",
+ "pal_escrevo": "Escrevo.",
+ "pal_estuda": "Estuda.",
+ "pal_estudam": "Estudam.",
+ "pal_estudo": "Estudo.",
+ "pal_eu": "Eu.",
+ "pal_euestudamtarde": "Eu estudam à tarde.",
+ "pal_euestudotarde": "Eu estudo à tarde.",
+ "pal_explica": "Explica.",
+ "pal_explicam": "Explicam.",
+ "pal_explico": "Explico.",
+ "pal_famliasparticipadafestajunina": "Famílias participa da festa junina.",
+ "pal_famliasparticipamdafestajunina": "Famílias participam da festa junina.",
+ "pal_fao": "Faço.",
+ "pal_faz": "Faz.",
+ "pal_fazem": "Fazem.",
+ "pal_forteschuvasalagamruasdocentro": "Fortes chuvas alagam ruas do centro.",
+ "pal_forteschuvasalagaruasdocentro": "Fortes chuvas alaga ruas do centro.",
+ "pal_gangorra": "Gangorra.",
+ "pal_gato": "Gato.",
+ "pal_grande": "Grande.",
+ "pal_gritou": "Gritou.",
+ "pal_janela": "Janela.",
+ "pal_joga": "Joga.",
+ "pal_jogam": "Jogam.",
+ "pal_jogamos": "Jogamos.",
+ "pal_jogo": "Jogo.",
+ "pal_l": "Lê.",
+ "pal_late": "Late.",
+ "pal_latem": "Latem.",
+ "pal_lato": "Lato.",
+ "pal_leem": "Leem.",
+ "pal_leio": "Leio.",
+ "pal_lemos": "Lemos.",
+ "pal_ler": "Ler.",
+ "pal_leu": "Leu.",
+ "pal_livro": "Livro.",
+ "pal_lpis": "Lápis.",
+ "pal_manh": "Manhã.",
+ "pal_menina": "Menina.",
+ "pal_menino": "Menino.",
+ "pal_mesa": "Mesa.",
+ "pal_msica": "Música.",
+ "pal_nada": "Nada.",
+ "pal_nadam": "Nadam.",
+ "pal_nadamos": "Nadamos.",
+ "pal_nadar": "Nadar.",
+ "pal_nado": "Nado.",
+ "pal_nadou": "Nadou.",
+ "pal_ns": "Nós.",
+ "pal_nsgostadepizza": "Nós gosta de pizza.",
+ "pal_nsgostamosdepizza": "Nós gostamos de pizza.",
+ "pal_ocachorrolate": "O cachorro late.",
+ "pal_ocachorrolatem": "O cachorro latem.",
+ "pal_ordenou": "Ordenou.",
+ "pal_osmeninosjogabola": "Os meninos joga bola.",
+ "pal_osmeninosjogambola": "Os meninos jogam bola.",
+ "pal_osso": "Osso.",
+ "pal_ouo": "Ouço.",
+ "pal_ouvem": "Ouvem.",
+ "pal_ouvimos": "Ouvimos.",
+ "pal_pai": "Pai.",
+ "pal_papel": "Papel.",
+ "pal_parque": "Parque.",
+ "pal_peixe": "Peixe.",
+ "pal_perguntou": "Perguntou.",
+ "pal_pinta": "Pinta.",
+ "pal_pintou": "Pintou.",
+ "pal_porta": "Porta.",
+ "pal_prepara": "Prepara.",
+ "pal_pssaro": "Pássaro.",
+ "pal_ptio": "Pátio.",
+ "pal_pular": "Pular.",
+ "pal_pulou": "Pulou.",
+ "pal_respondeu": "Respondeu.",
+ "pal_rio": "Rio.",
+ "pal_riu": "Riu.",
+ "pal_sapato": "Sapato.",
+ "pal_solta": "Solta.",
+ "pal_soltam": "Soltam.",
+ "pal_solto": "Solto.",
+ "pal_sussurrou": "Sussurrou.",
+ "pal_timedaescolavencemocampeonato": "Time da escola vencem o campeonato.",
+ "pal_timedaescolavenceocampeonato": "Time da escola vence o campeonato.",
+ "pal_tu": "Tu.",
+ "pal_vai": "Vai.",
+ "pal_vamos": "Vamos.",
+ "pal_verde": "Verde.",
+ "pal_vo": "Vão.",
+ "pal_voa": "Voa.",
+ "pal_vou": "Vou.",
+ "pegue_lapis": "Primeiro pegue uma canetinha ali em cima. Depois toque na palavra.",
+ "prd_ae1": "Escreva o verbo que combina com NÓS: Nós lacuna na escola.",
+ "prd_ae2": "Escreva o verbo que combina com ELES: Eles lacuna no parque.",
+ "qfz_e1_a": "O bebê.",
+ "qfz_e2_a": "O cozinheiro.",
+ "qfz_e3_a": "O pintor.",
+ "qfz_e4_a": "A cantora.",
+ "qfz_e5_a": "O motorista.",
+ "quase": "Quase! Tente de novo.",
+ "ree_k1": "Quem faz: OS MENINOS.",
+ "ree_k2": "Quem faz: A MENINA.",
+ "ree_k3": "Quem faz: NÓS.",
+ "ree_k4": "Quem faz: EU.",
+ "ree_k5": "Quem faz: ELAS.",
+ "ree_k6": "Quem faz: O CACHORRO.",
+ "ree_pq1": "Manchete sobre a chuva.",
+ "ree_pq2": "Manchete sobre a escola.",
+ "ree_pq3": "Manchete sobre esporte.",
+ "ree_pq4": "Manchete sobre a biblioteca.",
+ "ree_pq5": "Manchete sobre a festa.",
+ "toque_palavra": "Primeiro toque numa peça ali embaixo. Depois toque na gaveta dela.",
+ "tx20_0": "Os",
+ "tx20_1": "alunos",
+ "tx20_10": "A",
+ "tx20_11": "professora",
+ "tx20_12": "ajudou",
+ "tx20_13": "e",
+ "tx20_14": "os",
+ "tx20_15": "pais",
+ "tx20_16": "trouxeram",
+ "tx20_17": "as",
+ "tx20_18": "mudas.",
+ "tx20_19": "As",
+ "tx20_2": "do",
+ "tx20_20": "crianças",
+ "tx20_21": "regam",
+ "tx20_22": "as",
+ "tx20_23": "plantas",
+ "tx20_24": "todos",
+ "tx20_25": "os",
+ "tx20_26": "dias.",
+ "tx20_27": "O",
+ "tx20_28": "diretor",
+ "tx20_29": "disse",
+ "tx20_3": "quarto",
+ "tx20_30": "que",
+ "tx20_31": "a",
+ "tx20_32": "escola",
+ "tx20_33": "ficou",
+ "tx20_34": "mais",
+ "tx20_35": "bonita.",
+ "tx20_4": "ano",
+ "tx20_5": "plantaram",
+ "tx20_6": "dez",
+ "tx20_7": "árvores",
+ "tx20_8": "no",
+ "tx20_9": "pátio.",
+ "tx21_0": "Os",
+ "tx21_1": "meninos",
+ "tx21_10": "livro",
+ "tx21_11": "na",
+ "tx21_12": "biblioteca.",
+ "tx21_13": "Nós",
+ "tx21_14": "gosta",
+ "tx21_15": "de",
+ "tx21_16": "brincar",
+ "tx21_17": "no",
+ "tx21_18": "pátio.",
+ "tx21_19": "As",
+ "tx21_2": "joga",
+ "tx21_20": "professoras",
+ "tx21_21": "chegam",
+ "tx21_22": "cedo",
+ "tx21_23": "à",
+ "tx21_24": "escola.",
+ "tx21_25": "Eles",
+ "tx21_26": "come",
+ "tx21_27": "lanche",
+ "tx21_28": "às",
+ "tx21_29": "dez",
+ "tx21_3": "bola",
+ "tx21_30": "horas.",
+ "tx21_31": "Eu",
+ "tx21_32": "estudam",
+ "tx21_33": "todos",
+ "tx21_34": "os",
+ "tx21_35": "dias.",
+ "tx21_4": "no",
+ "tx21_5": "recreio.",
+ "tx21_6": "A",
+ "tx21_7": "menina",
+ "tx21_8": "lê",
+ "tx21_9": "um",
+ "tx28_0": "Travessão.",
+ "tx28_1": "Vamos",
+ "tx28_10": "respondeu",
+ "tx28_11": "Bia,",
+ "tx28_12": "animada.",
+ "tx28_13": "Travessão.",
+ "tx28_14": "Esperem",
+ "tx28_15": "por",
+ "tx28_16": "mim!",
+ "tx28_17": "Travessão.",
+ "tx28_18": "gritou",
+ "tx28_19": "Leo,",
+ "tx28_2": "ao",
+ "tx28_20": "lá",
+ "tx28_21": "de",
+ "tx28_22": "longe.",
+ "tx28_23": "Travessão.",
+ "tx28_24": "Shhh,",
+ "tx28_25": "o",
+ "tx28_26": "bebê",
+ "tx28_27": "está",
+ "tx28_28": "dormindo",
+ "tx28_29": "Travessão.",
+ "tx28_3": "parque?",
+ "tx28_30": "sussurrou",
+ "tx28_31": "a",
+ "tx28_32": "mãe.",
+ "tx28_4": "Travessão.",
+ "tx28_5": "perguntou",
+ "tx28_6": "Ana.",
+ "tx28_7": "Travessão.",
+ "tx28_8": "Vamos!",
+ "tx28_9": "Travessão.",
+ "vozOn": "Narração ligada!"
+};
+/*FALAS-FIM*/
+/*VOZOK-INI*/var VOZOK = {"hup8oy": 1, "qp0jiy": 1, "1jojje": 1, "1wrfmy7": 1, "idz4h3": 1, "384njh": 1, "1n2pqwt": 1, "l4o1ai": 1, "1pc8n91": 1, "6oh9r1": 1, "1gxxr8z": 1, "1wncbhc": 1, "1csag1r": 1, "1o22pxg": 1, "hco82j": 1, "1rzp931": 1, "183avfk": 1, "133e2kv": 1, "fncgrg": 1, "ilk2aj": 1, "1nlskti": 1, "1rdznio": 1, "1hktwnj": 1, "15a9udk": 1, "bilfxz": 1, "oo077g": 1, "13teddm": 1, "1m8o30b": 1, "1tzjz55": 1, "1ie948c": 1, "wujgl0": 1, "1vy3pzn": 1, "1j1fl16": 1, "wuhtqj": 1, "fur1i9": 1, "5b99ho": 1, "1db5ffn": 1, "1e7zcgu": 1, "1geqzeb": 1, "13p6rnz": 1, "5aavd1": 1, "dxb0hj": 1, "yh68ce": 1, "4i2553": 1, "i9267": 1, "1r9nrkg": 1, "nnhhpv": 1, "dgchzc": 1, "7g2w3g": 1, "ocee0d": 1, "b4exsx": 1, "1mccpxj": 1, "1c8bsqr": 1, "wqijww": 1, "juil4d": 1, "nzxjzz": 1, "16zd6kv": 1, "1lbpvkj": 1, "dojsp8": 1, "3yx0c1": 1, "kgpxv7": 1, "vadhnl": 1, "1bcnm63": 1, "199j5s2": 1, "n4m5y4": 1, "13wsdf6": 1, "1egoa6h": 1, "wcac7i": 1, "yd84br": 1, "tg0heb": 1, "1tbjp4m": 1, "8x0q3f": 1, "4wm1m8": 1, "1dfryfg": 1, "1ftgrvz": 1, "z1qwlg": 1, "mkf28k": 1, "jimswm": 1, "8nf31y": 1, "e5zdw8": 1, "1r25y7y": 1, "6wiy0p": 1, "1riwkr3": 1, "99qvtx": 1, "mg08ah": 1, "ga8e4w": 1, "9w5wj4": 1, "phu82b": 1, "1igwkua": 1, "qx8ake": 1, "qnf7ow": 1, "18c48al": 1, "1nsbps6": 1, "bsq96p": 1, "kms0ba": 1, "qbrwya": 1, "18lu7nn": 1, "7qyjz3": 1, "kf36z3": 1, "1wpi8j": 1, "grv3n4": 1, "1tgeflg": 1, "10go6m4": 1, "veqndb": 1, "rhseps": 1, "jkeraq": 1, "fqs5a4": 1, "1iky69n": 1, "x67wjt": 1, "mnwmu3": 1, "1oakwxz": 1, "f6furn": 1, "1d7p8un": 1, "x6h5ri": 1, "vy6czy": 1, "rhso5q": 1, "18p97dr": 1, "fqx0wb": 1, "ts1vry": 1, "yw87hq": 1, "vn6gwi": 1, "10fnvhe": 1, "130x0c3": 1, "1jsw2pj": 1, "c3jrkj": 1, "tz6cy2": 1, "396w7b": 1, "1j7c8hr": 1, "sqhrc0": 1, "1jrndla": 1, "1xdgy2l": 1, "1v1l8by": 1, "7709hu": 1, "7wtcip": 1, "166hgpc": 1, "14dhtk0": 1, "1xk0ksf": 1, "1ayy5ix": 1, "aqlubm": 1, "1jqhkl7": 1, "c668p4": 1, "jvak5": 1, "cy5aes": 1, "1bsc74s": 1, "siyoet": 1, "13lceu5": 1, "1j54k80": 1, "jq5rau": 1, "nob8b1": 1, "jfrd0": 1, "1nfl9wb": 1, "14n7qg0": 1, "17uhvgn": 1, "1y29kk1": 1, "1a0llws": 1, "tl8pd1": 1, "1wmxszu": 1, "1pg7njt": 1, "4rg38r": 1, "1lfapwj": 1, "1apoec3": 1, "16z6tqx": 1, "mzzjae": 1, "1mvgfws": 1, "wibnkf": 1, "wvavgt": 1, "wddl37": 1, "1kh1s1r": 1, "nj673p": 1, "4ooqbz": 1, "1och0mv": 1, "102j0q0": 1, "11trxla": 1, "7cy8ii": 1, "v7qp4s": 1, "1oxubyr": 1, "1n2tdsz": 1, "136w8b6": 1, "14cv1y3": 1, "14l8ega": 1, "jqip73": 1, "19onrkx": 1, "1fjd4dv": 1, "1acyg1b": 1, "1n86vtp": 1, "5ecvq0": 1, "1od9d4c": 1, "12t9a69": 1, "luqv4u": 1, "1rvbg94": 1, "44k509": 1, "p4zgpa": 1, "1ng4xto": 1, "1haztqr": 1, "8s1j4c": 1, "1nqk9qb": 1, "3jdszn": 1, "1vy7xl7": 1, "48r8cg": 1, "17coyvw": 1, "jb7zhb": 1, "kzuv37": 1, "a2hh8z": 1, "mn3nd5": 1, "ph4i7s": 1, "ahpfx7": 1, "wpmjrc": 1, "17el3tq": 1, "pkre6": 1, "1qanbll": 1, "lcuk9h": 1, "34eyh4": 1, "1rdynxf": 1, "1ac5ms1": 1, "17n0skl": 1, "12n73h1": 1, "142g7mf": 1, "1elw90b": 1, "1jca8i4": 1, "1mh89jf": 1, "1tcgav1": 1, "f1hl7p": 1, "7bgrb7": 1, "128pzqq": 1, "15pccq4": 1, "8a8dvw": 1, "1mbj9bx": 1, "zb4j5g": 1, "1dnv1wn": 1, "82vxfb": 1, "i2tsz9": 1, "1e8runp": 1, "ee0rdo": 1, "ss6nin": 1, "2a8atr": 1, "6yzwbu": 1, "1ky6elp": 1, "okpvj7": 1, "18nvz8k": 1, "9cpljv": 1, "1dlb92l": 1, "2femmr": 1, "h7fhho": 1, "1ibh28t": 1, "5rzt04": 1, "1530vjm": 1, "jcdmpv": 1, "g8e5l3": 1, "ejr8n": 1, "1iyi9eg": 1, "n7uo3m": 1, "1ixi69w": 1, "1ekq2yl": 1, "17ub7i4": 1, "1fpc291": 1, "5fbhth": 1, "1kn8gk3": 1, "1kucm9w": 1, "2pn732": 1, "1yzk63c": 1, "16zxg5l": 1, "plzyiu": 1, "p6n8fw": 1, "104le3r": 1, "1rxhvsa": 1, "v0o841": 1, "2tz8cc": 1, "1puczsg": 1, "1l6w9az": 1, "dgs3jc": 1, "1vcg752": 1, "1kvrgem": 1, "1b46v8d": 1, "1ht4lxt": 1, "tcwnqs": 1, "1fijk6n": 1, "x3kxgy": 1, "dcgra5": 1, "19jmtoi": 1, "845pg9": 1, "11xr9hs": 1, "19su8kv": 1, "tdxoql": 1, "imm7cz": 1, "1puczmf": 1, "x4lsym": 1, "v0nwjc": 1, "1enobll": 1, "pjbb0a": 1, "1pmubsa": 1, "rg2hiy": 1, "s69mtb": 1, "u64kr1": 1, "1scsqz0": 1, "t6u6os": 1, "1clas5e": 1, "1oyqysn": 1, "1d9s73k": 1, "16obmue": 1, "v9065d": 1, "fmbb0t": 1, "9on8vu": 1, "gv2tck": 1, "1v12vvc": 1, "mdrh0p": 1, "115v3ci": 1, "49uvmg": 1, "ym5vdt": 1, "n0lldm": 1, "1oi0066": 1, "shx7wz": 1, "q04u5e": 1, "1subkty": 1, "1a2asoi": 1, "nbtmke": 1, "pw6qxt": 1, "1piip67": 1, "1cy6fgh": 1, "1peldf4": 1, "1d1tkg2": 1, "q0isqs": 1, "evfghq": 1, "18tidmf": 1, "1denpn": 1, "1mmtyhp": 1, "69mw0h": 1, "1slzuwx": 1, "fv64ic": 1, "7u88gh": 1, "1fnl1es": 1, "1fjg9gz": 1, "1odpgd2": 1, "1n9ad2a": 1, "bzgqoc": 1, "1efpv4c": 1, "1x4i8ha": 1, "1ebcafp": 1, "6qbttv": 1, "of9dfx": 1, "1l4gtaa": 1, "1bdtpt5": 1, "c2l4kd": 1, "1asq1p5": 1, "koxqiq": 1, "1sa8jmc": 1, "niz9cv": 1, "v2vs6n": 1, "16m9vap": 1, "2wtaub": 1, "1v15v30": 1, "1csyvx2": 1, "21q41z": 1, "15x7p1q": 1, "1hkkdmg": 1, "1timgap": 1, "qjkqmh": 1, "p851nu": 1, "xj15az": 1, "t8gl7w": 1, "1atf130": 1, "149lyd4": 1, "6insjj": 1, "1uak3w2": 1, "eoa3ls": 1, "1l21si5": 1, "av00gc": 1, "lrx3km": 1, "1at8gqz": 1, "8rkix": 1, "4c2ipc": 1, "iovr2h": 1, "1yn92jq": 1, "1meah8n": 1, "cjk1aw": 1, "1h81xds": 1, "1kjjrdr": 1, "13es5vs": 1, "11f6gfe": 1, "zx404m": 1, "1s3u6ax": 1, "1cfbo6t": 1, "6crsn5": 1, "13q2gym": 1, "14ujhcb": 1, "7ah1ko": 1, "1s247kb": 1, "13kdazl": 1, "1j2q4ud": 1, "7asiao": 1, "140wibi": 1, "fuvptl": 1, "krjc3": 1, "15v0s9z": 1, "yix9k0": 1, "1931uc0": 1, "1a4oc2d": 1, "lmtnfh": 1, "eyie8k": 1, "trjjfh": 1, "14xgb7u": 1, "1771vw2": 1, "5io1ad": 1, "mmjcyt": 1, "l22fjr": 1, "outgc9": 1, "mwhbyu": 1, "oszkjr": 1, "1utxhwn": 1, "1iwsmt5": 1, "16hwwfp": 1, "1gy5wjf": 1, "1gy5wig": 1, "1gy5wl5": 1, "1gy5wda": 1, "1gy5wfz": 1, "50fhgs": 1, "jtz5aj": 1, "1sb5vyg": 1, "oafhvf": 1, "1nplg3p": 1, "1mqlssp": 1, "pp8k75": 1, "1irb7hq": 1, "3ztz40": 1, "13krtfk": 1, "1fvo6b1": 1, "oprt3h": 1, "eskpil": 1, "1371v9a": 1, "1y3ck5q": 1, "asmlje": 1, "19ev9jr": 1, "97hsor": 1, "1b5tkmh": 1, "1nu661b": 1, "1w10hth": 1, "27g8ck": 1, "bsdgag": 1, "ekvxnv": 1, "1e35o7m": 1, "10umq9x": 1, "2x00uo": 1, "18zk1ey": 1, "15nnu7b": 1, "1mncfgx": 1, "1ymrfze": 1, "1m27h5b": 1, "o5rcak": 1, "1ac91uj": 1, "xb0e2n": 1, "lm28na": 1, "gng130": 1, "kc59vk": 1, "6ymnxb": 1, "1vrpfl8": 1, "6f4j0z": 1, "69k1jg": 1, "1hsk53a": 1, "1ios93f": 1, "7uxau5": 1, "1cgjvqy": 1, "2t54f5": 1, "lol1jg": 1, "uf6u0g": 1, "2t5433": 1, "loknbu": 1, "lwv8l1": 1, "cn8osz": 1, "1q5ei9q": 1, "1o0l0le": 1, "yiw0ew": 1, "2tjxvt": 1, "2wihzf": 1, "1ivqxsr": 1, "1ddl9ue": 1, "2wk6a3": 1, "11k4jei": 1, "18unxtk": 1, "18zus6v": 1, "1s8ysbe": 1, "18zus55": 1, "18zyypq": 1, "1scsroz": 1, "1ap9427": 1, "18zyz1s": 1, "m2fqma": 1, "1l6u3aq": 1, "pfd8k2": 1, "1lqwa8v": 1, "o9vu1v": 1, "1lqwa69": 1, "pfd8bg": 1, "pfls1y": 1, "15oo7um": 1, "1ug0cp4": 1, "plbbp8": 1, "1r75dpj": 1, "1rro3y3": 1, "2xcgpb": 1, "pjbasi": 1, "105qllq": 1, "pjbaxp": 1, "2xcgxx": 1, "pjfhng": 1, "1pgymfl": 1, "pjfhw2": 1, "pju3uq": 1, "1pucz0v": 1, "pju3pk": 1, "1b8h82b": 1, "5ymwnh": 1, "15uheax": 1, "s5el5n": 1, "5jwq2e": 1, "5jwpl5": 1, "s5elat": 1, "1aidcan": 1, "io1v0a": 1, "1bst12v": 1, "1bst3wk": 1, "1bst40z": 1, "iufuqy": 1, "yisq0z": 1, "c74xkb": 1, "12xrhla": 1, "2qiv04": 1, "lxkml6": 1, "dgs3yv": 1, "w969m3": 1, "dgs3ih": 1, "lxkmts": 1, "2ox3nd": 1, "ht8c2c": 1, "2ox3p3": 1, "375d2z": 1, "1ianhky": 1, "m77c4h": 1, "9cg65d": 1, "oadgng": 1, "9cg5tb": 1, "e4z5yh": 1, "jgij1g": 1, "2tp66c": 1, "yiwa8m": 1, "m9ze66": 1, "1axlbw0": 1, "nwfr19": 1, "1dnppre": 1, "2uezfa": 1, "1eio6nk": 1, "31vhxk": 1, "torfgl": 1, "azj6ih": 1, "31vhza": 1, "375f0t": 1, "2vabyv": 1, "nncyka": 1, "2vabtp": 1, "2vd0ei": 1, "2vcxac": 1, "npnmfn": 1, "yiy0b4": 1, "yiy08n": 1, "nhtr51": 1, "l4w818": 1, "o7ktxe": 1, "k1id0r": 1, "k1id5x": 1, "2vzryp": 1, "a15x50": 1, "2zfhc1": 1, "rg2vqk": 1, "1kfwm4w": 1, "rg2wcz": 1, "2zfgzz": 1, "yj5nad": 1, "1tmpiz6": 1, "1r17ew3": 1, "1rlcrgx": 1, "12ofmws": 1, "1rii0g3": 1, "jx3wp5": 1, "1wgmjlw": 1, "30f8i3": 1, "30k1p5": 1, "se5znz": 1, "lv7egv": 1, "yj75ir": 1, "ve6xfn": 1, "15pc1nt": 1, "vc0jii": 1, "vk1ppl": 1, "1axzwia": 1, "vfqs1f": 1, "1jdjvu6": 1, "1ooaoiu": 1, "xwhoa0": 1, "yjbupr": 1, "yjbujp": 1, "181h06r": 1, "zw93v2": 1, "1c2jm6b": 1, "zw9474": 1, "v34sb8": 1, "1abj09l": 1, "375ove": 1, "yj8lmd": 1, "wmmej1": 1, "wor0rv": 1, "yjbgdt": 1, "yj8qk3": 1, "yj8q1z": 1, "vq5syg": 1, "p61d1q": 1, "2brsk5": 1, "ste0dn": 1, "gmd70s": 1, "1u9gika": 1, "dxvm6": 1, "1hl77ls": 1, "pq1yxa": 1, "trukdd": 1, "jyxhk1": 1, "1el1bke": 1, "1cvxohc": 1, "zvz4u3": 1, "102yzly": 1, "sxym1j": 1, "1anam21": 1, "1xwwfv9": 1, "zm4xxq": 1, "vvr2t7": 1, "hukbpc": 1, "3hmk9": 1, "lq80vj": 1, "3t1g": 1, "ddgq0n": 1, "lrk38l": 1, "3t1c": 1, "yj75ke": 1, "lke0sa": 1, "3hmbb": 1, "olkl8l": 1, "3hm6m": 1, "gc2h7r": 1, "37tfvd": 1, "17vyr8w": 1, "314wxy": 1, "2psuqc": 1, "3t1m": 1, "1aim4vq": 1, "2pt5ql": 1, "vl1u4p": 1, "375stg": 1, "jghg2a": 1, "2ty82b": 1, "yiyksz": 1, "11k4jjo": 1, "375fyd": 1, "1p6pfod": 1, "375bwe": 1, "1cvptjf": 1, "3hmis": 1, "k1id88": 1, "2v4ap7": 1, "3hmiy": 1, "1jja2qj": 1, "375qy3": 1, "2upjor": 1, "3hm6c": 1, "18zyyqq": 1, "yj53om": 1, "f5nisk": 1, "pllnvk": 1, "yizxwo": 1, "3sxx": 1, "yispwa": 1, "yj05tt": 1, "nmyytk": 1, "3hj12": 1, "yizayt": 1, "pyprvw": 1, "3hm7p": 1, "2ox3p6": 1, "190z2ni": 1, "oa8gbp": 1, "3hm9v": 1, "3hmm5": 1, "pamqz7": 1, "352zer": 1, "tul284": 1, "yizjdv": 1, "m6cq4k": 1, "2lxl6k": 1, "375smg": 1, "yiyej1": 1, "n258l3": 1, "yixzov": 1, "3hmaz": 1, "3hma0": 1, "niwvxg": 1, "38pl76": 1, "yiz98q": 1, "yisxba": 1, "eq7p8d": 1, "15pc1o8": 1, "1ja7rfw": 1, "yivqf4": 1, "11lfu9c": 1, "yivkn9": 1, "wmmeiq": 1, "swkns7": 1};/*VOZOK-FIM*/
+
+/* ============================================================
+   OS DADOS DO CADERNO — tudo em JSON puro, num bloco marcado.
+   ⚠️ POR QUE JSON E NÃO OBJETO SOLTO: o `gerar_falas.py` LÊ ESTE BLOCO para
+   escrever as falas. Se os dados vivessem em dois lugares (aqui e lá), a voz
+   diria uma coisa e a tela mostraria outra — que é o defeito que o `falas.json`
+   existe para matar. Um lugar só, lido pelos dois.
+   ============================================================ */
+/*DADOS-INI*/
+/* ============================================================
+   OS DADOS DAS FOLHAS — o conteúdo deste caderno, e só dele.
+
+   ⚠️ TUDO O QUE ENTRAR AQUI TEM DE VIR DE UMA FOLHA DE PAPEL COLHIDA, e o crivo
+      (comando impresso VERBATIM + veredito de cada uma das trinta) mora em
+      `_sequencias/POTE-<assunto>.md`. Bloco que NÃO vier do papel entra
+      declarado, com o motivo escrito ao lado dele.
+   ⚠️ E A CHAVE NÃO PODE SER A PALAVRA QUE APARECE NA TELA: o portão
+      `_qa/resposta_impressa.py` lê a resposta declarada dentro do texto visível
+      e acusa, com razão. Chave é `c1`, `g3`, `j2` — número, não palavra.
+   ⚠️ CAMPO DE TECLADO: gabarito de UMA palavra só (o teclado da casa não tem
+      barra de espaço) e sem acento, se o que a folha mede não for o acento.
+   ============================================================ */
+
+/* ============================================================
+   OS DADOS DAS FOLHAS — O MOTOR DA FRASE (4º ano, verbos)
+   ⚠️ MONTADO EM URGÊNCIA (Marcos, 18/set/2026: "preciso para daqui 1 hora"). A
+      colheita de 40 folhas de papel foi acionada (buscar-fotos.yml →
+      _sequencias/folhas_verbo4) e o crivo (POTE-VERBO4.md) registra o que dela
+      entrou; os GESTOS abaixo são os que essas folhas pedem (marque o verbo,
+      complete com o verbo, ligue, classifique, caça-palavras, cruzadinha,
+      reescreva a frase). Os TEXTOS e as FRASES são nossos. Sem figuras: verbo é
+      PALAVRA, e a regra da casa proíbe figura gerada por IA.
+   ⚠️ ESCADA: a ação (1-4, retomada do 3º ano) → quem faz e o que faz (5-8) →
+      o verbo COMBINA com o pronome (9-16) → e com o substantivo, na NOTÍCIA
+      (17-22) → os verbos de DIZER, discurso direto (23-28) → jogos (29-32) →
+      escrever e o cartaz (33-35). Os nomes VERBO (folha 4), VERBO DE DIZER
+      (25) e CONCORDÂNCIA (35) só aparecem DEPOIS de a criança usar a coisa.
+   ⚠️ A CHAVE NUNCA É A PALAVRA QUE APARECE NA TELA.
+   ============================================================ */
+
+/* 1 e 4 — QUAL PALAVRA É A AÇÃO? (o valor da opção é w+palavra: a resposta não fica impressa) */
+var ACAO = {
+ a1: {f: "A menina come o almoço.", fig: "comer", ops: ["come", "menina", "almoço"], r: "come"},
+ a2: {f: "O menino corre no pátio.", fig: "correr", ops: ["menino", "corre", "pátio"], r: "corre"},
+ a3: {f: "As crianças brincam na gangorra.", fig: "brincar", ops: ["crianças", "gangorra", "brincam"], r: "brincam"},
+ a4: {f: "O menino lê um livro.", fig: "ler", ops: ["lê", "menino", "livro"], r: "lê"},
+ a5: {f: "A menina anda para a escola.", fig: "estudar", ops: ["escola", "anda", "menina"], r: "anda"},
+ a6: {f: "O pássaro canta de manhã.", ops: ["canta", "pássaro", "manhã"], r: "canta"}};
+
+var ACAO2 = {
+ b1: {f: "O cachorro late para o carteiro.", ops: ["cachorro", "late", "carteiro"], r: "late"},
+ b2: {f: "As crianças brincam na areia.", ops: ["brincam", "crianças", "areia"], r: "brincam"},
+ b3: {f: "Meu pai dirige o carro.", ops: ["pai", "carro", "dirige"], r: "dirige"},
+ b4: {f: "A cozinheira prepara o almoço.", ops: ["almoço", "prepara", "cozinheira"], r: "prepara"},
+ b5: {f: "O peixe nada no rio.", ops: ["peixe", "rio", "nada"], r: "nada"},
+ b6: {f: "Eu desenho um castelo.", ops: ["castelo", "desenho", "eu"], r: "desenho"}};
+
+/* 2 e 13 — MARQUE VÁRIOS E CONFIRA */
+var MARQ = {
+ m1: {p: "Grupo 1", pecas: [{k: "q1", t: "correr", ok: true}, {k: "q2", t: "mesa", ok: false}, {k: "q3", t: "pular", ok: true},
+      {k: "q4", t: "cadeira", ok: false}, {k: "q5", t: "ler", ok: true}, {k: "q6", t: "bola", ok: false}]},
+ m2: {p: "Grupo 2", pecas: [{k: "q1", t: "nadar", ok: true}, {k: "q2", t: "lápis", ok: false}, {k: "q3", t: "dormir", ok: true},
+      {k: "q4", t: "comer", ok: true}, {k: "q5", t: "porta", ok: false}, {k: "q6", t: "gato", ok: false}]},
+ m3: {p: "Grupo 3", pecas: [{k: "q1", t: "escrever", ok: true}, {k: "q2", t: "desenhar", ok: true}, {k: "q3", t: "janela", ok: false},
+      {k: "q4", t: "brincar", ok: true}, {k: "q5", t: "livro", ok: false}, {k: "q6", t: "sapato", ok: false}]}};
+var MARQ2 = {
+ mm1: {p: "Grupo 1", pecas: [{k: "q1", t: "Nós vamos à escola.", ok: true}, {k: "q2", t: "Eles vai à escola.", ok: false},
+       {k: "q3", t: "Ela vai à escola.", ok: true}, {k: "q4", t: "Eu vai à escola.", ok: false}]},
+ mm2: {p: "Grupo 2", pecas: [{k: "q1", t: "Os gatos dormem.", ok: true}, {k: "q2", t: "O gato dormem.", ok: false},
+       {k: "q3", t: "Eu durmo cedo.", ok: true}, {k: "q4", t: "Nós dorme cedo.", ok: false}]},
+ mm3: {p: "Grupo 3", pecas: [{k: "q1", t: "Vocês cantam bem.", ok: true}, {k: "q2", t: "Eles canta bem.", ok: false},
+       {k: "q3", t: "Nós cantamos bem.", ok: true}, {k: "q4", t: "Eu cantamos bem.", ok: false}]}};
+
+/* 3, 12, 19 e 25 — AS GAVETAS */
+var GAV = {
+ gA: {cols: [{k: "v", n: "É uma AÇÃO"}, {k: "n", n: "É um NOME"}],
+      pal: {g1: {p: "pular", c: "v"}, g2: {p: "escola", c: "n"}, g3: {p: "correr", c: "v"},
+            g4: {p: "caderno", c: "n"}, g5: {p: "escrever", c: "v"}, g6: {p: "janela", c: "n"}}},
+ gB: {cols: [{k: "s", n: "UM só faz"}, {k: "p", n: "MAIS DE UM fazem"}],
+      pal: {h1: {p: "ele corre", c: "s"}, h2: {p: "nós corremos", c: "p"}, h3: {p: "eles pulam", c: "p"},
+            h4: {p: "eu leio", c: "s"}, h5: {p: "vocês falam", c: "p"}, h6: {p: "ela dorme", c: "s"}}},
+ gC: {cols: [{k: "c", n: "O verbo COMBINA"}, {k: "e", n: "NÃO combina"}],
+      pal: {i1: {p: "O pássaro cantam", c: "e"}, i2: {p: "Os alunos estudam", c: "c"}, i3: {p: "A menina pulou", c: "c"},
+            i4: {p: "Nós vai à praia", c: "e"}, i5: {p: "Eles chegaram cedo", c: "c"}, i6: {p: "Eu gostamos de pizza", c: "e"}}},
+ gD: {cols: [{k: "d", n: "VERBO DE DIZER"}, {k: "o", n: "OUTRO VERBO"}],
+      pal: {j1: {p: "disse", c: "d"}, j2: {p: "correu", c: "o"}, j3: {p: "perguntou", c: "d"}, j4: {p: "pulou", c: "o"},
+            j5: {p: "gritou", c: "d"}, j6: {p: "comeu", c: "o"}, j7: {p: "respondeu", c: "d"}, j8: {p: "nadou", c: "o"}}}};
+
+/* 5, 16 e 26 — LIGAR */
+var LIGA = {
+ l1: {a: "O jogador", b: "chuta a bola"}, l2: {a: "A professora", b: "ensina a turma"}, l3: {a: "O médico", b: "cuida dos doentes"},
+ l4: {a: "O padeiro", b: "faz o pão"}, l5: {a: "A costureira", b: "costura a roupa"}};
+var LIGP = {
+ lp1: {a: "eu", b: "escrevo"}, lp2: {a: "ela", b: "escreve"}, lp3: {a: "nós", b: "escrevemos"},
+ lp4: {a: "eles", b: "escrevem"}, lp5: {a: "tu", b: "escreves"}};
+var LIGD = {
+ ld1: {a: "— Que horas são?", b: "perguntou"}, ld2: {a: "— Psiu, silêncio…", b: "sussurrou"}, ld3: {a: "— Gol!", b: "gritou"},
+ ld4: {a: "— São duas horas.", b: "respondeu"}, ld5: {a: "— Muito obrigado!", b: "agradeceu"}};
+
+/* 6, 9, 10, 11, 17, 18, 23, 24 — COMPLETE A FRASE (escolhendo) */
+var FRASE1 = {
+ c1: {f: "O gato ___ o leite.", ops: ["bebe", "mesa", "bonito"], r: "bebe"},
+ c2: {f: "A menina ___ uma carta.", ops: ["escreve", "papel", "azul"], r: "escreve"},
+ c3: {f: "O cachorro ___ o osso.", ops: ["come", "osso", "grande"], r: "come"},
+ c4: {f: "Nós ___ no parque.", ops: ["brincamos", "parque", "verde"], r: "brincamos"},
+ c5: {f: "O avião ___ bem alto.", ops: ["voa", "asa", "branco"], r: "voa"},
+ c6: {f: "As crianças ___ a música.", ops: ["cantam", "música", "alegre"], r: "cantam"}};
+var CONC1 = {
+ ca1: {f: "Eu ___ no coral da escola.", ops: ["canto", "cantamos", "cantam"], r: "canto"},
+ ca2: {f: "Eu ___ um livro por semana.", ops: ["leio", "lemos", "leem"], r: "leio"},
+ ca3: {f: "Eu ___ de bicicleta.", ops: ["ando", "andamos", "andam"], r: "ando"},
+ ca4: {f: "Eu ___ cedo todos os dias.", ops: ["acordo", "acordamos", "acordam"], r: "acordo"},
+ ca5: {f: "Eu ___ frutas no lanche.", ops: ["como", "comemos", "comem"], r: "como"},
+ ca6: {f: "Eu ___ com meus amigos.", ops: ["brinco", "brincamos", "brincam"], r: "brinco"}};
+var CONC2 = {
+ cb1: {f: "Ela ___ muito bem.", ops: ["desenha", "desenho", "desenham"], r: "desenha"},
+ cb2: {f: "Ele ___ futebol no sábado.", ops: ["joga", "jogo", "jogam"], r: "joga"},
+ cb3: {f: "A menina ___ no parque.", ops: ["corre", "corro", "correm"], r: "corre"},
+ cb4: {f: "O menino ___ a lição.", ops: ["faz", "faço", "fazem"], r: "faz"},
+ cb5: {f: "Ela ___ uma história.", ops: ["conta", "conto", "contam"], r: "conta"},
+ cb6: {f: "Ele ___ bem cedo.", ops: ["dorme", "durmo", "dormem"], r: "dorme"}};
+var CONC3 = {
+ cc1: {f: "Nós ___ na piscina.", ops: ["nadamos", "nado", "nadam"], r: "nadamos"},
+ cc2: {f: "Eles ___ bola no recreio.", ops: ["jogam", "jogo", "jogamos"], r: "jogam"},
+ cc3: {f: "Nós ___ a sala todo dia.", ops: ["arrumamos", "arruma", "arrumam"], r: "arrumamos"},
+ cc4: {f: "Elas ___ no coral.", ops: ["cantam", "canta", "cantamos"], r: "cantam"},
+ cc5: {f: "Nós ___ a professora.", ops: ["ouvimos", "ouço", "ouvem"], r: "ouvimos"},
+ cc6: {f: "Eles ___ para a escola a pé.", ops: ["vão", "vou", "vamos"], r: "vão"}};
+var CONC4 = {
+ n1: {f: "As crianças ___ no parque.", ops: ["brincam", "brinca", "brinco"], r: "brincam"},
+ n2: {f: "O cachorro ___ na porta.", ops: ["late", "latem", "lato"], r: "late"},
+ n3: {f: "Os pássaros ___ de manhã.", ops: ["cantam", "canta", "cantamos"], r: "cantam"},
+ n4: {f: "A professora ___ a lição.", ops: ["explica", "explicam", "explico"], r: "explica"},
+ n5: {f: "Os alunos ___ a tarefa.", ops: ["fazem", "faz", "faço"], r: "fazem"},
+ n6: {f: "O sol ___ forte hoje.", ops: ["brilha", "brilham", "brilho"], r: "brilha"}};
+var CONC5 = {
+ o1: {f: "Ana e Bia ___ juntas.", ops: ["estudam", "estuda", "estudo"], r: "estudam"},
+ o2: {f: "O menino de boné ___ pipa.", ops: ["solta", "soltam", "solto"], r: "solta"},
+ o3: {f: "Meu pai e eu ___ pescar.", ops: ["vamos", "vai", "vão"], r: "vamos"},
+ o4: {f: "As alunas do quarto ano ___ um jornal.", ops: ["escrevem", "escreve", "escrevo"], r: "escrevem"},
+ o5: {f: "O gato e o cachorro ___ no sofá.", ops: ["dormem", "dorme", "durmo"], r: "dormem"},
+ o6: {f: "A turma inteira ___ no coral.", ops: ["canta", "cantam", "canto"], r: "canta"}};
+var DIZ1 = {
+ q1: {f: "— Vamos brincar? — ___ Ana.", ops: ["perguntou", "pulou", "comeu"], r: "perguntou"},
+ q2: {f: "— Eu adoro bolo! — ___ Leo.", ops: ["disse", "correu", "dormiu"], r: "disse"},
+ q3: {f: "— Gol! — ___ o torcedor.", ops: ["gritou", "nadou", "leu"], r: "gritou"},
+ q4: {f: "— Sim, eu vou. — ___ Bia.", ops: ["respondeu", "pintou", "andou"], r: "respondeu"},
+ q5: {f: "— Psiu, silêncio… — ___ a bibliotecária.", ops: ["sussurrou", "chutou", "abriu"], r: "sussurrou"},
+ q6: {f: "— Obrigado pela ajuda! — ___ o menino.", ops: ["agradeceu", "pulou", "comeu"], r: "agradeceu"}};
+var DIZ2 = {
+ r1: {f: "— Socorro! — ___ o menino, com medo.", ops: ["gritou", "sussurrou", "perguntou"], r: "gritou"},
+ r2: {f: "— Que horas são? — ___ a menina.", ops: ["perguntou", "respondeu", "gritou"], r: "perguntou"},
+ r3: {f: "— São três horas. — ___ o pai.", ops: ["respondeu", "perguntou", "gritou"], r: "respondeu"},
+ r4: {f: "— Não conte para ninguém… — ___ ela, bem baixinho.", ops: ["sussurrou", "gritou", "perguntou"], r: "sussurrou"},
+ r5: {f: "— Ha, ha, ha! Que piada boa! — ___ o avô.", ops: ["riu", "chorou", "perguntou"], r: "riu"},
+ r6: {f: "— Fiquem quietos agora! — ___ o professor.", ops: ["ordenou", "perguntou", "sussurrou"], r: "ordenou"}};
+
+/* 7, 15 e 27 — ESCREVA NAS CASINHAS */
+var GRADE1 = {
+ d1: {p: "O cachorro ___ alto quando vê o carteiro.", w: "LATE", d: "Quatro letras: o barulho que o cachorro faz"},
+ d2: {p: "A professora ___ no quadro.", w: "ESCREVE", d: "Sete letras: ela usa o giz"},
+ d3: {p: "O bebê ___ à noite.", w: "CHORA", d: "Cinco letras: lágrimas"},
+ d4: {p: "O peixe ___ no rio.", w: "NADA", d: "Quatro letras: dentro da água"},
+ d5: {p: "O passarinho ___ de manhã.", w: "CANTA", d: "Cinco letras: faz música"}};
+var GRADE2 = {
+ gr1: {p: "Nós ___ no parque. (brincar)", w: "BRINCAMOS", d: "Quem faz é NÓS: termina em AMOS"},
+ gr2: {p: "Eles ___ bola. (chutar)", w: "CHUTAM", d: "Quem faz é ELES: termina em AM"},
+ gr3: {p: "Eu ___ cedo. (acordar)", w: "ACORDO", d: "Quem faz é EU: termina em O"},
+ gr4: {p: "Ela ___ bonito. (desenhar)", w: "DESENHA", d: "Quem faz é ELA: termina em A"},
+ gr5: {p: "Vocês ___ bem. (cantar)", w: "CANTAM", d: "Quem faz é VOCÊS: termina em AM"}};
+var GRADE3 = {
+ s1: {p: "— Você vem? — ___ Ana.", w: "PERGUNTOU", d: "Ela fez uma pergunta"},
+ s2: {p: "— Cuidado! — ___ o pai, bem alto.", w: "GRITOU", d: "Bem alto, com força"},
+ s3: {p: "— Vou sim. — ___ Leo.", w: "RESPONDEU", d: "Ele deu a resposta"},
+ s4: {p: "— Bom dia! — ___ a professora.", w: "DISSE", d: "Cinco letras: o verbo de dizer mais simples"},
+ s5: {p: "— Shhh… — ___ a mãe, baixinho.", w: "SUSSURROU", d: "Bem baixinho, quase sem som"}};
+
+/* 8 — NUMERE QUEM FAZ */
+var NUM = {
+ e1: {a: "O bebê", b: "chora"}, e2: {a: "O cozinheiro", b: "cozinha"}, e3: {a: "O pintor", b: "pinta"},
+ e4: {a: "A cantora", b: "canta"}, e5: {a: "O motorista", b: "dirige"}};
+
+/* 14 e 22 — QUAL FRASE FICOU CERTA? */
+var REESC1 = {
+ k1: {f: "Quem faz: OS MENINOS", certa: "Os meninos jogam bola.", outra: "Os meninos joga bola."},
+ k2: {f: "Quem faz: A MENINA", certa: "A menina lê um livro.", outra: "A menina leem um livro."},
+ k3: {f: "Quem faz: NÓS", certa: "Nós gostamos de pizza.", outra: "Nós gosta de pizza."},
+ k4: {f: "Quem faz: EU", certa: "Eu estudo à tarde.", outra: "Eu estudam à tarde."},
+ k5: {f: "Quem faz: ELAS", certa: "Elas chegaram cedo.", outra: "Elas chegou cedo."},
+ k6: {f: "Quem faz: O CACHORRO", certa: "O cachorro late.", outra: "O cachorro latem."}};
+var REESC2 = {
+ pq1: {f: "Manchete sobre a chuva", certa: "Fortes chuvas alagam ruas do centro.", outra: "Fortes chuvas alaga ruas do centro."},
+ pq2: {f: "Manchete sobre a escola", certa: "Alunos plantam árvores no pátio.", outra: "Alunos planta árvores no pátio."},
+ pq3: {f: "Manchete sobre esporte", certa: "Time da escola vence o campeonato.", outra: "Time da escola vencem o campeonato."},
+ pq4: {f: "Manchete sobre a biblioteca", certa: "Biblioteca recebe livros novos.", outra: "Biblioteca recebem livros novos."},
+ pq5: {f: "Manchete sobre a festa", certa: "Famílias participam da festa junina.", outra: "Famílias participa da festa junina."}};
+
+/* 20, 21 e 28 — ACHE NO TEXTO (a notícia é o gênero do 4º ano para esta habilidade; textos nossos) */
+var TXT = {
+ tx1: {titulo: "Alunos plantam árvores na escola", pede: "os verbos: as palavras que dizem o que cada um fez ou faz",
+       linhas: [["Os", "alunos", "do", "quarto", "ano", "plantaram", "dez", "árvores", "no", "pátio."],
+                ["A", "professora", "ajudou", "e", "os", "pais", "trouxeram", "as", "mudas."],
+                ["As", "crianças", "regam", "as", "plantas", "todos", "os", "dias."],
+                ["O", "diretor", "disse", "que", "a", "escola", "ficou", "mais", "bonita."]],
+       ok: ["plantaram", "ajudou", "trouxeram", "regam", "disse", "ficou"]},
+ tx2: {titulo: "Um dia na escola", pede: "os verbos que NÃO combinam com quem faz",
+       linhas: [["Os", "meninos", "joga", "bola", "no", "recreio."],
+                ["A", "menina", "lê", "um", "livro", "na", "biblioteca."],
+                ["Nós", "gosta", "de", "brincar", "no", "pátio."],
+                ["As", "professoras", "chegam", "cedo", "à", "escola."],
+                ["Eles", "come", "lanche", "às", "dez", "horas."],
+                ["Eu", "estudam", "todos", "os", "dias."]],
+       ok: ["joga", "gosta", "come", "estudam"]},
+ tx3: {titulo: "No parque", pede: "os verbos de dizer: os que mostram quem falou e como",
+       linhas: [["—", "Vamos", "ao", "parque?", "—", "perguntou", "Ana."],
+                ["—", "Vamos!", "—", "respondeu", "Bia,", "animada."],
+                ["—", "Esperem", "por", "mim!", "—", "gritou", "Leo,", "lá", "de", "longe."],
+                ["—", "Shhh,", "o", "bebê", "está", "dormindo", "—", "sussurrou", "a", "mãe."]],
+       ok: ["perguntou", "respondeu", "gritou", "sussurrou"]}};
+
+/* 29 e 30 — OS CAÇA-VERBOS (a grade é nossa) */
+var CACA = {
+ grade: [["C","O","R","R","E","X","P","Z"],
+         ["X","B","Z","P","U","L","A","M"],
+         ["L","E","E","M","K","C","A","N"],
+         ["Q","W","C","A","N","T","A","M"],
+         ["D","I","S","S","E","V","B","R"],
+         ["K","J","G","R","I","T","O","U"],
+         ["D","O","R","M","E","M","A","T"],
+         ["T","Y","Z","F","A","L","O","U"]],
+ pal: {cp1: {pista: "ele ___ (correr)", p: "CORRE", a: [0, 0], z: [0, 4]},
+       cp2: {pista: "eles ___ (pular)", p: "PULAM", a: [1, 3], z: [1, 7]},
+       cp3: {pista: "elas ___ (ler)", p: "LEEM", a: [2, 0], z: [2, 3]},
+       cp4: {pista: "eles ___ (cantar)", p: "CANTAM", a: [3, 2], z: [3, 7]},
+       cp5: {pista: "ela ___ (dizer, ontem)", p: "DISSE", a: [4, 0], z: [4, 4]},
+       cp6: {pista: "ele ___ (gritar, ontem)", p: "GRITOU", a: [5, 2], z: [5, 7]},
+       cp7: {pista: "eles ___ (dormir)", p: "DORMEM", a: [6, 0], z: [6, 5]},
+       cp8: {pista: "ela ___ (falar, ontem)", p: "FALOU", a: [7, 3], z: [7, 7]}}};
+var CACA2 = {
+ grade: [["F","A","L","A","M","O","S","Q"],
+         ["X","C","O","R","R","E","M","Z"],
+         ["L","E","I","O","B","N","M","K"],
+         ["P","U","L","A","M","O","S","T"],
+         ["W","D","I","Z","E","M","R","V"],
+         ["C","A","N","T","O","J","H","G"],
+         ["E","S","C","R","E","V","O","U"],
+         ["B","R","I","N","C","A","M","Y"]],
+ pal: {cq1: {pista: "nós ___ (falar)", p: "FALAMOS", a: [0, 0], z: [0, 6]},
+       cq2: {pista: "eles ___ (correr)", p: "CORREM", a: [1, 1], z: [1, 6]},
+       cq3: {pista: "eu ___ (ler)", p: "LEIO", a: [2, 0], z: [2, 3]},
+       cq4: {pista: "nós ___ (pular)", p: "PULAMOS", a: [3, 0], z: [3, 6]},
+       cq5: {pista: "elas ___ (dizer)", p: "DIZEM", a: [4, 1], z: [4, 5]},
+       cq6: {pista: "eu ___ (cantar)", p: "CANTO", a: [5, 0], z: [5, 4]},
+       cq7: {pista: "eu ___ (escrever)", p: "ESCREVO", a: [6, 0], z: [6, 6]},
+       cq8: {pista: "eles ___ (brincar)", p: "BRINCAM", a: [7, 0], z: [7, 6]}}};
+
+/* 31 e 32 — AS CRUZADINHAS */
+var CRZD = {
+ cr1: {p: "CANTO", d: "Eu ___ (cantar)"}, cr2: {p: "PULAMOS", d: "Nós ___ (pular)"}, cr3: {p: "LEEM", d: "Eles ___ (ler)"},
+ cr4: {p: "DORME", d: "Ela ___ (dormir)"}, cr5: {p: "FALAM", d: "Vocês ___ (falar)"}, cr6: {p: "CORRO", d: "Eu ___ (correr)"}};
+var CRZD2 = {
+ cs1: {p: "GRITOU", d: "— Socorro! — ___ ela."}, cs2: {p: "PERGUNTOU", d: "— Que horas são? — ___ o menino."},
+ cs3: {p: "RESPONDEU", d: "— São três. — ___ a mãe."}, cs4: {p: "DISSE", d: "— Boa noite. — ___ ele."},
+ cs5: {p: "SUSSURROU", d: "— Psiu! — ___ a menina, baixinho."}, cs6: {p: "AGRADECEU", d: "— Obrigada! — ___ a avó."}};
+
+/* 33 — ARRASTE O PRONOME ATÉ O VERBO */
+var PARES = {
+ w1: {a: "eu", b: "canto"}, w2: {a: "tu", b: "cantas"}, w3: {a: "ela", b: "canta"},
+ w4: {a: "nós", b: "cantamos"}, w5: {a: "eles", b: "cantam"}};
+
+/* 34 — PRODUÇÃO: vale qualquer verbo que combine */
+var PROD = {
+ ae1: {q: "o verbo que combina com NÓS: Nós ___ na escola",
+       ok: ["ESTUDAMOS", "BRINCAMOS", "APRENDEMOS", "LEMOS", "CANTAMOS", "COMEMOS", "CORREMOS", "JOGAMOS", "ESCREVEMOS",
+            "CONVERSAMOS", "ESTAMOS", "FICAMOS", "ENTRAMOS", "ALMOÇAMOS", "DESENHAMOS", "PINTAMOS", "TRABALHAMOS", "CHEGAMOS", "LANCHAMOS"]},
+ ae2: {q: "o verbo que combina com ELES: Eles ___ no parque",
+       ok: ["BRINCAM", "CORREM", "JOGAM", "PULAM", "ANDAM", "PASSEIAM", "CONVERSAM", "COMEM", "DESCANSAM", "ESTÃO", "ESTAO",
+            "FICAM", "LANCHAM", "CANTAM", "DANÇAM", "DANCAM", "SORRIEM", "CAMINHAM", "NADAM", "ESCORREGAM", "BALANÇAM", "BALANCAM"]}};
+
+/* 35 — O CARTAZ DO VERBO ⭐ o conceito CONCORDÂNCIA vem por último */
+var CART = {
+ linhas: [{k: "v", t: "VERBO", d: "a palavra que diz a ação", e: "correr · pular"},
+          {k: "c", t: "CONCORDÂNCIA", d: "o verbo combina com quem faz", e: "eles correm"},
+          {k: "d", t: "VERBO DE DIZER", d: "mostra quem fala e como", e: "— Oi! — disse Ana"}],
+ exem: {af1: {p: "escrever", c: "v"}, af2: {p: "nós cantamos", c: "c"}, af3: {p: "perguntou", c: "d"},
+        af4: {p: "brincar", c: "v"}, af5: {p: "os alunos leem", c: "c"}, af6: {p: "sussurrou", c: "d"}}};
+/*DADOS-FIM*/
+
+/* ⚠️ A MARCA DE VERSÃO NA FIGURA. Quando eu troco uma figura, o NOME do arquivo
+   continua o mesmo — e o navegador da escola serve a cópia velha do cache.
+   REGRA: mexeu em figura, sobe o VIMG no mesmo commit. */
+var VIMG = 2;
+/* ⚠️⚠️ `draggable="false"` NÃO É DETALHE: toda imagem é arrastável de fábrica no
+   navegador, e quando a criança apertava a figura e puxava, o Chrome começava o
+   SEU arrasto nativo e disparava um `pointercancel` — o nosso arrasto morria no
+   primeiro milímetro, sem erro nenhum na tela. */
+/* ⚠️ AQUI O NOME DO ARQUIVO VEM INTEIRO, e não por prefixo. No caderno de onde
+   este motor foi clonado o `img()` colava `img/ls_` na frente e `.png` atrás, e
+   é exatamente esse tipo de peça que o `_qa/clone.py` (item 8, PREFIXO ALHEIO)
+   pega: o prefixo de outra pasta vazando para dentro desta. Aqui os DADOS já
+   declaram `sb_pato.png` por extenso, que é uma coisa a menos para desencontrar. */
+function img(f, cls, alt){
+  return '<img class="' + (cls || "fig") + '" draggable="false" onload="naoAmplia(this)" src="img/' + f +
+         '?v=' + VIMG + '" alt="' + (alt || "") + '">';
+}
+/* ⭐ A FIGURA NUNCA E MOSTRADA MAIOR QUE O PROPRIO ARQUIVO (regra do Marcos, 14/set/2026:
+   "nunca ampliar, nunca gerar"). O CSS da peca da o TETO (clamp); o arquivo da o
+   teto de verdade. Sem isto, um recorte de 88 px saia a 120 px e borrado — o
+   leiaute_mao reprova acima de 1,35x (medido em _sinon2, folha 5). */
+function naoAmplia(im){
+  if(!im || !im.naturalWidth) return;
+  im.style.maxWidth = im.naturalWidth + "px";
+  im.style.maxHeight = im.naturalHeight + "px";
+}
+
+/* ---------- estado ---------- */
+var ST = {pag: 0, nome: "", folha: null, resp: {}, lig: {}, tent: {}, prontas: {}, inicio: 0};
+var vozLigada = true, _narr = null, vozPtBR = null, ATIVA = null;
+var CHAVE_LS = "o_motor_da_frase";
+/* ⚠️ AS 25 FOLHAS, NA ORDEM — e a ordem É a escada.
+   o mesmo ser com dois nomes (1-5) → a maiúscula e os nomes que são MEUS (6-9)
+   → uma palavra ou duas coladas (10-15) → de onde veio esta palavra (16-22) →
+   um nome para muitos (23) → o substantivo dentro de um TEXTO (24) → o cartaz
+   que a criança leva (25).
+   ⚠️ E VEM EM BLOCO, não espalhado (regra do Marcos: *"as crianças me dizem
+      'isso eu já fiz'"*): a gaveta em 2, 4 e 5 e depois na 10; o marca-texto em
+      7 e 13; o ligar em 15, 18 e 23 — colados dentro do bloco, subindo um
+      degrau, e nunca a mesma tela duas vezes seguidas com o mesmo degrau. */
+/* ⚠️ OS NOMES DAS FOLHAS, NA ORDEM — e a ordem É a escada didática.
+   ⚠️ E A REPETIÇÃO VEM EM BLOCO, não espalhada (regra do Marcos: *"as crianças
+      me dizem 'isso eu já fiz'"*): mecânica que repete vem em folhas COLADAS,
+      subindo um degrau; o que sobe é o apoio que some, não a tela.
+   ⚠️ O andarilho confere a promessa da capa contra este número: dizer "vinte e
+      cinco folhas" num caderno de vinte e duas reprova. */
+var NOMES = [
+ "Qual palavra é a ação?",
+ "Marque só as ações",
+ "Ação ou nome?",
+ "A ação tem nome: verbo",
+ "Ligue quem faz ao que faz",
+ "Preencha com o verbo",
+ "Escreva o verbo",
+ "Numere quem faz",
+ "Eu faço",
+ "Ele e ela fazem",
+ "Nós e eles",
+ "Um só ou mais de um?",
+ "Marque as frases certas",
+ "Qual frase combina?",
+ "Escreva o verbo que combina",
+ "Ligue o pronome ao verbo",
+ "O verbo e o nome",
+ "Quem faz é mais de um",
+ "Combina ou não?",
+ "Os verbos da notícia",
+ "Os erros da notícia",
+ "Conserte a manchete",
+ "Quem falou?",
+ "Como ele falou?",
+ "Verbo de dizer ou não?",
+ "Ligue a fala ao verbo",
+ "Escreva o verbo de dizer",
+ "Os verbos de dizer no diálogo",
+ "Caça-verbos",
+ "Caça-verbos: quem faz",
+ "Cruzadinha dos verbos",
+ "Cruzadinha dos verbos de dizer",
+ "Arraste o pronome até o verbo",
+ "Escreva o seu verbo",
+ "O cartaz do verbo"
+];
+/*<dossie-dados>*/
+var CURRICULO = {
+ "ano": 4,
+ "componente": "Língua Portuguesa",
+ "rede": "Currículo da Educação Básica do Sistema Municipal de Ensino de Blumenau",
+ "documento": "_curriculo/blumenau.txt",
+ "conceitos": [],
+ "fora_do_curriculo": [],
+ "evidencia": [
+  "Jogado do começo ao fim no navegador, item por item, antes de publicar.",
+  "Um jogador automático resolve cada item pela resposta declarada e confere se a folha fecha.",
+  "Leiaute medido em 6 tamanhos de tela, nas 35 folhas.",
+  "Toda tela é narrada com voz real, e cada opção de resposta tem o seu alto-falante.",
+  "As habilidades citadas no dossiê são conferidas, palavra por palavra, contra o currículo da rede."
+ ],
+ "observacoes": [
+  "MONTADO EM MODO DE URGÊNCIA (Marcos, 18/set/2026: 'preciso para daqui 1 hora'). A colheita das folhas de papel foi acionada e o crivo está em _sequencias/POTE-VERBO4.md; o que não deu tempo de fazer está escrito lá, não escondido.",
+  "O QUE É DO 4º ANO EM BLUMENAU sobre verbo são DUAS habilidades: a CONCORDÂNCIA entre substantivo ou pronome pessoal e verbo (campo da vida pública, gênero NOTÍCIA — por isso as folhas 20 a 22 são notícia) e os VERBOS DE ENUNCIAÇÃO no discurso direto (campo artístico-literário). As folhas 9 a 35 medem essas duas.",
+  "AS FOLHAS 1 A 8 SÃO RETOMADA DO 3º ANO — a habilidade citada nelas é a do 3º ano ('substantivos e verbos e suas funções na oração: agente, ação'), declarada como tal: sem saber o que é o verbo a criança não tem com o que concordar.",
+  "O QUE FICOU FORA DE PROPÓSITO: presente, passado e futuro (tempo verbal) é habilidade do 5º ANO no documento da rede ('Identificar a expressão de presente, passado e futuro em tempos verbais do modo indicativo'); aparecem formas no passado (disse, gritou) só como palavra, nunca como conteúdo ensinado.",
+  "O CONCEITO VEM POR ÚLTIMO: o nome VERBO só aparece na folha 4, depois de a criança achar treze ações; VERBO DE DIZER na folha 25, depois de duas folhas usando-o; CONCORDÂNCIA só no cartaz da folha 35 — até lá é 'o verbo combina com quem faz'.",
+  "SEM FIGURAS: verbo é palavra, e a regra da casa proíbe figura gerada por IA; as folhas de papel colhidas ainda não tinham sido recortadas na hora da entrega.",
+  "O `conceitos` está VAZIO de propósito, e isso NÃO é 'passou': em Língua Portuguesa o documento da rede vem em faixas, sem cabeçalho por ano."
+ ],
+ "objetivos": [
+  {
+   "objetivo": "Reconhecer o verbo como a palavra que diz a ação",
+   "folhas": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar e diferenciar, em textos, substantivos e verbos e suas funções na oração: agente, ação, objeto da ação.\""
+  },
+  {
+   "objetivo": "Relacionar quem faz e o que faz",
+   "folhas": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar e diferenciar, em textos, substantivos e verbos e suas funções na oração: agente, ação, objeto da ação.\""
+  },
+  {
+   "objetivo": "Combinar o verbo com o pronome eu, ele e ela",
+   "folhas": [
+    9,
+    10
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Combinar o verbo com nós, vocês e eles",
+   "folhas": [
+    11,
+    12
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Julgar se o verbo combina com quem faz",
+   "folhas": [
+    13,
+    14,
+    19
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Escrever e ligar o verbo que combina com o pronome",
+   "folhas": [
+    15,
+    16
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Combinar o verbo com o substantivo, no singular e no plural",
+   "folhas": [
+    17,
+    18
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Achar e corrigir a concordância verbal na notícia",
+   "folhas": [
+    20,
+    21,
+    22
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Reconhecer os verbos de dizer no discurso direto",
+   "folhas": [
+    23,
+    25,
+    26,
+    28
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Discurso direto e indireto",
+   "habilidade": "HABILIDADE: \"Diferenciar discurso indireto e discurso direto, determinando o efeito de sentido de verbos de enunciação e explicando o uso de variedades linguísticas no discurso direto, quando for o caso.\""
+  },
+  {
+   "objetivo": "Escolher o verbo de dizer pelo sentido da fala",
+   "folhas": [
+    24,
+    27
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Discurso direto e indireto",
+   "habilidade": "HABILIDADE: \"Diferenciar discurso indireto e discurso direto, determinando o efeito de sentido de verbos de enunciação e explicando o uso de variedades linguísticas no discurso direto, quando for o caso.\""
+  },
+  {
+   "objetivo": "Achar as formas do verbo nas grades de letras",
+   "folhas": [
+    29,
+    30,
+    31,
+    32
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Usar o verbo que combina para escrever",
+   "folhas": [
+    33,
+    34,
+    35
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  }
+ ]
+};
+/*</dossie-dados>*/
+
+/* ---------- som ---------- */
+var AC = null;
+function ac(){ try{ if(!AC) AC = new (window.AudioContext || window.webkitAudioContext)(); if(AC.state === "suspended") AC.resume(); }catch(e){} return AC; }
+function bip(f, dur, tipo, vol){
+  var a = ac(); if(!a) return;
+  try{
+    var o = a.createOscillator(), g = a.createGain();
+    o.type = tipo || "sine"; o.frequency.value = f;
+    g.gain.setValueAtTime(vol || .13, a.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001, a.currentTime + dur);
+    o.connect(g); g.connect(a.destination); o.start(); o.stop(a.currentTime + dur);
+  }catch(e){}
+}
+function sPasso(){ bip(560, .07, "triangle", .08); }
+function sTecla(){ bip(760, .05, "square", .05); }
+function sCerto(){ bip(680, .1, "sine", .12); setTimeout(function(){ bip(920, .14, "sine", .12); }, 95); }
+function sErro(){ bip(190, .17, "sawtooth", .07); }
+function sFesta(){ [523, 659, 784, 1047].forEach(function(f, i){ setTimeout(function(){ bip(f, .16, "sine", .12); }, i * 110); }); }
+
+/* ---------- voz ---------- */
+function chaveVoz(t){
+  t = (t || "").replace(/\s+/g, " ").trim().toLowerCase();
+  var h = 5381, i;
+  for(i = 0; i < t.length; i++) h = ((h * 33) ^ t.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+function achaVoz(){
+  try{
+    var vs = window.speechSynthesis.getVoices();
+    for(var i = 0; i < vs.length; i++) if((vs[i].lang || "").toLowerCase().indexOf("pt-br") === 0) return vs[i];
+    for(i = 0; i < vs.length; i++) if((vs[i].lang || "").toLowerCase().indexOf("pt") === 0) return vs[i];
+  }catch(e){}
+  return null;
+}
+if(window.speechSynthesis) window.speechSynthesis.onvoiceschanged = function(){ vozPtBR = achaVoz(); };
+function calar(){
+  try{ if(_narr){ _narr.pause(); _narr.currentTime = 0; } }catch(e){}
+  try{ window.speechSynthesis.cancel(); }catch(e){}
+  var b = document.getElementById("bOuvir"); if(b) b.className = "zap ouvir";
+}
+function falarNavegador(t){
+  if(!window.speechSynthesis) return;
+  try{
+    var u = new SpeechSynthesisUtterance(t);
+    u.lang = "pt-BR"; u.rate = .92; if(!vozPtBR) vozPtBR = achaVoz(); if(vozPtBR) u.voice = vozPtBR;
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+var ultimaFala = null;
+/* ⚠️ O MP3 É O PADRÃO E O SINTETIZADOR É A RESERVA — nunca o contrário. Se a
+   criança ouvir voz de robô, o mp3 não chegou ao site: é defeito de entrega,
+   não "jeito alternativo". O portão de voz mede isso. */
+function falar(k){
+  var t = FALAS[k]; if(!t) return;
+  ultimaFala = k;
+  if(!vozLigada) return;
+  calar();
+  var b = document.getElementById("bOuvir"); if(b) b.className = "zap ouvir tocando";
+  function fim(){ var x = document.getElementById("bOuvir"); if(x) x.className = "zap ouvir"; }
+  var key = chaveVoz(t);
+  if(VOZOK[key]){
+    if(!_narr){ _narr = new Audio(); _narr.preload = "auto"; }
+    _narr.onended = fim; _narr.onerror = function(){ falarNavegador(t); setTimeout(fim, 2500); };
+    _narr.src = "audio/vr_" + key + ".mp3";
+    try{ _narr.currentTime = 0; }catch(e){}
+    var p = _narr.play(); if(p && p["catch"]) p["catch"](function(){ fim(); });
+    return;
+  }
+  falarNavegador(t); setTimeout(fim, Math.min(12000, 400 + t.length * 62));
+}
+/*SILMAP-INI*/var SILMAP = {};/*SILMAP-FIM*/
+/* ⚠️⚠️ A SÍLABA SAI DA PALAVRA, NÃO DO NADA — e isto é a segunda vez que a casa
+   paga por ele (set/2026 e 16/set/2026). O sintetizador de voz não lê SOM, lê
+   PALAVRA: entregue "VA" sozinho e ele soletra "vê-á"; entregue "SA" e ele diz
+   "esse-á". Não há truque de escrita que conserte isso — o remendo de escrever
+   "sã" no lugar de "çã" conserta um caso e nunca fecha a família.
+   O que funciona é o contrário: gravar a PALAVRA INTEIRA (que a voz pronuncia
+   certo, porque é palavra de verdade), alinhar letra a letra com o
+   `ctc-forced-aligner` e CORTAR a sílaba de dentro dela. Quem faz isso é o
+   `_padrao/silabas_voz.py`, no `entregar.yml`, lendo o `silabas.json`.
+   ⚠️ E NÃO HÁ FALA DE RESERVA POR SÍLABA: se o recorte faltar, ele diz a
+      PALAVRA INTEIRA. Uma reserva sintetizada seria o próprio defeito
+      voltando pela porta dos fundos — e calada, que é pior. */
+/* ⚠️⚠️ O NOME DO ARQUIVO É SEM ACENTO; a PALAVRA guarda o acento. As duas
+   coisas são diferentes e as duas importam: a voz só diz "sabão" direito se
+   receber o til, mas `..._sb_sabão_0.mp3` atravessa git, zip, servidor de
+   Pages e navegador, e em cada ponte o acento pode ser escrito com bytes
+   diferentes (NFC × NFD). A MESMA regra está no `_padrao/silabas_voz.py` (que
+   grava) e no `_qa/silabas.py` (que confere). Os três têm de concordar — se um
+   discordar, a sílaba fica MUDA sem dar erro nenhum. */
+function arqSilaba(w){
+  w = String(w || "").toLowerCase();
+  var de = "áàâãäéèêëíìîïóòôõöúùûüç", para = "aaaaaeeeeiiiiooooouuuuc", i, o = "";
+  for(i = 0; i < w.length; i++){ var n = de.indexOf(w.charAt(i)); o += n > -1 ? para.charAt(n) : w.charAt(i); }
+  return o.replace(/[^a-z0-9]/g, "");
+}
+function falarSilaba(palavra, i, silaba){
+  if(!vozLigada) return;
+  if(!palavra && silaba && SILMAP[silaba]){ palavra = SILMAP[silaba][0]; i = SILMAP[silaba][1]; }
+  if(!palavra){ return; }
+  calar();
+  if(!_narr){ _narr = new Audio(); _narr.preload = "auto"; }
+  _narr.onended = null;
+  _narr.onerror = function(){ falar("pal_" + palavra); };
+  _narr.src = "audio/vr_" + ("sb_" + arqSilaba(palavra) + "_" + i + ".mp3");
+  try{ _narr.currentTime = 0; }catch(e){}
+  var pr = _narr.play(); if(pr && pr["catch"]) pr["catch"](function(){ falar("pal_" + palavra); });
+}
+function falarDepois(k, ms){ setTimeout(function(){ falar(k); }, ms || 0); }
+
+/* ---------- utilidades ---------- */
+function el(tag, cls, html){ var e = document.createElement(tag); if(cls) e.className = cls; if(html != null) e.innerHTML = html; return e; }
+function salvar(){ try{ ST.quando = Date.now(); localStorage.setItem(CHAVE_LS, JSON.stringify(ST)); }catch(e){} }
+/* ⭐ 55 MINUTOS = A AULA. Dentro dela quem volta é a MESMA criança; passada a
+   aula, quem senta ali é da outra turma e cairia no meio da viagem de um
+   colega — por isso o convite expira sozinho. */
+function carregar(){ try{
+  var s = localStorage.getItem(CHAVE_LS); if(!s) return null;
+  var o = JSON.parse(s);
+  if(!o || !o.quando || Date.now() - o.quando > 55 * 60 * 1000 || !o.folha) return null;
+  /* ⚠️ TRAVA 1 — O POTE GUARDADO AINDA EXISTE NESTE CADERNO?
+     Sem isto, quem jogou ANTES de uma republicação volta com uma folha que não
+     existe mais, o monta() estoura e a criança fica só com a faixa de cima — e
+     por 55 minutos, que é a aula inteira. Foi o que o Marcos pegou em
+     14/set/2026 ("só aparece a faixa de cima"; "anônima foi, a normal não"). */
+  for(var i = 1; i <= NOMES.length; i++){
+    if(!o.folha["p" + i]){ try{ localStorage.removeItem(CHAVE_LS); }catch(e2){} return null; }
+  }
+  return o;
+}catch(e){ return null; } }
+function tentativa(id, ok){ if(!ST.tent[id]) ST.tent[id] = {erros: 0, ok: false}; if(ok) ST.tent[id].ok = true; else ST.tent[id].erros++; salvar(); }
+function rnd(n){ return Math.floor(Math.random() * n); }
+function baralha(a){ var b = a.slice(), i, j, t; for(i = b.length - 1; i > 0; i--){ j = rnd(i + 1); t = b[i]; b[i] = b[j]; b[j] = t; } return b; }
+function pega(pool, qtd){ return baralha(pool).slice(0, Math.min(qtd, pool.length)); }
+function confete(n){
+  var c = document.getElementById("confete"), cores = ["#00695c", "#f5b301", "#15a34a", "#1179bf", "#8b5cf6"], i;
+  for(i = 0; i < n; i++){
+    (function(i){
+      var d = el("div", "cf");
+      d.style.left = rnd(100) + "%"; d.style.top = "-20px";
+      d.style.background = cores[rnd(cores.length)];
+      d.style.animationDelay = (i * 26) + "ms";
+      c.appendChild(d); setTimeout(function(){ if(d.parentNode) c.removeChild(d); }, 1900 + i * 26);
+    })(i);
+  }
+}
+
+/* ---------- registro das respostas (o boletim e o relatório leem daqui) ---------- */
+var RESP = {};   /* id -> {certo, pag} */
+function registra(id, pag, certo){ RESP[id] = {certo: certo, pag: pag}; }
+function acertou(id, fala){
+  if(ST.resp[id]) return;
+  tentativa(id, true); ST.resp[id] = 1; salvar(); sCerto();
+  /* ⭐ a palavra escrita aparece AGORA, junto com o acerto — nunca antes.
+     Mostrá-la antes entrega a resposta (o defeito que o `_qa/resposta_impressa.py`
+     mede); escondê-la para sempre deixaria a criança sem saber se aquilo era
+     "oca" ou "cabana". Este é o instante certo. */
+  var segs = document.querySelectorAll('[data-nome="' + id + '"]'), sg;
+  for(sg = 0; sg < segs.length; sg++)
+    segs[sg].className = segs[sg].className.replace(/ ?revelado/, "") + " revelado";
+  if(fala) falar(fala);
+  setTimeout(function(){ confereFolha(RESP[id].pag); }, 850);
+}
+function errou(id, dica){
+  tentativa(id, false); sErro();
+  falar(ST.tent[id].erros >= 2 && dica ? dica : "quase");
+}
+
+/* ---------- o sorteio da folha do dia ----------
+   ⚠️ UMA LINHA POR FOLHA, `p1` até `pN`. Faltando uma, `ST.folha["pN"]` é
+   `undefined` e o caderno NÃO ABRE (TypeError na montagem).
+   ⚠️ O POTE PODE SER MAIOR QUE A FOLHA (`pega(ITENS.pN, 6)`): duas crianças
+   lado a lado não recebem a mesma lista, e quem refaz amanhã não recebe a de
+   hoje. Mas quando tirar uma peça desequilibra a resposta — uma gaveta de duas
+   colunas, um par que se vê — o pote vai INTEIRO, e o motivo fica escrito.
+   ⚠️ O EMBRULHO DAS FOLHAS DE LIGAR MORA NO `ITENS`, NÃO AQUI. Embrulhar de
+   novo dá três níveis e a folha não desenha.
+   Ex.:  p1: ITENS.p1.slice(0),
+         p2: pega(ITENS.p2, 6),          // sorteia 6 de um pote maior
+         p3: ITENS.p3.slice(0)           // já vem embrulhado: folha de ligar  */
+function novaFolha(){
+  /* ⚠️ UMA LINHA POR FOLHA. O esqueleto nasce com `return {}` e, sem isto, a
+     folha 13 em diante estoura em `ST.folha["pN"].forEach` — medido no
+     `conta_folha` como "erro de JS ao abrir as folhas". */
+  return {
+    p1: ITENS.p1.slice(0),
+    p2: ITENS.p2.slice(0),
+    p3: ITENS.p3.slice(0),
+    p4: ITENS.p4.slice(0),
+    p5: ITENS.p5.slice(0),
+    p6: ITENS.p6.slice(0),
+    p7: ITENS.p7.slice(0),
+    p8: ITENS.p8.slice(0),
+    p9: ITENS.p9.slice(0),
+    p10: ITENS.p10.slice(0),
+    p11: ITENS.p11.slice(0),
+    p12: ITENS.p12.slice(0),
+    p13: ITENS.p13.slice(0),
+    p14: ITENS.p14.slice(0),
+    p15: ITENS.p15.slice(0),
+    p16: ITENS.p16.slice(0),
+    p17: ITENS.p17.slice(0),
+    p18: ITENS.p18.slice(0),
+    p19: ITENS.p19.slice(0),
+    p20: ITENS.p20.slice(0),
+    p21: ITENS.p21.slice(0),
+    p22: ITENS.p22.slice(0),
+    p23: ITENS.p23.slice(0),
+    p24: ITENS.p24.slice(0),
+    p25: ITENS.p25.slice(0),
+    p26: ITENS.p26.slice(0),
+    p27: ITENS.p27.slice(0),
+    p28: ITENS.p28.slice(0),
+    p29: ITENS.p29.slice(0),
+    p30: ITENS.p30.slice(0),
+    p31: ITENS.p31.slice(0),
+    p32: ITENS.p32.slice(0),
+    p33: ITENS.p33.slice(0),
+    p34: ITENS.p34.slice(0),
+    p35: ITENS.p35.slice(0)
+  };
+}</script>
+<!--<dossie-html>-->
+<div id="dossie" role="dialog" aria-label="Dossiê pedagógico" aria-modal="true">
+  <div class="cx">
+    <h3>Dossiê pedagógico</h3>
+    <div id="dsCorpo"></div>
+    <button class="bt cinza" id="dsFechar">Fechar</button>
+  </div>
+</div>
+<!--</dossie-html>-->
+<script src="folhas.js?v=57f150fa4b"></script>
+</body></html>

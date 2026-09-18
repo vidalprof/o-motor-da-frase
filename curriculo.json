@@ -1,0 +1,157 @@
+{
+ "ano": 4,
+ "componente": "Língua Portuguesa",
+ "rede": "Currículo da Educação Básica do Sistema Municipal de Ensino de Blumenau",
+ "documento": "_curriculo/blumenau.txt",
+ "conceitos": [],
+ "fora_do_curriculo": [],
+ "evidencia": [
+  "Jogado do começo ao fim no navegador, item por item, antes de publicar.",
+  "Um jogador automático resolve cada item pela resposta declarada e confere se a folha fecha.",
+  "Leiaute medido em 6 tamanhos de tela, nas 35 folhas.",
+  "Toda tela é narrada com voz real, e cada opção de resposta tem o seu alto-falante.",
+  "As habilidades citadas no dossiê são conferidas, palavra por palavra, contra o currículo da rede."
+ ],
+ "observacoes": [
+  "MONTADO EM MODO DE URGÊNCIA (Marcos, 18/set/2026: 'preciso para daqui 1 hora'). A colheita das folhas de papel foi acionada e o crivo está em _sequencias/POTE-VERBO4.md; o que não deu tempo de fazer está escrito lá, não escondido.",
+  "O QUE É DO 4º ANO EM BLUMENAU sobre verbo são DUAS habilidades: a CONCORDÂNCIA entre substantivo ou pronome pessoal e verbo (campo da vida pública, gênero NOTÍCIA — por isso as folhas 20 a 22 são notícia) e os VERBOS DE ENUNCIAÇÃO no discurso direto (campo artístico-literário). As folhas 9 a 35 medem essas duas.",
+  "AS FOLHAS 1 A 8 SÃO RETOMADA DO 3º ANO — a habilidade citada nelas é a do 3º ano ('substantivos e verbos e suas funções na oração: agente, ação'), declarada como tal: sem saber o que é o verbo a criança não tem com o que concordar.",
+  "O QUE FICOU FORA DE PROPÓSITO: presente, passado e futuro (tempo verbal) é habilidade do 5º ANO no documento da rede ('Identificar a expressão de presente, passado e futuro em tempos verbais do modo indicativo'); aparecem formas no passado (disse, gritou) só como palavra, nunca como conteúdo ensinado.",
+  "O CONCEITO VEM POR ÚLTIMO: o nome VERBO só aparece na folha 4, depois de a criança achar treze ações; VERBO DE DIZER na folha 25, depois de duas folhas usando-o; CONCORDÂNCIA só no cartaz da folha 35 — até lá é 'o verbo combina com quem faz'.",
+  "SEM FIGURAS: verbo é palavra, e a regra da casa proíbe figura gerada por IA; as folhas de papel colhidas ainda não tinham sido recortadas na hora da entrega.",
+  "O `conceitos` está VAZIO de propósito, e isso NÃO é 'passou': em Língua Portuguesa o documento da rede vem em faixas, sem cabeçalho por ano."
+ ],
+ "objetivos": [
+  {
+   "objetivo": "Reconhecer o verbo como a palavra que diz a ação",
+   "folhas": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar e diferenciar, em textos, substantivos e verbos e suas funções na oração: agente, ação, objeto da ação.\""
+  },
+  {
+   "objetivo": "Relacionar quem faz e o que faz",
+   "folhas": [
+    5,
+    6,
+    7,
+    8
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar e diferenciar, em textos, substantivos e verbos e suas funções na oração: agente, ação, objeto da ação.\""
+  },
+  {
+   "objetivo": "Combinar o verbo com o pronome eu, ele e ela",
+   "folhas": [
+    9,
+    10
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Combinar o verbo com nós, vocês e eles",
+   "folhas": [
+    11,
+    12
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Julgar se o verbo combina com quem faz",
+   "folhas": [
+    13,
+    14,
+    19
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Escrever e ligar o verbo que combina com o pronome",
+   "folhas": [
+    15,
+    16
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Combinar o verbo com o substantivo, no singular e no plural",
+   "folhas": [
+    17,
+    18
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Achar e corrigir a concordância verbal na notícia",
+   "folhas": [
+    20,
+    21,
+    22
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Reconhecer os verbos de dizer no discurso direto",
+   "folhas": [
+    23,
+    25,
+    26,
+    28
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Discurso direto e indireto",
+   "habilidade": "HABILIDADE: \"Diferenciar discurso indireto e discurso direto, determinando o efeito de sentido de verbos de enunciação e explicando o uso de variedades linguísticas no discurso direto, quando for o caso.\""
+  },
+  {
+   "objetivo": "Escolher o verbo de dizer pelo sentido da fala",
+   "folhas": [
+    24,
+    27
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Discurso direto e indireto",
+   "habilidade": "HABILIDADE: \"Diferenciar discurso indireto e discurso direto, determinando o efeito de sentido de verbos de enunciação e explicando o uso de variedades linguísticas no discurso direto, quando for o caso.\""
+  },
+  {
+   "objetivo": "Achar as formas do verbo nas grades de letras",
+   "folhas": [
+    29,
+    30,
+    31,
+    32
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  },
+  {
+   "objetivo": "Usar o verbo que combina para escrever",
+   "folhas": [
+    33,
+    34,
+    35
+   ],
+   "pratica": "Análise linguística/semiótica (ortografização)",
+   "objeto": "Morfologia",
+   "habilidade": "HABILIDADE: \"Identificar em textos e usar na produção textual a concordância entre substantivo ou pronome pessoal e verbo (concordância verbal).\""
+  }
+ ]
+}
