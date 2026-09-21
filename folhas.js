@@ -66,7 +66,25 @@ function nomeSecreto(txt, id){
   b.setAttribute("data-nome", id);
   return b;
 }
-function chaveQuadro(w){ return String(w).toLowerCase().replace(/[^a-z]/g, ""); }
+/* ⚠️⚠️ O ACENTO TEM DE SUMIR DO MESMO JEITO NOS DOIS LADOS (21/set/2026,
+   defeito que chegou à sala: *"as palavras estão sendo ditas erradas"*).
+   Quem grava a voz (`gerar_falas.py`, função `ch`) tira o acento por NFKD:
+   ã vira A, ç vira C — e arquiva a fala em `pal_aviao`, `pal_laco`.
+   Esta função APAGAVA a letra acentuada em vez de trocá-la, então o app pedia
+   `pal_avio` e `pal_lao`, que não existem. O `falar()` volta calado quando a
+   chave não existe: a criança tocava o alto-falante de AVIÃO, CAMALEÃO,
+   CARROÇA, CHORÃO, DOMINÓ, DRAGÃO, LAÇO, LEÃO, POÇO e NÃO OUVIA NADA.
+   ⚠️ E JÁ TINHA SIDO CONSERTADO UMA VEZ — no `_aumdim2`, com outro nome
+   (`chavePal`) e até com o comentario certo: *"as pontas têm de casar, senão a
+   voz procura um mp3 que não existe"*. Consertei num caderno e não levei aos
+   outros dezesseis. Defeito medido em código gêmeo se conserta em TODOS os
+   lugares na mesma rodada — esta é a segunda vez que a casa paga por isso. */
+var SEMACENTO = {"á":"a","à":"a","â":"a","ã":"a","ä":"a","é":"e","è":"e","ê":"e","ë":"e",
+  "í":"i","ì":"i","î":"i","ï":"i","ó":"o","ò":"o","ô":"o","õ":"o","ö":"o",
+  "ú":"u","ù":"u","û":"u","ü":"u","ç":"c","ñ":"n"};
+function chaveQuadro(w){
+  return String(w).toLowerCase().replace(/[^a-z]/g, function(c){ return SEMACENTO[c] || ""; });
+}
 
 /* ---------- fileira de opções (a peça que mais se repete) ----------
    `soltarEm` (opcional) liga o ARRASTAR: a criança pode puxar a peça até o
