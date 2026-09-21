@@ -279,6 +279,16 @@ button{font-family:inherit;cursor:pointer}
 .cruzenv{overflow-x:auto;margin:8px 0 4px}
 .cruz{display:grid;gap:2px;margin:0 auto;width:-webkit-max-content;width:max-content}
 .ccel{width:clamp(26px,7vw,34px);height:clamp(26px,7vw,34px);border:0;background:transparent;padding:0}
+/* ⭐ O BOTÃO **PRONTO** da grade livre (Marcos, 21/set/2026: *"melhor não
+   precisar do enter"*). Só aparece nas folhas de produção, em que a criança
+   escreve a palavra DELA e a folha não tem como saber que ela terminou.
+   ⚠️ 44 px de altura e 96 px de largura: o piso do dedo nesta casa é 40 px, e
+      botão de confirmar não é lugar de raspar o piso. */
+.prontobt{display:block;margin:10px auto 2px;min-height:44px;min-width:96px;
+  padding:10px 20px;border:2px solid var(--cor,#8a5a1d);border-radius:12px;
+  background:#fff;color:var(--cor,#8a5a1d);font-weight:900;
+  font-size:clamp(14px,3.8vw,16px);letter-spacing:.5px;cursor:pointer}
+.prontobt:active{transform:scale(.96)}
 .ccel.viva{border:2px solid #d9c9bb;border-radius:5px;background:#fff;font-weight:900;
   font-size:clamp(13px,3.6vw,18px);color:var(--texto3);cursor:pointer;position:relative}
 .ccel.viva.ativa{border-color:var(--cor);background:var(--corclara);
@@ -2919,5 +2929,5 @@ function novaFolha(){
   </div>
 </div>
 <!--</dossie-html>-->
-<script src="folhas.js?v=0152056d83"></script>
+<script src="folhas.js?v=5fdfb545e4"></script>
 </body></html>

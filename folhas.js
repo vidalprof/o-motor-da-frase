@@ -454,7 +454,7 @@ function digitaCruz(ch){
   else if(ch === "ok"){ confereCruz(); return; }
   else { if(CRUZ.val.length >= teto) return; CRUZ.val += ch; }
   pintaCruz(); rolaParaCruz();
-  if(!E.aceita && CRUZ.val.length >= E.w.length) setTimeout(confereCruz, 380);
+  if(fechaSozinho(E, CRUZ.val)) setTimeout(confereCruz, 380);
 }
 /* ⚠️⚠️ O ACENTO NÃO PODE REPROVAR QUEM ACERTOU A PALAVRA (ordem do Marcos,
    15/set/2026, com a turma na sala: *"faça que tanto com o sem dê certo"*).
@@ -476,6 +476,41 @@ function semAcento(s){
 function mesmaPalavra(a, b, exigeAcento){
   if(exigeAcento) return String(a).toUpperCase() === String(b).toUpperCase();
   return semAcento(a) === semAcento(b);
+}
+/* ⭐ SEM PRECISAR DO ENTER (ordem do Marcos, 21/set/2026, sobre o caderno dos
+   sistemas do 5º ano): ***"tem uma atividade onde o estudante digita e tem que
+   clicar enter para confirmar, melhor não precisar do enter"*** — e logo
+   depois: ***"corrija isso em qualquer atividade que tenha isso"***.
+
+   ⚠️ O QUE ERA: a grade de tamanho FIXO já fechava sozinha ao encher a última
+      casa. A grade LIVRE (a das folhas de produção — *"escreva a SUA palavra"*,
+      *"a sua manchete"*, *"o seu título"*) não tinha como saber quando a criança
+      terminou, e o único jeito de confirmar era o ENTER. No celular a tecla se
+      chama outra coisa em cada aparelho, e no PC a criança de 10 anos não
+      adivinha que precisa dela: ela escrevia a resposta certa e a folha ficava
+      parada.
+
+   ⚠️ POR QUE NÃO FECHAR SOZINHO NUMA PAUSA: pausa de dois segundos é a criança
+      PENSANDO no meio da palavra, e fechar ali contaria erro no que ela nem
+      terminou de escrever. Tempo não é sinal de que acabou.
+
+   O que entra no lugar, e são duas coisas:
+     1. fecha sozinho assim que o escrito BATE com uma resposta aceita — sem
+        esperar tecla nenhuma;
+     2. quando ela escreve uma palavra que não está na lista (a folha de
+        produção aceita isso), o botão **PRONTO**, ao lado da grade, confirma.
+   O Enter continua valendo: é a terceira porta, nunca mais a única. */
+function fechaSozinho(E, val){
+  if(!val) return false;
+  if(!E.aceita) return val.length >= E.w.length;
+  var bate = E.aceita.some(function(w){ return mesmaPalavra(val, w, E.exigeAcento); });
+  if(!bate) return false;
+  /* ⚠️ e ninguém CONTINUA a partir dela: se a lista tem PÃO e PÃOZINHO, fechar
+     no PÃO trancaria justamente a criança que ia escrever a palavra maior. */
+  var maior = E.aceita.some(function(w){
+    return w.length > val.length && semAcento(w).indexOf(semAcento(val)) === 0;
+  });
+  return !maior;
 }
 function confereCruz(){
   if(!CRUZ || !CRUZ.val) return;
@@ -642,7 +677,7 @@ function campoTeclado(){
     if(v.length > teto) v = v.slice(0, teto);
     CRUZ.val = v; TECIN.value = v;
     pintaCruz();
-    if(!CRUZ.E.aceita && CRUZ.val.length >= CRUZ.E.w.length) setTimeout(confereCruz, 380);
+    if(fechaSozinho(CRUZ.E, CRUZ.val)) setTimeout(confereCruz, 380);
   });
   TECIN.addEventListener("keydown", function(ev){
     if(ev.key === "Enter"){ ev.preventDefault(); confereCruz(); }
@@ -1386,6 +1421,26 @@ function gradeEscrever(box, id, pi, k, w, rot, aceita){
   if(aceita) E.aceita = aceita;
   cels.forEach(function(c){ c.onclick = function(){ if(!ST.resp[id]) abreCruz(E, pi); }; });
   grade.onclick = function(){ if(!ST.resp[id]) abreCruz(E, pi); };
+  /* ⭐ O BOTÃO **PRONTO** — só na grade LIVRE, e só ele tira o Enter do caminho.
+     Na grade de tamanho fixo a última casa já fecha a palavra; aqui a folha não
+     tem como saber que a criança terminou, e antes o único jeito era o Enter
+     (Marcos, 21/set/2026: *"melhor não precisar do enter"*).
+     ⚠️ Ele NASCE VISÍVEL, e não só quando a grade abre: botão que aparece
+        depois é botão que a criança não sabe que existe. Tocá-lo com a grade
+        fechada abre a grade — nunca dá em nada. */
+  if(aceita && !ST.resp[id]){
+    var pr = el("button", "prontobt", "PRONTO");
+    pr.setAttribute("data-qa", "pronto-" + id);
+    pr.setAttribute("aria-label", "Confirmar a palavra que eu escrevi");
+    pr.onclick = function(ev){
+      if(ev) ev.stopPropagation();
+      if(ST.resp[id]) return;
+      if(!CRUZ || CRUZ.E !== E){ abreCruz(E, pi); return; }
+      confereCruz();
+    };
+    E.pronto = pr;
+    box.appendChild(pr);
+  }
   return E;
 }
 
