@@ -917,7 +917,7 @@ var OBJETIVOS = [
    ok: "escolhe o verbo de dizer pelo sentido da fala"},
   {n: "Achar as formas do verbo nas grades de letras", f: [29, 30, 31, 32],
    ok: "acha as formas do verbo nas grades de letras"},
-  {n: "Escrever com o verbo que combina, e nomear o que aprendeu", f: [33, 34, 35],
+  {n: "Juntar pronome e verbo, escrever o seu, e nomear o que aprendeu", f: [33, 34, 35],
    ok: "usa o verbo que combina para escrever"}
 ];
 
